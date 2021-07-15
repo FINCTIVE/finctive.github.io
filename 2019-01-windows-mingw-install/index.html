@@ -1,0 +1,176 @@
+
+
+<!DOCTYPE html>
+<html lang="zh" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FINCTIVE" />   
+    <title>如何在 Windows 安装 MinGW - 造物指南</title>
+    
+    
+    
+    
+    <meta name="description" content="点击图片中箭头指向的链接 下载链接 在官网下载连接速度可能会非常慢&amp;hellip;在这个链接 下载会好很多。 下载好之后，解压，得到下图文件： 可以看" /> 
+    
+    
+     
+    
+    <meta name="keywords" content="FINCTIVE, 镜岛, programming, 编程开发, 编程, 开发" /> 
+     
+    
+    
+
+    <link rel="shortcut icon" href="https://finctive.com/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/normalize.min.css@8.0.1/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme.css" />
+    <link disabled id="dark-mode-theme-css" rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme-dark.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/github-gist.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/@fontsource/encode-sans@4.2.0/index.min.css" />
+
+    
+    
+    <script>
+        var darkTheme = document.getElementById("dark-mode-theme-css");
+
+        var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+        setTheme(savedTheme);
+        function setTheme(mode) {
+            localStorage.setItem("dark-mode-storage", mode);
+            savedTheme = mode;
+            if(mode === "light") {
+                darkTheme.disabled = true;
+            } else if(mode === "dark") {
+                darkTheme.disabled = false;
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <article class="main">
+        <div class="header">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://finctive.com">
+                    <span>造物指南</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <div class="my_socials">
+                <a href="https://github.com/FINCTIVE" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                <a href="https://t.me/create_worlds" title="telegram" target="_blank"><i class="ri-telegram-fill"></i></a>
+                <a href="https://www.google.com/search?q=site%3Ahttps://finctive.com" title="search" target="_blank"><i class="ri-search-eye-fill"></i></a>
+                <a id="dark-mode-toggle" title="theme"><i class="ri-moon-fill"></i></a>
+                <a href="https://finctive.com/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post">
+                <div class="post_title post_detail_title">
+                    <h1>如何在 Windows 安装 MinGW</h1>
+                    
+                    <span class="author">FINCTIVE</span>
+                    <span class="date">2019-01</span>
+                    
+                </div>
+                
+                <div class="post_content"><p>点击图片中箭头指向的链接</p>
+<p><a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/?tdsourcetag=s_pctim_aiomsg" target="_blank"><strong>下载链接</strong></a>
+</p>
+<p>
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-2a0d4049deaf67c0.png" /></p>
+<p>在官网下载连接速度可能会非常慢&hellip;在这个<a href="https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/?tdsourcetag=s_pctim_aiomsg" target="_blank"><strong>链接</strong></a>
+ 下载会好很多。</p>
+<p>下载好之后，解压，得到下图文件：
+
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-3970f3e47ab1dd5b.png" />
+可以看到bin文件夹里面有g++.exe和gcc.exe
+
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-455925697f1e50be.png" /></p>
+<h4 id="将gccexe以及gexe添加到环境变量">将gcc.exe以及g++.exe添加到<strong>环境变量</strong>：</h4>
+<p>
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-a386b1fc1518b95b.png" />
+
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-0489b550bd6fcca4.png" />
+
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-b99d2f624584691b.png" /></p>
+<p>
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-d797f5c046c0bba1.png" /></p>
+<p>
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-e94ee9c96925efe2.png" /></p>
+<h4 id="重启电脑">重启电脑！</h4>
+<p>实验是否安装成功
+输入命令 gcc，得到如图结果说明已经成功配置环境变量
+
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-ff9ebae1ff1ccbef.png" /></p>
+</div>
+            </div>
+            
+            
+            
+        </div>
+    </article>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="/about-blog">About</a> - 
+        <a href="https://gohugo.io/">Hugo</a>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://finctive.com/js/theme.js"></script>
+
+
+
+</body>
+
+</html>

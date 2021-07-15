@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<html lang="zh" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FINCTIVE" />   
+    <title>游戏 AI 控制脚本基本状态机 (FSM) - 造物指南</title>
+    
+    
+    
+    
+    <meta name="description" content="前言 参考： 视频教程 Unity3D AI with State Machine (FSM), Drones, and Lasers! 译文 游戏设计模式-状态模式 英语原文 Game Programming Patterns - State 本文为示例游戏项目 FINCTIVE/lost-in-the-wilderness-nightmare 开发笔记系列文章之一： 游戏 AI 控制脚本基本" /> 
+    
+    
+     
+    
+    <meta name="keywords" content="FINCTIVE, 镜岛, programming, 编程开发, 编程, 开发" /> 
+     
+    
+    
+
+    <link rel="shortcut icon" href="https://finctive.com/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/normalize.min.css@8.0.1/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme.css" />
+    <link disabled id="dark-mode-theme-css" rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme-dark.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/github-gist.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/@fontsource/encode-sans@4.2.0/index.min.css" />
+
+    
+    
+    <script>
+        var darkTheme = document.getElementById("dark-mode-theme-css");
+
+        var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+        setTheme(savedTheme);
+        function setTheme(mode) {
+            localStorage.setItem("dark-mode-storage", mode);
+            savedTheme = mode;
+            if(mode === "light") {
+                darkTheme.disabled = true;
+            } else if(mode === "dark") {
+                darkTheme.disabled = false;
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <article class="main">
+        <div class="header">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://finctive.com">
+                    <span>造物指南</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <div class="my_socials">
+                <a href="https://github.com/FINCTIVE" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                <a href="https://t.me/create_worlds" title="telegram" target="_blank"><i class="ri-telegram-fill"></i></a>
+                <a href="https://www.google.com/search?q=site%3Ahttps://finctive.com" title="search" target="_blank"><i class="ri-search-eye-fill"></i></a>
+                <a id="dark-mode-toggle" title="theme"><i class="ri-moon-fill"></i></a>
+                <a href="https://finctive.com/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post">
+                <div class="post_title post_detail_title">
+                    <h1>游戏 AI 控制脚本基本状态机 (FSM)</h1>
+                    
+                    <span class="author">FINCTIVE</span>
+                    <span class="date">2019-11</span>
+                    
+                </div>
+                
+                <div class="post_content"><h2 id="前言">前言</h2>
+<p>参考：</p>
+<ul>
+<li>视频教程 <a href="https://www.youtube.com/watch?v=YdERlPfwUb0" target="_blank">Unity3D AI with State Machine (FSM), Drones, and Lasers!</a>
+</li>
+<li>译文 <a href="https://gpp.tkchu.me/state.html" target="_blank">游戏设计模式-状态模式</a>
+</li>
+<li>英语原文 <a href="http://gameprogrammingpatterns.com/state.html" target="_blank">Game Programming Patterns - State</a>
+</li>
+</ul>
+<blockquote>
+<p>本文为示例游戏项目 <a href="https://github.com/FINCTIVE/lost-in-the-wilderness-nightmare" target="_blank">FINCTIVE/lost-in-the-wilderness-nightmare</a>
+ 开发笔记系列文章之一：</p>
+<ul>
+<li>游戏 AI 控制脚本基本状态机 (FSM)</li>
+<li><a href="https://finctive.com/2019-10-coroutine-level-manager/" target="_blank">使用 Unity 协程控制游戏回合逻辑</a>
+</li>
+<li><a href="https://finctive.com/2019-10-observer-ugui/" target="_blank">游戏 UI 观察者模式</a>
+</li>
+</ul>
+</blockquote>
+<h2 id="应用场景">应用场景</h2>
+<p>在荒野迷踪：噩梦中，敌人的行为如下图：</p>
+<p>
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-11-fsm-game-ai/1.png" /></p>
+<p>文字描述再详细也不如你亲自打开网页玩一下 :D <a href="https://finctive.github.io/lost-in-the-wilderness-nightmare/" target="_blank">在线运行 Demo</a>
+</p>
+<p>看起来可以用大大的 <code>if{...}else if{...}else{...}</code> 语句实现，但实际上手开发之后我发现……</p>
+<p>切入正题：一个<strong>状态</strong>指AI的一系列行为，例如本项目中的静止、追逐、自爆状态，可以使用一个类描述。对于一个状态，应该把处理代码写在一个类中。比如，“追逐玩家”状态相关的代码，尽量不要写到其他状态的类里面。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>敌人AI游戏对象截图</p>
+<p>
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-11-fsm-game-ai/2.png" /></p>
+<p>以下是状态的<strong>基类</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">BaseState</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+	<span class="c1">// 执行本状态的相关操作，返回值是下一次游戏循环的状态
+</span><span class="c1"></span>    <span class="k">public</span> <span class="k">abstract</span> <span class="n">BaseState</span> <span class="n">Tick</span><span class="p">();</span>
+    <span class="c1">// 与本状态有关的初始化代码
+</span><span class="c1"></span>    <span class="k">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">OnStateStart</span><span class="p">(){}</span>
+    <span class="c1">// 与本状态有关的退出代码
+</span><span class="c1"></span>    <span class="k">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="n">OnStateExit</span><span class="p">(){}</span>
+<span class="p">}</span>
+</code></pre></div><p><strong>状态机</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">StateMachine</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">BaseState</span> <span class="n">defaultState</span><span class="p">;</span>
+<span class="na">    [HideInInspector]</span><span class="k">public</span> <span class="n">BaseState</span> <span class="n">currentState</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="n">Awake</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">currentState</span> <span class="p">=</span> <span class="n">defaultState</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="n">FixedUpdate</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">BaseState</span> <span class="n">nextStateType</span> <span class="p">=</span> <span class="n">currentState</span><span class="p">.</span><span class="n">Tick</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">nextStateType</span> <span class="p">!=</span> <span class="n">currentState</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">nextStateType</span><span class="p">.</span><span class="n">OnStateStart</span><span class="p">();</span>
+            <span class="n">currentState</span><span class="p">.</span><span class="n">OnStateExit</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="n">currentState</span> <span class="p">=</span> <span class="n">nextStateType</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>我把与所有状态相关的控制脚本写在了EnemyController组件中，暴露出公共方法让状态机脚本调用。这样可以复用代码，并且让状态机的逻辑代码只负责更高一层的控制，而不管细节如何。
+以下是追逐状态的代码，其他状态同理。</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">EnemyChasingState</span> <span class="p">:</span> <span class="n">BaseState</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">EnemyAttackingState</span> <span class="n">enemyAttackingState</span><span class="p">;</span>
+    <span class="k">public</span> <span class="n">EnemyIdlingState</span> <span class="n">enemyIdlingState</span><span class="p">;</span>
+    
+    <span class="k">private</span> <span class="n">EnemyController</span> <span class="m">_</span><span class="n">enemyController</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="n">Awake</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="m">_</span><span class="n">enemyController</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">private</span> <span class="k">static</span> <span class="k">readonly</span> <span class="kt">int</span> <span class="n">AnimMove</span> <span class="p">=</span> <span class="n">Animator</span><span class="p">.</span><span class="n">StringToHash</span><span class="p">(</span><span class="s">&#34;move&#34;</span><span class="p">);</span>
+    <span class="k">public</span> <span class="k">override</span> <span class="n">BaseState</span> <span class="n">Tick</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Vector3</span> <span class="n">targetPos</span> <span class="p">=</span> <span class="n">PlayerController</span><span class="p">.</span><span class="n">playerTransform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+        <span class="m">_</span><span class="n">enemyController</span><span class="p">.</span><span class="n">MoveToTarget</span><span class="p">(</span><span class="n">targetPos</span><span class="p">);</span>
+        
+        <span class="kt">float</span> <span class="n">distanceSqrMag</span> <span class="p">=</span> <span class="p">(</span><span class="n">targetPos</span> <span class="p">-</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">).</span><span class="n">sqrMagnitude</span><span class="p">;</span>
+        <span class="c1">// 距离足够近，开始攻击（自爆）
+</span><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="n">distanceSqrMag</span> <span class="p">&lt;</span> <span class="m">_</span><span class="n">enemyController</span><span class="p">.</span><span class="n">enemyInfo</span><span class="p">.</span><span class="n">startAttackingDistance</span><span class="p">*</span><span class="m">_</span><span class="n">enemyController</span><span class="p">.</span><span class="n">enemyInfo</span><span class="p">.</span><span class="n">startAttackingDistance</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">enemyAttackingState</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="c1">// 距离太远，放弃追逐
+</span><span class="c1"></span>        <span class="k">if</span><span class="p">(</span><span class="n">distanceSqrMag</span> <span class="p">&gt;</span> <span class="m">_</span><span class="n">enemyController</span><span class="p">.</span><span class="n">enemyInfo</span><span class="p">.</span><span class="n">stopChasingDistance</span><span class="p">*</span><span class="m">_</span><span class="n">enemyController</span><span class="p">.</span><span class="n">enemyInfo</span><span class="p">.</span><span class="n">stopChasingDistance</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">enemyIdlingState</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="n">OnStateExit</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="m">_</span><span class="n">enemyController</span><span class="p">.</span><span class="n">modelAnimator</span><span class="p">.</span><span class="n">SetFloat</span><span class="p">(</span><span class="n">AnimMove</span><span class="p">,</span> <span class="m">0f</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+            </div>
+            
+            
+            
+        </div>
+    </article>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="/about-blog">About</a> - 
+        <a href="https://gohugo.io/">Hugo</a>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://finctive.com/js/theme.js"></script>
+
+
+
+</body>
+
+</html>

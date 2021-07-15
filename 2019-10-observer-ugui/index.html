@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html>
+<html lang="zh" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FINCTIVE" />   
+    <title>游戏 UI 观察者模式 - 造物指南</title>
+    
+    
+    
+    
+    <meta name="description" content="前言 参考： 视频教程 Observer Pattern - Game Programming Patterns in Unity &amp;amp; C# 中文译文 游戏设计模式-观察者模式 英语原文 Game Programming Patterns - Observer 本文为示例游戏项目 FINCTIVE/lost-in-the-wilderness-nightmare 开发笔记系列文章之一： 游戏 AI 控制" /> 
+    
+    
+     
+    
+    <meta name="keywords" content="FINCTIVE, 镜岛, programming, 编程开发, 编程, 开发" /> 
+     
+    
+    
+
+    <link rel="shortcut icon" href="https://finctive.com/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/normalize.min.css@8.0.1/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme.css" />
+    <link disabled id="dark-mode-theme-css" rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme-dark.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/github-gist.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/@fontsource/encode-sans@4.2.0/index.min.css" />
+
+    
+    
+    <script>
+        var darkTheme = document.getElementById("dark-mode-theme-css");
+
+        var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+        setTheme(savedTheme);
+        function setTheme(mode) {
+            localStorage.setItem("dark-mode-storage", mode);
+            savedTheme = mode;
+            if(mode === "light") {
+                darkTheme.disabled = true;
+            } else if(mode === "dark") {
+                darkTheme.disabled = false;
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <article class="main">
+        <div class="header">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://finctive.com">
+                    <span>造物指南</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <div class="my_socials">
+                <a href="https://github.com/FINCTIVE" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                <a href="https://t.me/create_worlds" title="telegram" target="_blank"><i class="ri-telegram-fill"></i></a>
+                <a href="https://www.google.com/search?q=site%3Ahttps://finctive.com" title="search" target="_blank"><i class="ri-search-eye-fill"></i></a>
+                <a id="dark-mode-toggle" title="theme"><i class="ri-moon-fill"></i></a>
+                <a href="https://finctive.com/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post">
+                <div class="post_title post_detail_title">
+                    <h1>游戏 UI 观察者模式</h1>
+                    
+                    <span class="author">FINCTIVE</span>
+                    <span class="date">2019-10</span>
+                    
+                </div>
+                
+                <div class="post_content"><h2 id="前言">前言</h2>
+<p>参考：</p>
+<ul>
+<li>视频教程 <a href="https://www.youtube.com/watch?v=Yy7Dt2usGy0&amp;list=PLB5_EOMkLx_VOmnIytx37lFMiajPHppmj&amp;index=1" target="_blank">Observer Pattern - Game Programming Patterns in Unity &amp; C#</a>
+</li>
+<li>中文译文 <a href="https://gpp.tkchu.me/observer.html" target="_blank">游戏设计模式-观察者模式</a>
+ </li>
+<li>英语原文 <a href="http://gameprogrammingpatterns.com/observer.html" target="_blank">Game Programming Patterns - Observer</a>
+</li>
+</ul>
+<blockquote>
+<p>本文为示例游戏项目 <a href="https://github.com/FINCTIVE/lost-in-the-wilderness-nightmare" target="_blank">FINCTIVE/lost-in-the-wilderness-nightmare</a>
+ 开发笔记系列文章之一：</p>
+<ul>
+<li><a href="https://finctive.com/2019-11-fsm-game-ai/" target="_blank">游戏 AI 控制脚本基本状态机 (FSM)</a>
+</li>
+<li><a href="https://finctive.com/2019-10-coroutine-level-manager/" target="_blank">使用 Unity 协程控制游戏回合逻辑</a>
+</li>
+<li>游戏 UI 观察者模式</li>
+</ul>
+</blockquote>
+<h2 id="应用场景">应用场景</h2>
+<p>假如有一天，你在一个游戏项目中实现了一个角色控制器。这个控制器相对复杂，于是你想新开一个空场景来单独测试这个控制器脚本。你发现在新场景中，游戏角色对象缺乏相关UI对象的引用，导致程序无法测试。</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="n">Slider</span> <span class="n">hpSlider</span><span class="p">;</span> <span class="c1">// 举个例子，角色HP的血条
+</span><span class="c1"></span><span class="k">void</span> <span class="n">GetDamage</span><span class="p">()</span>
+<span class="p">{</span>
+  	<span class="c1">// ...处理受伤代码...
+</span><span class="c1"></span>  	<span class="c1">// 更新相应UI
+</span><span class="c1"></span>	<span class="n">hpSlider</span><span class="p">.</span><span class="k">value</span> <span class="p">=</span> <span class="n">newValue</span><span class="p">;</span> <span class="c1">// 在新场景中导致空引用
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div><h2 id="解决方案">解决方案</h2>
+<p>使用C#委托和事件来建立hp更新和UI更新的联系。
+在管理玩家属性的脚本中(本例中是PlayerInfo.cs)</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">event</span> <span class="n">Action</span> <span class="n">OnPlayerHpChange</span><span class="p">;</span>
+<span class="k">public</span> <span class="kt">int</span> <span class="n">hp</span>
+<span class="p">{</span>
+    <span class="k">get</span> <span class="p">=&gt;</span> <span class="m">_</span><span class="n">hp</span><span class="p">;</span>
+    <span class="k">set</span>
+    <span class="p">{</span>
+        <span class="m">_</span><span class="n">hp</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">OnPlayerHpChange</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+            <span class="n">OnPlayerHpChange</span><span class="p">(</span><span class="m">_</span><span class="n">hp</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>在控制UI更新行为的脚本中(本例是PlayerHpUI.cs)</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">void</span> <span class="n">Start</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">// 通过全局变量获取player示例中的playerInfo对象（与上一个代码示例对应）
+</span><span class="c1"></span>    <span class="n">PlayerController</span><span class="p">.</span><span class="n">player</span><span class="p">.</span><span class="n">playerInfo</span><span class="p">.</span><span class="n">OnPlayerHpChange</span> <span class="p">+=</span> <span class="m">_</span><span class="n">OnPlayerHpChange</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="k">void</span> <span class="n">OnPlayerHpChange</span><span class="p">(</span><span class="kt">int</span> <span class="n">hp</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">hpSlider</span><span class="p">.</span><span class="k">value</span> <span class="p">=</span> <span class="p">(</span><span class="kt">float</span><span class="p">)</span><span class="n">hp</span> <span class="p">/</span> <span class="m">100f</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>在本例中Player控制器部分代码与UI更新代码分离开了，实际工程项目中会出现更复杂的情况；本文例子是“一对一”的情况，实际工程中有可能会出现“<strong>一对多</strong>”甚至“<strong>多对多</strong>”的情况。</p>
+<p>更经典的应用场景是游戏成就系统：游戏成就千奇百怪，把判定游戏成就的代码耦合到其他游戏系统中不是一个明智的做法。</p>
+</div>
+            </div>
+            
+            
+            
+        </div>
+    </article>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="/about-blog">About</a> - 
+        <a href="https://gohugo.io/">Hugo</a>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://finctive.com/js/theme.js"></script>
+
+
+
+</body>
+
+</html>

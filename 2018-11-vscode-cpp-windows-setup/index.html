@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<html lang="zh" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FINCTIVE" />   
+    <title>如何使用 VS Code 写 C/C&#43;&#43; 程序 - 造物指南</title>
+    
+    
+    
+    
+    <meta name="description" content="2019年五月更新：直接看这篇知乎专栏文章！！不需要麻烦地配置了: https://zhuanlan.zhihu.com/p/35178331 引言 为什么要使用VS Code呢？ 如何评价 Visual Studio Code？-知乎 Atom、S" /> 
+    
+    
+     
+    
+    <meta name="keywords" content="FINCTIVE, 镜岛, programming, 编程开发, 编程, 开发" /> 
+     
+    
+    
+
+    <link rel="shortcut icon" href="https://finctive.com/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/normalize.min.css@8.0.1/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme.css" />
+    <link disabled id="dark-mode-theme-css" rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme-dark.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/github-gist.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/@fontsource/encode-sans@4.2.0/index.min.css" />
+
+    
+    
+    <script>
+        var darkTheme = document.getElementById("dark-mode-theme-css");
+
+        var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+        setTheme(savedTheme);
+        function setTheme(mode) {
+            localStorage.setItem("dark-mode-storage", mode);
+            savedTheme = mode;
+            if(mode === "light") {
+                darkTheme.disabled = true;
+            } else if(mode === "dark") {
+                darkTheme.disabled = false;
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <article class="main">
+        <div class="header">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://finctive.com">
+                    <span>造物指南</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <div class="my_socials">
+                <a href="https://github.com/FINCTIVE" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                <a href="https://t.me/create_worlds" title="telegram" target="_blank"><i class="ri-telegram-fill"></i></a>
+                <a href="https://www.google.com/search?q=site%3Ahttps://finctive.com" title="search" target="_blank"><i class="ri-search-eye-fill"></i></a>
+                <a id="dark-mode-toggle" title="theme"><i class="ri-moon-fill"></i></a>
+                <a href="https://finctive.com/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post">
+                <div class="post_title post_detail_title">
+                    <h1>如何使用 VS Code 写 C/C&#43;&#43; 程序</h1>
+                    
+                    <span class="author">FINCTIVE</span>
+                    <span class="date">2018-11</span>
+                    
+                </div>
+                
+                    <div id="post_toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#引言">引言</a></li>
+    <li><a href="#一安装vs-code">一、安装VS Code</a></li>
+    <li><a href="#二安装mingw">二、安装MinGW</a></li>
+    <li><a href="#三配置vs-code">三、配置VS Code</a></li>
+    <li><a href="#四额外内容">四、额外内容</a>
+      <ul>
+        <li><a href="#修改设置">修改设置</a></li>
+        <li><a href="#一个实用功能">一个实用功能</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<style>
+#post_toc a:hover {
+    color: #f3b440;
+}
+
+.toc-active {
+    color: #588ea1 !important;
+    font-weight: bold;
+}
+
+ 
+
+#post_toc a {
+    color: #6e6e6e;
+}
+#post_toc nav ul li {
+  list-style-type: disc;
+}
+#post_toc nav ul,
+#post_toc nav ol,
+#post_toc nav dl {
+  padding: 0px 20px;
+}
+
+ 
+@media screen and (min-width: 1024px) {
+    #post_toc {
+        position: sticky;
+        width: 100%;
+        top: 20px;
+    }
+    #post_toc nav {
+        position: absolute;
+        right: -240px;
+        width : 160px;
+
+        padding-left: 0;
+        border-left: 2px solid #eeeeee;
+        font-size: 0.9em;
+    } 
+
+    #post_toc a {
+        color: #a0a0a0;
+    }
+
+    #post_toc nav ul li {
+    list-style-type: none;
+    }
+
+    #post_toc nav ul,
+    #post_toc nav ol,
+    #post_toc nav dl {
+    padding: 0px 10px;
+    }
+}
+
+</style>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const id = entry.target.getAttribute('id');
+            if (entry.intersectionRatio > 0) {
+                document.querySelector(`nav ul li a[href="#${id}"]`).classList.add('toc-active');
+            } else {
+                document.querySelector(`nav ul li a[href="#${id}"]`).classList.remove('toc-active');
+            }
+        });
+    });
+
+    
+    document.querySelectorAll('h1[id]').forEach((section) => {
+        observer.observe(section);
+    });
+
+    document.querySelectorAll('h2[id]').forEach((section) => {
+        observer.observe(section);
+    });
+
+    document.querySelectorAll('h3[id]').forEach((section) => {
+        observer.observe(section);
+    });
+});
+</script>
+                
+                <div class="post_content"><p><strong>2019年五月更新</strong>：<strong>直接看这篇知乎专栏文章！！不需要麻烦地配置了</strong>:</p>
+<p><a href="https://zhuanlan.zhihu.com/p/35178331" target="_blank">https://zhuanlan.zhihu.com/p/35178331</a>
+</p>
+<h2 id="引言">引言</h2>
+<p>为什么要使用VS Code呢？</p>
+<p><a href="https://www.zhihu.com/question/29984607" target="_blank">如何评价 Visual Studio Code？-知乎</a>
+</p>
+<p><a href="https://www.zhihu.com/question/41857899" target="_blank">Atom、Sublime Text、VSCode 三者比较，各有哪些优势和弱势？</a>
+</p>
+<p>好吧看的有点晕，这篇文章是给<strong>零基础</strong>的同学看的，大家可以配置好VS Code之后再回头了解一下。</p>
+<p>
+
+    
+
+
+<img alt="VS Code" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2018-11-vscode-cpp-windows-setup/7687630-bffe152837a54ef4.png" /></p>
+<p>VS Code界面美观，而且有一个很方便的命令行控制台，再者&hellip;
+不管从哪个角度看都比Dev-C++好用啊！在高颜值界面下写代码会越敲越开心( ´･ω･)</p>
+<p>同时，希望阅读完本文之后了解一下Sublime Text，这两个软件我都安装了。</p>
+<h2 id="一安装vs-code">一、安装VS Code</h2>
+<p><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code - Code Editing. Redefined - 官网</a>
+</p>
+<p>点最大那个按钮下载安装即可！（Stable Build)</p>
+<p>安装这个插件可以显示中文界面</p>
+<p>
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2018-11-vscode-cpp-windows-setup/7687630-5876d33c9fcdccd6.png" /></p>
+<p>再安装这个插件，写代码的时候会出现提示</p>
+<p>
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2018-11-vscode-cpp-windows-setup/7687630-c148ec2acb728fb2.png" /></p>
+<h2 id="二安装mingw">二、安装MinGW</h2>
+<p><a href="https://finctive.com/2018-11-vscode-cpp-windows-setup/" target="_blank">如何安装MinGW</a>
+</p>
+<h2 id="三配置vs-code">三、配置VS Code</h2>
+<p>安装如图插件</p>
+<p>
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2018-11-vscode-cpp-windows-setup/7687630-4c21b0e90b8fc781.png" /></p>
+<p>打开设置，搜索&quot;run in terminal&quot;，勾选该选项（否则程序无法在运行时使用键盘输入数据）</p>
+<p>
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2018-11-vscode-cpp-windows-setup/7687630-9b37685de4046090.png" /></p>
+<p>此时，在代码文件中按下鼠标右键，点击该选项就能运行代码了！</p>
+<p>
+
+    
+
+
+<img alt="我更喜欢用快捷键Ctrl &#43; Alt &#43;N" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2018-11-vscode-cpp-windows-setup/7687630-f0b9da4588a01ada.png" /></p>
+<hr>
+<p>基本配置过程就此结束，
+这时候你应该可以输出Hello World了 ヽ(ﾟ∀ﾟ)ﾉ
+请跳转到文末第四点继续阅读。</p>
+<p>以下内容写给喜欢折腾的同学继续折腾。</p>
+<ul>
+<li>更多Code Runner扩展的设置，内容来自<a href="https://blessing.studio/vscode-c-cpp-configuration-for-acm-oj/" target="_blank">printempw的博客</a>
+</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">{
+    // 在终端中运行编译命令，否则我们无法与程序通过标准输入交互
+    &#34;code-runner.runInTerminal&#34;: true,
+    // 如果你全局设置中的默认终端是 WSL 之类的，那么可以在工作区设置中改回 PowerShell
+    &#34;terminal.integrated.shell.windows&#34;: &#34;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe&#34;,
+    // 运行代码之前清除之前的输出
+    &#34;code-runner.clearPreviousOutput&#34;: true,
+    // 开启这个后在运行编译命令之前会自动 cd 至文件所在目录
+    &#34;code-runner.fileDirectoryAsCwd&#34;: true,
+    // 因为上面那个选项会自动 cd，所以我删除了默认编译命令中的 cd 语句
+    // 同时我将编译结果的输出目录修改为了同目录下的 build 文件夹
+    // 不然源码文件和编译结果混杂在一个目录中非常杂乱（尤其是刷题时）
+    // 这里只保留了 C 和 C++ 的编译命令，有需要其他语言的请自行添加
+    &#34;code-runner.executorMap&#34;: {
+        &#34;c&#34;: &#34;gcc $fileName -o build/$fileNameWithoutExt &amp;&amp; .\\build\\$fileNameWithoutExt&#34;,
+        &#34;cpp&#34;: &#34;g++ $fileName -o build/$fileNameWithoutExt &amp;&amp; .\\build\\$fileNameWithoutExt&#34;,
+    },
+    // 运行代码后切换焦点至终端，方便直接输入测试数据
+    &#34;code-runner.preserveFocus&#34;: false,
+    // 在运行代码之前保存文件
+    &#34;code-runner.saveFileBeforeRun&#34;: true,
+}
+</code></pre></div><ul>
+<li>这时候输出中文是乱码的，百度到的最简单方法是修改VS Code的字符编码格式。这里<strong>不建议</strong>修改，原因超出本文讨论范围，如果你还是好奇，请自己使用搜索引擎查资料😁 （关键字：“字符编码格式” “UTF-8” “GBK”）</li>
+<li>也可以用编写launch.json和tasks.json的传统方式配置C/C++开发环境，不过比较麻烦。<a href="https://blog.csdn.net/bat67/article/details/81268581" target="_blank">Visual Studio Code (vscode) 配置C、C++环境/编写运行C、C++（Windows）【真正的小白版】</a>
+</li>
+<li>使用这个编译选项可以让编译后的程序在控制台正常输出中文
+参考: <a href="https://blog.csdn.net/Timekeeperl/article/details/68266218" target="_blank">windows下使用MinGw编译出现中文乱码问题解决</a>
+   <br>
+<code>gcc -fexec-charset=GBK test.c -o test</code></li>
+</ul>
+<h2 id="四额外内容">四、额外内容</h2>
+<h3 id="修改设置">修改设置</h3>
+<p><a href="https://blog.csdn.net/u013304372/article/details/78917536" target="_blank">VS Code使用之基本设置与配置详解</a>
+</p>
+<h3 id="一个实用功能">一个实用功能</h3>
+<p>注意代码缩进，没有正经的程序员能忍受排列凌乱的代码
+
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2018-11-vscode-cpp-windows-setup/7687630-4cee50e4e7ff3a42.gif" /></p>
+</div>
+            </div>
+            
+            
+            
+        </div>
+    </article>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="/about-blog">About</a> - 
+        <a href="https://gohugo.io/">Hugo</a>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://finctive.com/js/theme.js"></script>
+
+
+
+</body>
+
+</html>

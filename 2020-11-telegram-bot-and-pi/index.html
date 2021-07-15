@@ -1,0 +1,145 @@
+
+
+<!DOCTYPE html>
+<html lang="zh" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FINCTIVE" />   
+    <title>在树莓派上部署 Telegram Bot - 造物指南</title>
+    
+    
+    
+    
+    <meta name="description" content="对于本地运行的后端业余项目，也许最好的前端是 Telegram Bot。 为什么用树莓派？ 树莓派作为开发者们最喜欢的小型吸尘器，自然而然成为了本地应用部署的最佳" /> 
+    
+    
+     
+    
+    <meta name="keywords" content="FINCTIVE, 镜岛, programming, 编程开发, 编程, 开发" /> 
+     
+    
+    
+
+    <link rel="shortcut icon" href="https://finctive.com/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/normalize.min.css@8.0.1/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme.css" />
+    <link disabled id="dark-mode-theme-css" rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme-dark.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/github-gist.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/@fontsource/encode-sans@4.2.0/index.min.css" />
+
+    
+    
+    <script>
+        var darkTheme = document.getElementById("dark-mode-theme-css");
+
+        var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+        setTheme(savedTheme);
+        function setTheme(mode) {
+            localStorage.setItem("dark-mode-storage", mode);
+            savedTheme = mode;
+            if(mode === "light") {
+                darkTheme.disabled = true;
+            } else if(mode === "dark") {
+                darkTheme.disabled = false;
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <article class="main">
+        <div class="header">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://finctive.com">
+                    <span>造物指南</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <div class="my_socials">
+                <a href="https://github.com/FINCTIVE" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                <a href="https://t.me/create_worlds" title="telegram" target="_blank"><i class="ri-telegram-fill"></i></a>
+                <a href="https://www.google.com/search?q=site%3Ahttps://finctive.com" title="search" target="_blank"><i class="ri-search-eye-fill"></i></a>
+                <a id="dark-mode-toggle" title="theme"><i class="ri-moon-fill"></i></a>
+                <a href="https://finctive.com/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post">
+                <div class="post_title post_detail_title">
+                    <h1>在树莓派上部署 Telegram Bot</h1>
+                    
+                    <span class="author">FINCTIVE</span>
+                    <span class="date">2020-11</span>
+                    
+                </div>
+                
+                <div class="post_content"><p>对于本地运行的后端业余项目，也许最好的前端是 Telegram Bot。</p>
+<blockquote>
+<p>为什么用树莓派？</p>
+</blockquote>
+<p>树莓派作为开发者们最喜欢的小型吸尘器，自然而然成为了本地应用部署的最佳设备。在本地部署，你可以很方便地移动大体积文件（比如下载的视频）。而且，正在阅读本文的你可能正好有一个闲置很久的树莓派。</p>
+<blockquote>
+<p>为什么用 Telegram Bot？</p>
+</blockquote>
+<ol>
+<li>Telegram Bot有非常多<a href="https://core.telegram.org/bots" target="_blank">方便的特性</a>
+，比如按钮、自定义键盘（下图）。</li>
+</ol>
+<p>
+
+    
+
+
+<img alt="bot" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2020-11-telegram-bot-and-pi/image-20201125195416206.png" /></p>
+<ol start="2">
+<li>Telegram 官方提供了非常丰富的 Web API，开发者<strong>不需要</strong>一个公网IP来运行 bot 程序。对，你可以在手机上像遥控器一样控制树莓派上运行的程序 🍜</li>
+<li>有一个非常酷炫的 Go 框架 <a href="https://github.com/tucnak/telebot" target="_blank">Telebot</a>
+，能让开发者火速上手 Telegram Bot 开发。（基本上你只需要把示例代码复制粘贴过来，然后写一些回调函数就好了。）</li>
+</ol>
+<p>最近我开发的一些小玩具，全都使用了 Telegram Bot + 树莓派的方式运行。目前我的树莓派上有4个正在运行的 bot，灵感清单里还有4个没有开工，我发现了这些 &ldquo;Side Projects&rdquo; 的共通点：</p>
+<ul>
+<li>程序体量小，大多数都在 1000 行代码以内。开发时不用过度考虑耦合问题，可以放心使用全局变量。</li>
+<li>终端连接树莓派麻烦，而直接在 Telegram 看消息很方便。有时候我会通过 Telegram Bot 发送终端的 Log 信息。</li>
+<li>使用 YAML 格式的配置文件，修改编写很方便。</li>
+<li>在树莓派上运行的程序，需要做到开机自动启动、错误后自动重启。在这里我使用 systemd 的方案进行管理。</li>
+<li>调用外部命令，需要查看终端实时输出。</li>
+</ul>
+<p>于是，我做了一个模板仓库！<a href="https://github.com/FINCTIVE/telebot-pi-template" target="_blank">FINCTIVE/telebot-pi-template</a>
+</p>
+<p>如果你也想开发符合上述特征的小项目，打开链接，点击 &ldquo;Use this template&rdquo; 就可以开始了。当前该项目仍有缺陷，欢迎 PR。</p>
+</div>
+            </div>
+            
+            
+            
+        </div>
+    </article>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="/about-blog">About</a> - 
+        <a href="https://gohugo.io/">Hugo</a>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://finctive.com/js/theme.js"></script>
+
+
+
+</body>
+
+</html>

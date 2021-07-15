@@ -1,0 +1,1632 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>造物指南</title>
+    <link>https://finctive.com/</link>
+    <description>Recent content on 造物指南</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <managingEditor>finctive@qq.com (FINCTIVE)</managingEditor>
+    <webMaster>finctive@qq.com (FINCTIVE)</webMaster><atom:link href="https://finctive.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>终端工具新手上路包</title>
+      <link>https://finctive.com/2021-03-terminal-runner/</link>
+      <pubDate>Thu, 18 Mar 2021 08:02:17 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/2021-03-terminal-runner/</guid>
+      <description>&lt;p&gt;本文遵循「懒人推荐」原则：花最少配置时间大幅度提升你的工作效率。想要更深入地学习各类工具的高级使用方法，请移步至具体程序的相应社区。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以下内容默认读者也在使用 Linux 系统，大部分程序在 macOS 下是大同小异的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;实用命令行程序&#34;&gt;实用命令行程序&lt;/h2&gt;
+&lt;p&gt;安装方式请查看相应文档，大部分都能在 Github 找到，也可以在系统的包管理器安装。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aristocratos/bpytop&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;bpytop&lt;/code&gt;&lt;/a&gt;
+ 系统资源监视器（这是我目前见过最漂亮的命令行工具！）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210210221856811&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210210221856811.png&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ncdu&lt;/code&gt; 查看文件大小&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210210221725025&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210210221725025.png&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;nload&lt;/code&gt; 网络监控工具&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210210222210916&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210210222210916.png&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ggreer/the_silver_searcher&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;ag&lt;/code&gt;&lt;/a&gt;
+ 搜索工具&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210210224546888&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210210224546888.png&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/junegunn/fzf&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;fzf&lt;/code&gt;&lt;/a&gt;
+ 模糊搜索工具，直接在命令行调用可以搜索文件名。可以和 &lt;code&gt;ranger&lt;/code&gt;、&lt;code&gt;vim&lt;/code&gt; 搭配使用。&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ranger/ranger&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;ranger&lt;/code&gt;&lt;/a&gt;
+ 具有 Vim 键位风格的终端文件管理器。下文仍有相关介绍。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210210225023130&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210210225023130.png&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/jarun/nnn&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;nnn&lt;/code&gt;&lt;/a&gt;
+ 终端文件管理器，资源占用非常低。我在树莓派上使用 &lt;code&gt;nnn&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;proxychains-ng&lt;/code&gt; 以及 &lt;code&gt;graftcp&lt;/code&gt;，连接命令行程序到代理服务器。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/tldr-pages/tldr&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;tldr&lt;/code&gt;&lt;/a&gt;
+ 太长不看，懒人必备的文档查看工具。如果要看详细文档请使用&lt;code&gt;man&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210210230451003&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210210230451003.png&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;命令行&#34;&gt;命令行&lt;/h2&gt;
+&lt;h3 id=&#34;基础&#34;&gt;基础&lt;/h3&gt;
+&lt;p&gt;推荐阅读：&lt;a href=&#34;https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md&#34; target=&#34;_blank&#34;&gt;命令行的艺术&lt;/a&gt;
+，比较长，你也可以通过视频来学习这些操作。&lt;/p&gt;
+&lt;p&gt;分享几个我常用的快捷键：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Tab&lt;/code&gt; 补全&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;上下方向键&lt;/code&gt; 历史记录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Ctrl + A&lt;/code&gt; 光标移动到开头&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Ctrl + E&lt;/code&gt; 光标移动到末尾&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Ctrl + U&lt;/code&gt; 清除当前内容&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Ctrl + F&lt;/code&gt; 光标往前移动&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Ctrl + D&lt;/code&gt; 删除光标下的字符&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;fish&#34;&gt;fish&lt;/h3&gt;
+&lt;p&gt;开箱即用不多说！&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.ruanyifeng.com/blog/2017/05/fish_shell.html&#34; target=&#34;_blank&#34;&gt;Fish shell 入门教程 - 阮一峰的网络日志&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210318181746263&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210318181746263.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;亮点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;新手友好&lt;/li&gt;
+&lt;li&gt;功能强大且反应迅速&lt;/li&gt;
+&lt;li&gt;出色的补全功能&lt;/li&gt;
+&lt;li&gt;支持网页端配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;为了让 fish 在我打开终端的时候自动启动，我在 &lt;code&gt;~/.bashrc&lt;/code&gt;文件末尾加上了 &lt;code&gt;exec fish&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;下拉终端&#34;&gt;下拉终端&lt;/h3&gt;
+&lt;p&gt;推荐使用 Guake. 我把快捷键 &lt;code&gt;Win&lt;/code&gt; + &lt;code&gt;Enter&lt;/code&gt; 绑定到了终端开关，非常顺手。&lt;/p&gt;
+&lt;h2 id=&#34;vim&#34;&gt;Vim&lt;/h2&gt;
+&lt;p&gt;学习 Vim 的主要目的不是更快地输入代码，而是拥有一套工具能更贴合思维地操作。使用 Vim 时，很少会使用&lt;code&gt;ctrl&lt;/code&gt;键和其他键配合，大部分时间只敲击一个键。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;推荐阅读 &lt;a href=&#34;https://blog.lilydjwg.me/2015/11/16/vim-creep.188665.html&#34; target=&#34;_blank&#34;&gt;[译] Vim 的蔓延 - 依云&amp;rsquo;s Blog&lt;/a&gt;
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;入门视频教程：&lt;a href=&#34;https://www.youtube.com/watch?v=IiwGbcd8S7I&#34; target=&#34;_blank&#34;&gt;Vim Tutorial - YouTube - Ben Awad&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Vim 大量使用了&lt;code&gt;Esc&lt;/code&gt;键。我把&lt;code&gt;CapsLk&lt;/code&gt;键和&lt;code&gt;Esc&lt;/code&gt;键的功能做了交换，否则无法获得流畅的体验。（&lt;a href=&#34;https://finctive.com/2020-08-archlinux-installation/#%E4%BA%A4%E6%8D%A2-esc-%E9%94%AE%E5%92%8C-caps-lock-%E9%94%AE&#34; target=&#34;_blank&#34;&gt;我的配置方法 - Linux KDE&lt;/a&gt;
+）mac OS 可以通过系统设置修改。如果你使用的键盘有驱动配置程序，也许也可以通过设置交换按键。（我没有找到方便的 Windows 系统的修改方法，如果你恰好知道，欢迎分享。）&lt;/p&gt;
+&lt;p&gt;关于 Vim 的配置教程，推荐 Bilibili Up 主 &lt;a href=&#34;https://space.bilibili.com/13081489?from=search&amp;amp;seid=1529017428553781112&#34; target=&#34;_blank&#34;&gt;TheCW&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;我不使用 Vim 开发程序，因为它的配置并不简单，需要大量时间学习，我更喜欢开箱即用。Jetbrains 系列 IDE 可以安装 ideavim 插件，目前支持的功能已经很多了，强烈推荐。ideavim 插件也可以把自定义的 Vim 快捷键绑定到 IDE 功能中，举个例子，我把代码格式化功能绑定到了 &lt;code&gt;&amp;lt;leader&amp;gt;f&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;# ~/.ideavimrc
+nnoremap &amp;lt;leader&amp;gt;f :action ReformatCode&amp;lt;CR&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;具体配置方法：&lt;a href=&#34;https://github.com/JetBrains/ideavim#executing-ide-actions&#34; target=&#34;_blank&#34;&gt;Executing IDE Actions&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;终端文件管理-ranger&#34;&gt;终端文件管理 Ranger&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ranger/ranger&#34; target=&#34;_blank&#34;&gt;Ranger - Github&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Ranger 是一款终端文件管理程序，拥有 Vim 风格的键位绑定（比如使用 &lt;code&gt;hjkl&lt;/code&gt; 移动浏览）。在初学 Linux 命令行时，我认为 &lt;code&gt;ls&lt;/code&gt;、&lt;code&gt;cd&lt;/code&gt;、&lt;code&gt;mv&lt;/code&gt;这些命令的操作远远没有图形界面文件管理器方便。直到我开始使用 Ranger, 我才体会到终端操作的迅捷。&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210210225023130&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210210225023130.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;关于 Ranger 的基本用法，请查看官方文档。&lt;/p&gt;
+&lt;h3 id=&#34;退出时切换工作目录&#34;&gt;退出时切换工作目录&lt;/h3&gt;
+&lt;p&gt;在退出 Ranger 时，工作目录并没有改变。使用以下别名启动 Ranger 可以实现这个功能，将下列内容加入到你使用的 shell 的启动配置中。（比如 &lt;code&gt;.bashrc&lt;/code&gt; ）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 退出 ranger 的时候，cd 到相应的目录&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;alias&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ra&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd &amp;#34;$LASTDIR&amp;#34;&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果你使用 fish:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nb&#34;&gt;alias&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ra&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ranger --choosedir=&amp;#34;$HOME/.rangerdir&amp;#34;; cd (cat $HOME/.rangerdir)&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;fzf-集成&#34;&gt;fzf 集成&lt;/h3&gt;
+&lt;p&gt;fzf 是一款方便的模糊搜索程序。&lt;/p&gt;
+&lt;p&gt;安装好 fzf 之后，创建 &lt;code&gt;~/.config/ranger/commands.py&lt;/code&gt;， 粘贴以下内容。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;ranger.api.commands&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Command&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;fzf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Command&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;    :fzf
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;    Find a file using fzf.
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;    With a prefix argument select only directories.
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;    See: https://github.com/junegunn/fzf
+&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;    &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;execute&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;subprocess&lt;/span&gt;
+        &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;os.path&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;quantifier&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;c1&#34;&gt;# match only directories&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;find -L . \( -path &amp;#39;*/\.*&amp;#39; -o -fstype &amp;#39;dev&amp;#39; -o -fstype &amp;#39;proc&amp;#39; \) -prune &lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;            -o -type d -print 2&amp;gt; /dev/null | sed 1d | cut -b3- | fzf +m&amp;#34;&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;c1&#34;&gt;# match files and directories&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;find -L . \( -path &amp;#39;*/\.*&amp;#39; -o -fstype &amp;#39;dev&amp;#39; -o -fstype &amp;#39;proc&amp;#39; \) -prune &lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;            -o -print 2&amp;gt; /dev/null | sed 1d | cut -b3- | fzf +m&amp;#34;&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;fzf&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fm&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;execute_command&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;universal_newlines&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stdout&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;subprocess&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PIPE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;stdout&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stderr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fzf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;communicate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fzf&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;returncode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;fzf_file&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;abspath&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stdout&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rstrip&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isdir&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fzf_file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+                &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fm&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fzf_file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fm&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;select_file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fzf_file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用方法：打开 Ranger， 输入 &lt;code&gt;:fzf&lt;/code&gt;，回车！这时候你可以输入关键词，通过 &lt;code&gt;Ctrl&lt;/code&gt; + &lt;code&gt;J&lt;/code&gt; / &lt;code&gt;K&lt;/code&gt; 上下移动选择文件。&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210318161033303&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210318161033303.png&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;终端复用器-tmux&#34;&gt;终端复用器 Tmux&lt;/h2&gt;
+&lt;p&gt;终端复用器 Tmux 常被用于将远程服务器的会话和窗口解绑，让程序保持运行。这篇文章可以帮助你入门 Tmux 的使用：&lt;a href=&#34;http://www.ruanyifeng.com/blog/2019/10/tmux.html&#34; target=&#34;_blank&#34;&gt;Tmux 使用教程 - 阮一峰的网络日志&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Tmux 也能作为分屏工具使用，通过修改、绑定快捷键，终端的使用体验会得到大幅提升。&lt;/p&gt;
+&lt;p&gt;（下图为一个终端窗口的3个 Tmux pane）&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210318162311881&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210318162311881.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;我的配置文件 &lt;code&gt;~/.tmux.conf&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# reference: &lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# https://gist.github.com/spicycode/1229612&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# https://unix.stackexchange.com/questions/348913/copy-selection-to-a-clipboard-in-tmux&lt;/span&gt;
+
+
+&lt;span class=&#34;c1&#34;&gt;# keys&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 按下 Ctrl+b 然后按 r&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# Reload tmux config&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;bind&lt;/span&gt; r source-file ~/.tmux.conf
+
+&lt;span class=&#34;c1&#34;&gt;# Set new panes to open in current directory&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# 左右分屏，按下 Ctrl+b 然后按 |&lt;/span&gt;
+bind-key &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; split-window -h -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;#{pane_current_path}&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# 上下分屏，按下 Ctrl+b 然后按 -&lt;/span&gt;
+bind-key - split-window -v -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;#{pane_current_path}&amp;#34;&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# bind-key J resize-pane -D 5&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# bind-key K resize-pane -U 5&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# bind-key H resize-pane -L 5&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# bind-key L resize-pane -R 5&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# Use Alt-vim keys without prefix key to switch panes&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# 按住 Alt, 使用 hjkl 移动&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;bind&lt;/span&gt; -n M-h &lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;-pane -L
+&lt;span class=&#34;nb&#34;&gt;bind&lt;/span&gt; -n M-j &lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;-pane -D 
+&lt;span class=&#34;nb&#34;&gt;bind&lt;/span&gt; -n M-k &lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;-pane -U
+&lt;span class=&#34;nb&#34;&gt;bind&lt;/span&gt; -n M-l &lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;-pane -R
+&lt;span class=&#34;c1&#34;&gt;# Alt+C 创建新页面（窗口）&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;bind&lt;/span&gt; -n M-c new-window -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;#{pane_current_path}&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# Alt+P 切换页面（窗口）&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;bind&lt;/span&gt; -n M-p previous-window
+&lt;span class=&#34;c1&#34;&gt;# Alt+P 切换页面（窗口）&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# 按下 Ctrl+b 然后按 x, 删除pane (窗格)&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# copy selected&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# 将选中内容加入剪贴板&lt;/span&gt;
+set-option -g mouse on
+set-option -s set-clipboard off
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel &lt;span class=&#34;s2&#34;&gt;&amp;#34;xclip -se c -i&amp;#34;&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# right color&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g terminal-overrides &lt;span class=&#34;s2&#34;&gt;&amp;#34;,xterm-256color:Tc&amp;#34;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g default-terminal screen-256color
+
+&lt;span class=&#34;c1&#34;&gt;# theme(copied from nord tmux theme plugin)&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# Colors&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g status-bg default
+&lt;span class=&#34;c1&#34;&gt;# set -g status-bg colour235&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g status-fg white
+&lt;span class=&#34;c1&#34;&gt;# Panes&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g pane-border-style &lt;span class=&#34;nv&#34;&gt;bg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;black
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g pane-border-style &lt;span class=&#34;nv&#34;&gt;fg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;black
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g pane-active-border-style &lt;span class=&#34;nv&#34;&gt;bg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;black
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g pane-active-border-style &lt;span class=&#34;nv&#34;&gt;fg&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;brightblack
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g display-panes-colour black
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g display-panes-active-colour brightblack
+
+&lt;span class=&#34;c1&#34;&gt;# 0 is too far from ` ;)&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g base-index &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# Automatically set window title&lt;/span&gt;
+set-window-option -g automatic-rename on
+set-option -g set-titles on
+
+&lt;span class=&#34;c1&#34;&gt;# No delay for escape key press&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -sg escape-time &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g status-keys vi
+&lt;span class=&#34;nb&#34;&gt;set&lt;/span&gt; -g history-limit &lt;span class=&#34;m&#34;&gt;10000&lt;/span&gt;
+
+setw -g mode-keys vi
+setw -g monitor-activity on
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;结语&#34;&gt;结语&lt;/h2&gt;
+&lt;p&gt;本文介绍的内容并不深入，如果你有兴趣，可以沿着这些兔子洞折腾一下。&lt;/p&gt;
+&lt;p&gt;最后，推荐一些我自己也没有看完的学习资料：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.zhihu.com/column/commandline&#34; target=&#34;_blank&#34;&gt;知乎专栏 - 我爱命令行&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://space.bilibili.com/13081489&#34; target=&#34;_blank&#34;&gt;Bilibili - TheCW&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/vim-video&#34; target=&#34;_blank&#34;&gt;知乎专栏 - 玩转 vim 与 Terminal (视频)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md&#34; target=&#34;_blank&#34;&gt;命令行的艺术&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wsdjeg/vim-galore-zh_cn&#34; target=&#34;_blank&#34;&gt;Vim 从入门到精通&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>在树莓派上部署 Telegram Bot</title>
+      <link>https://finctive.com/2020-11-telegram-bot-and-pi/</link>
+      <pubDate>Wed, 25 Nov 2020 08:02:17 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/2020-11-telegram-bot-and-pi/</guid>
+      <description>&lt;p&gt;对于本地运行的后端业余项目，也许最好的前端是 Telegram Bot。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;为什么用树莓派？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;树莓派作为开发者们最喜欢的小型吸尘器，自然而然成为了本地应用部署的最佳设备。在本地部署，你可以很方便地移动大体积文件（比如下载的视频）。而且，正在阅读本文的你可能正好有一个闲置很久的树莓派。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;为什么用 Telegram Bot？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;Telegram Bot有非常多&lt;a href=&#34;https://core.telegram.org/bots&#34; target=&#34;_blank&#34;&gt;方便的特性&lt;/a&gt;
+，比如按钮、自定义键盘（下图）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;bot&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2020-11-telegram-bot-and-pi/image-20201125195416206.png&#34; /&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Telegram 官方提供了非常丰富的 Web API，开发者&lt;strong&gt;不需要&lt;/strong&gt;一个公网IP来运行 bot 程序。对，你可以在手机上像遥控器一样控制树莓派上运行的程序 🍜&lt;/li&gt;
+&lt;li&gt;有一个非常酷炫的 Go 框架 &lt;a href=&#34;https://github.com/tucnak/telebot&#34; target=&#34;_blank&#34;&gt;Telebot&lt;/a&gt;
+，能让开发者火速上手 Telegram Bot 开发。（基本上你只需要把示例代码复制粘贴过来，然后写一些回调函数就好了。）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;最近我开发的一些小玩具，全都使用了 Telegram Bot + 树莓派的方式运行。目前我的树莓派上有4个正在运行的 bot，灵感清单里还有4个没有开工，我发现了这些 &amp;ldquo;Side Projects&amp;rdquo; 的共通点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;程序体量小，大多数都在 1000 行代码以内。开发时不用过度考虑耦合问题，可以放心使用全局变量。&lt;/li&gt;
+&lt;li&gt;终端连接树莓派麻烦，而直接在 Telegram 看消息很方便。有时候我会通过 Telegram Bot 发送终端的 Log 信息。&lt;/li&gt;
+&lt;li&gt;使用 YAML 格式的配置文件，修改编写很方便。&lt;/li&gt;
+&lt;li&gt;在树莓派上运行的程序，需要做到开机自动启动、错误后自动重启。在这里我使用 systemd 的方案进行管理。&lt;/li&gt;
+&lt;li&gt;调用外部命令，需要查看终端实时输出。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;于是，我做了一个模板仓库！&lt;a href=&#34;https://github.com/FINCTIVE/telebot-pi-template&#34; target=&#34;_blank&#34;&gt;FINCTIVE/telebot-pi-template&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;如果你也想开发符合上述特征的小项目，打开链接，点击 &amp;ldquo;Use this template&amp;rdquo; 就可以开始了。当前该项目仍有缺陷，欢迎 PR。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Arch Linux 双系统安装配置踩坑记</title>
+      <link>https://finctive.com/2020-08-archlinux-installation/</link>
+      <pubDate>Wed, 19 Aug 2020 08:02:17 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/2020-08-archlinux-installation/</guid>
+      <description>&lt;p&gt;内容提要：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;安装 Arch Linux + Windows 双系统&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安装 KDE Plasma 作为桌面环境&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;日常使用软件推荐以及相关配置&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;为了更好地学习后端开发，我把开发环境搬迁到了 Linux。为什么选择 Arch Linux ？答案是&lt;strong&gt;包管理器&lt;/strong&gt;、&lt;strong&gt;社区氛围&lt;/strong&gt;。Arch Linux 的包管理器能让你使用到最新的 &lt;del&gt;bug&lt;/del&gt; 软件包；对于 Gitbub 上的一些小众软件，其他发行版可能需要手动安装，而在 Arch Linux 可以一行安装命令解决。同时，Arch Linux 社群的交流氛围很棒，提问得当时，常常会得到热心前辈的帮助；Arch Wiki 上的丰富内容也是一个吸引我的亮点。&lt;/p&gt;
+&lt;p&gt;安装 Arch Linux 需要一定的 Linux 基础知识，以及坚持 Debug 的耐心。个人认为 Arch Linux 的安装过程比较难，但是对学习理解 Linux 有很大的帮助。如果你是新手，想学习 Linux, 我更推荐你使用 &lt;a href=&#34;https://ubuntu.com/&#34; target=&#34;_blank&#34;&gt;Ubuntu&lt;/a&gt;
+ 或者 &lt;a href=&#34;https://docs.microsoft.com/en-us/windows/wsl/install-win10&#34; target=&#34;_blank&#34;&gt;WSL&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;我不会详细解释所有内容，但我会把遇到的问题以及解决方案完整地记录下来、整理出相关链接；同时我还会记录额外的运行脚本、配置文件。一切从简。&lt;/p&gt;
+&lt;p&gt;在你看到这篇文章时，有些内容可能已经过时了，请以 &lt;a href=&#34;https://wiki.archlinux.org/&#34; target=&#34;_blank&#34;&gt;Arch Wiki &lt;/a&gt;
+为准。我不是 Linux 方面的专家，文章内容难免有误，欢迎交流。&lt;/p&gt;
+&lt;h2 id=&#34;系统安装&#34;&gt;系统安装&lt;/h2&gt;
+&lt;p&gt;前排提醒：请在对安装过程有大致理解之后再开始动手安装。&lt;/p&gt;
+&lt;p&gt;Arch Linux Wiki &lt;strong&gt;一定要看&lt;/strong&gt;（即使可能暂时看不懂）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.archlinux.org/index.php/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29&#34; target=&#34;_blank&#34;&gt;Installation guide (简体中文) - ArchWiki&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我是参考 The CW 的教程安装的，真正的手把手视频教程，非常适合新手学习。注意：The CW 的教程里装的&lt;strong&gt;不是双系统&lt;/strong&gt;，有的步骤不能和视频教程里一模一样（详见下文说明）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bilibili.com/video/BV11J411a7Tp&#34; target=&#34;_blank&#34;&gt;TheCW -【残酷难度】最全 Arch Linux 安装教程——打造真正属于你的操作系统&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bilibili.com/video/BV1q7411s7LS/&#34; target=&#34;_blank&#34;&gt;装完 Arch Linux 你该做什么？用户权限，图形界面及软件安装详解【Arch第二期】&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;看完视频后，可以参考这个 repo 的记录开始安装，步骤与以上视频大致相同：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/NiiiKlaus/Get-my-Arch-Linux&#34; target=&#34;_blank&#34;&gt;NiiiKlaus/Get-my-Arch-Linux&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;我遇到的问题&#34;&gt;我遇到的问题&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;（你可能需要看过一遍 The CW 的教程才能明白这部分我讲了什么）&lt;/em&gt;&lt;/p&gt;
+&lt;h4 id=&#34;网络连接&#34;&gt;网络连接&lt;/h4&gt;
+&lt;p&gt;在安装过程中 The CW 使用无线网络。如果完全按照 The CW 的教程操作，第一次进入系统会发现没有&lt;code&gt;iwlist&lt;/code&gt;命令。建议在这一步（&lt;a href=&#34;https://github.com/NiiiKlaus/Get-my-Arch-Linux/blob/master/system-installation.md/#710-%E5%AE%89%E8%A3%85%E5%9F%BA%E7%A1%80%E5%B7%A5%E5%85%B7&#34; target=&#34;_blank&#34;&gt;7.10 安装基础工具&lt;/a&gt;
+ ）多安装一个包 &lt;code&gt;wireless_tools&lt;/code&gt; , 里面有iwlist。&lt;/p&gt;
+&lt;p&gt;在安装程序运行的时候是可以直接使用有线网络的，但安装好系统之后就不行了。可能需要安装&lt;code&gt;networkmanager&lt;/code&gt;包 ，并运行 &lt;code&gt;systemctl enable NetworkManager&lt;/code&gt;来自动启动。（我没有试过，我直接使用了无线网络。）&lt;/p&gt;
+&lt;p&gt;我在安装的时候还遇到了 &lt;code&gt;rtnetlink answers operation not possible due to rf-kill&lt;/code&gt; 报错，无法连接wifi。解决方案：使用命令 &lt;code&gt;rfkill unblock all&lt;/code&gt; &lt;a href=&#34;&#34;&gt;来源&lt;/a&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;双系统&#34;&gt;双系统&lt;/h4&gt;
+&lt;p&gt;The CW 的教程里装的&lt;strong&gt;不是双系统&lt;/strong&gt;，为了让 Arch Linux 与 Windows 并存，我做了以下操作：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在挂载（mount）环节的时候，我把 &lt;code&gt;/mnt&lt;/code&gt; 挂载到了我想挂载的 Linux 分区上；把&lt;code&gt;/mnt/efi&lt;/code&gt;挂载到了EFI分区（如图所示）；不挂载&lt;code&gt;/mnt/boot&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2020-08-archlinux-installation/1.png&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;不能格式化EFI分区&lt;/strong&gt;(&lt;a href=&#34;https://github.com/NiiiKlaus/Get-my-Arch-Linux/blob/master/system-installation.md/#43-%E5%AE%9A%E4%B9%89%E5%88%86%E5%8C%BA%E6%A0%BC%E5%BC%8F&#34; target=&#34;_blank&#34;&gt;4.3 定义分区格式&lt;/a&gt;
+，这个步骤是格式化)，否则可能会破坏 Windows 的 EFI 文件。直接挂载上去就好。&lt;/li&gt;
+&lt;li&gt;在执行&lt;code&gt;grub-install&lt;/code&gt; 这一步（&lt;a href=&#34;https://github.com/NiiiKlaus/Get-my-Arch-Linux/blob/master/system-installation.md/#79-%E5%AE%89%E8%A3%85grub%E7%9B%B8%E5%85%B3&#34; target=&#34;_blank&#34;&gt;7.9 安装grub相关&lt;/a&gt;
+）的时候，我在&lt;code&gt;efi-directory&lt;/code&gt;参数填写的是 &lt;code&gt;/efi&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上步骤的详细解释请看 &lt;a href=&#34;https://wiki.archlinux.org/index.php/GRUB_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29&#34; target=&#34;_blank&#34;&gt;GRUB (简体中文)-ArchWiki&lt;/a&gt;
+。上面描述的只是方法之一，你也可以使用其他方法，比如挂载&lt;code&gt;/mnt/boot&lt;/code&gt;。具体情况不再详述，Arch Wiki 能解答你的大部分疑惑。&lt;/p&gt;
+&lt;h3 id=&#34;debug&#34;&gt;Debug&lt;/h3&gt;
+&lt;p&gt;如果系统安装好后出现异常，可以在 GRUB 菜单选择启动项的时候，在 Arch Linux 选项上按&lt;code&gt;e&lt;/code&gt;修改内核启动参数。找到&lt;code&gt;linux&lt;/code&gt;开头的一行，把&lt;code&gt;quiet&lt;/code&gt;参数去掉，按下&lt;code&gt;ctrl + x&lt;/code&gt;启动系统。修改后可以看到更多的输出信息，有利于排查错误或者求助其他人。&lt;/p&gt;
+&lt;p&gt;其他可能对你有帮助的资料&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.2333ma.nl/archives/arch-linux-note&#34; target=&#34;_blank&#34;&gt;Arch Linux 笔记（一）：安装 | Markson 的梦话空间&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;安装桌面环境&#34;&gt;安装桌面环境&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# SDDM桌面管理器（用于登陆）&lt;/span&gt;
+sudo pacman -S sddm
+sudo systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; sddm
+
+&lt;span class=&#34;c1&#34;&gt;# KDE Plasma&lt;/span&gt;
+sudo pacman -S xorg plasma
+
+sudo pacman -S networkmanager
+sudo systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; NetworkManager
+
+&lt;span class=&#34;c1&#34;&gt;# KDE 大礼包&lt;/span&gt;
+sudo pacman -S kde-applications
+
+&lt;span class=&#34;c1&#34;&gt;# 我喜欢保持简洁，只安装了以下几个来自 KDE 的软件&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# 文件浏览器，终端，文档阅读器，图片查看器，解压软件&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# sudo pacman -S dolphin konsole okular gwenview ark&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重启即可自动打开桌面环境。&lt;/p&gt;
+&lt;p&gt;如果出现问题，可以使用快捷键 &lt;code&gt;Ctrl + Alt + F2&lt;/code&gt; 切换到 tty2。tty 可以粗浅地理解成“另一个”命令行窗口。切换到tty3, tty4 等的方法同理。&lt;/p&gt;
+&lt;h2 id=&#34;解决严重问题&#34;&gt;解决严重问题&lt;/h2&gt;
+&lt;h3 id=&#34;nvidia独立显卡开源驱动导致死机双显卡&#34;&gt;Nvidia独立显卡开源驱动导致死机（双显卡）&lt;/h3&gt;
+&lt;p&gt;我遇到这个问题时使用的是一台游戏本（Nvidia独立显卡）。问题现象：进入桌面环境一段时间后画面冻结，无法操作；或者在命令行使用检查硬件的命令(lspci)也会卡住。这个问题可以通过禁用 Nvidia 开源驱动 nouveau 解决：同本文「系统安装 - Debug」部分添加内核启动参数的方法一样，添加参数 &lt;code&gt;module_blacklist=nouveau&lt;/code&gt;再启动。禁用之后才能正常启动系统，进行以下操作。&lt;/p&gt;
+&lt;h4 id=&#34;解决方案一&#34;&gt;解决方案一&lt;/h4&gt;
+&lt;p&gt;永久禁用独显驱动nouveau，并且使用bbswitch管理。&lt;a href=&#34;https://xuchen.wang/archives/archbbswitch.html&#34; target=&#34;_blank&#34;&gt;参考资料&lt;/a&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;解决方案二&#34;&gt;解决方案二&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://wiki.archlinux.org/index.php/NVIDIA_Optimus#Lockup_issue_.28lspci_hangs.29&#34; target=&#34;_blank&#34;&gt;Arch Wiki - NVIDIA_Optimus&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;在带有 Nvidia 显卡的双显卡笔记本上运行 Linux 有可能遇上难以解决的问题，或者需要你花费许多时间配置环境，&lt;a href=&#34;https://www.youtube.com/watch?v=IVpOyKCNZYw&#34; target=&#34;_blank&#34;&gt;毕竟……&lt;/a&gt;
+ 如果你是第一次安装 Linux 并且恰好有其他设备（比如轻薄本、AMD 显卡台式机），我更推荐你使用后者。&lt;/p&gt;
+&lt;h3 id=&#34;双系统时间不同步问题&#34;&gt;双系统时间不同步问题&lt;/h3&gt;
+&lt;p&gt;问题现象：关闭Windows系统，打开Linux系统后（或者相反），发现时间错乱了。时间错乱会给&lt;em&gt;有些软件&lt;/em&gt;带来致命问题。解决方案：&lt;a href=&#34;https://printempw.github.io/setting-up-manjaro-linux/#%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E4%B8%8D%E5%90%8C%E6%AD%A5&#34; target=&#34;_blank&#34;&gt;printempw - Manjaro Linux 踩坑调教记录 - 双系统时间不同步&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;软件安装&#34;&gt;软件安装&lt;/h2&gt;
+&lt;h3 id=&#34;包管理器&#34;&gt;包管理器&lt;/h3&gt;
+&lt;h4 id=&#34;编辑镜像源列表&#34;&gt;编辑镜像源列表&lt;/h4&gt;
+&lt;p&gt;编辑文件 ，将速度比较快的镜像源地址放到文件最上面。比如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://mirror.tuna.tsinghua.edu.cn/help/archlinux/&#34; target=&#34;_blank&#34;&gt;清华大学开源软件镜像站 | Tsinghua Open Source Mirror&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mirrors.ustc.edu.cn/help/archlinux.html&#34; target=&#34;_blank&#34;&gt;Arch Linux 源使用帮助 — USTC Mirror Help 文档&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;添加-arch-linux-中文社区仓库&#34;&gt;添加 Arch Linux 中文社区仓库&lt;/h4&gt;
+&lt;p&gt;详情请看：&lt;a href=&#34;https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/&#34; target=&#34;_blank&#34;&gt;Arch Linux 中文社区仓库 « Arch Linux&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;建议使用&lt;a href=&#34;https://github.com/archlinuxcn/mirrorlist-repo&#34; target=&#34;_blank&#34;&gt;这里&lt;/a&gt;
+的镜像链接，我使用中国科学技术大学的镜像源，速度不错。记得安装 archlinuxcn-keyring 包。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo pacman -S archlinuxcn-keyring
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;添加 archlinuxcn 源之后，许多常用的软件能直接在pacman高速下载。&lt;/p&gt;
+&lt;h4 id=&#34;yay&#34;&gt;yay&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://aur.archlinux.org/&#34; target=&#34;_blank&#34;&gt;Arch 用户软件仓库&lt;/a&gt;
+（Arch User Repository，AUR）是为用户而建、由用户主导的 Arch 软件仓库。AUR 中的软件包以软件包生成脚本（&lt;a href=&#34;https://wiki.archlinux.org/index.php/PKGBUILD_%28%e7%ae%80%e4%bd%93%e4%b8%ad%e6%96%87%29&#34; target=&#34;_blank&#34;&gt;PKGBUILD&lt;/a&gt;
+）的形式提供，用户自己通过 &lt;a href=&#34;https://wiki.archlinux.org/index.php/Makepkg_%28%e7%ae%80%e4%bd%93%e4%b8%ad%e6%96%87%29&#34; target=&#34;_blank&#34;&gt;makepkg&lt;/a&gt;
+ 生成包，再由 &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pacman_%28%e7%ae%80%e4%bd%93%e4%b8%ad%e6%96%87%29&#34; target=&#34;_blank&#34;&gt;pacman&lt;/a&gt;
+ 安装。创建 AUR 的初衷是方便用户维护和分享新软件包，并由官方定期从中挑选软件包进入 &lt;a href=&#34;https://wiki.archlinux.org/index.php/Community_repository&#34; target=&#34;_blank&#34;&gt;community&lt;/a&gt;
+ 仓库。本文介绍用户访问和使用 AUR 的方法。(来源：&lt;a href=&#34;https://wiki.archlinux.org/index.php/Arch_User_Repository_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29&#34; target=&#34;_blank&#34;&gt;Arch Wiki&lt;/a&gt;
+)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo pacman -S yay
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装……更多软件！有了 AUR，你甚至可以下载 Github 上的软件包！（如果有人写了安装脚本。）&lt;code&gt;yay&lt;/code&gt; 是帮助下载 AUR 内容的工具，用法类似&lt;code&gt;pacman&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;正是由于部分软件包是从 Github 上下载的，你也许会碰上这个问题：&lt;a href=&#34;https://github.com/Jguer/yay/issues/701&#34; target=&#34;_blank&#34;&gt;Jguer/yay - Github Issue - Proxy env variables being ignored.&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;本文以下提到的软件如果无法在 pacman 安装，请试一下 &lt;code&gt;yay&lt;/code&gt; (搜索软件包 &lt;code&gt;yay -Ss keyword&lt;/code&gt;)&lt;/p&gt;
+&lt;h3 id=&#34;字体&#34;&gt;字体&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 思源黑体&lt;/span&gt;
+sudo pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts 
+&lt;span class=&#34;c1&#34;&gt;# emoji&lt;/span&gt;
+sudo pacman -S noto-fonts-emoji
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在KDE设置中修改字体即可。如果有更细致的配置需求，请参考这篇文档 &lt;a href=&#34;https://wiki.archlinux.org/index.php/Font_Configuration_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29/Chinese_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29&#34; target=&#34;_blank&#34;&gt;Font Configuration/Chinese (简体中文) &lt;/a&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;输入法-fcitx5&#34;&gt;输入法 Fcitx5&lt;/h3&gt;
+&lt;p&gt;详情请看 &lt;a href=&#34;https://wiki.archlinux.org/index.php/Fcitx5_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E4%B8%AD%E6%96%87&#34; target=&#34;_blank&#34;&gt;Fcitx5 (简体中文) - ArchWiki&lt;/a&gt;
+&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo pacman -S fcitx5-im fcitx5-chinese-addons
+&lt;span class=&#34;c1&#34;&gt;# 词库（可选）&lt;/span&gt;
+sudo pacman -S fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改环境变量，编辑&lt;code&gt;~/.pam_environment&lt;/code&gt; 加入以下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;INPUT_METHOD  &lt;span class=&#34;nv&#34;&gt;DEFAULT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;fcitx5
+GTK_IM_MODULE &lt;span class=&#34;nv&#34;&gt;DEFAULT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;fcitx5
+QT_IM_MODULE  &lt;span class=&#34;nv&#34;&gt;DEFAULT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;fcitx5
+XMODIFIERS    &lt;span class=&#34;nv&#34;&gt;DEFAULT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\@&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;im&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;fcitx5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;设置开机启动，编辑 &lt;code&gt;~/.xprofile&lt;/code&gt; ，加入以下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;fcitx5 &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输入法启动后，在系统托盘里可用找到fcitx5的图标，右键菜单 =&amp;gt; Configure 打开配置窗口。（或者在终端使用命令&lt;code&gt;fcitx5-configtool&lt;/code&gt;）
+添加 “Pinyin”选项，完成。（注意不是添加 Chinese 选项）&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image.png&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2020-08-archlinux-installation/2.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Debug方式：在终端输入 fcitx5 也可以启动输入法，而且带有log信息。&lt;/p&gt;
+&lt;p&gt;Fcitx5 也可以安装部分搜狗拼音的词库！非常方便，鼠标点几下就好了。限于篇幅，详情请 Google。&lt;/p&gt;
+&lt;h3 id=&#34;外观主题&#34;&gt;外观主题&lt;/h3&gt;
+&lt;p&gt;Linux 的灵活性同时也让桌面配置变得非常有趣，推荐你到 &lt;a href=&#34;https://www.reddit.com/r/unixporn/&#34; target=&#34;_blank&#34;&gt;r/unixporn&lt;/a&gt;
+ 逛一逛。不过我最近更喜欢 KDE 默认主题🤣&lt;/p&gt;
+&lt;h3 id=&#34;rofi&#34;&gt;Rofi&lt;/h3&gt;
+&lt;p&gt;我用 Rofi 作为软件启动 + 窗口切换工具。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo pacman -S rofi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/davatorium/rofi/wiki&#34; target=&#34;_blank&#34;&gt;Rofi Wiki&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;我在 KDE 设置 &lt;code&gt;Custom Shortcuts&lt;/code&gt; 中把 &lt;code&gt;super + space&lt;/code&gt; 快捷键绑定到了rofi启动命令：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;rofi -show drun&lt;/code&gt; 软件启动&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rofi -combi-modi window,drun -show combi&lt;/code&gt;  软件启动 + 窗口切换&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2020-08-archlinux-installation/7.png&#34; /&gt;如图是我根据 slate 主题修改的自定义主题。&lt;/p&gt;
+&lt;p&gt;使用方法：复制以下内容保存为 &lt;code&gt;.rasi&lt;/code&gt; 后缀的文件，移动该文件到&lt;code&gt;/usr/share/rofi/themes&lt;/code&gt; 目录，再使用&lt;code&gt;rofi-theme-selector&lt;/code&gt;命令切换主题即可。主题文件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;background-color&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;#282C33&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;border-color&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;#2e343f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;text-color&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;#d4d4d4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;spacing&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1024&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;inputbar&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;border&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;children&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;entry&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;prompt&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;border&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;textbox&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;background-color&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;#2e343f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;border&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;border-color&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;#282C33&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;entry&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;listview&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;spacing&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;      &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;scrollbar&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;margin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;-1&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;element&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;border&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;padding&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;px&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;nt&#34;&gt;element&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;selected&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;background-color&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;#2e343f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;词典&#34;&gt;词典&lt;/h3&gt;
+&lt;p&gt;在命令行使用词典！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;translate-shell&lt;/code&gt; 谷歌翻译。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sdcv&lt;/code&gt; 星际译王命令行版本，可以搭配 &lt;a href=&#34;https://github.com/skywind3000/ECDICT/releases&#34; target=&#34;_blank&#34;&gt;Edict&lt;/a&gt;
+ 使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;其他&#34;&gt;其他&lt;/h2&gt;
+&lt;h3 id=&#34;开机自动挂载-windows-分区&#34;&gt;开机自动挂载 Windows 分区&lt;/h3&gt;
+&lt;p&gt;每次在 Dolphin 打开 Windows 磁盘分区时需要输入密码，有一些麻烦。用以下方法就能让 Linux 系统在开机后自动挂载(mount)该硬盘分区。由于Windows分区使用ntfs文件系统，你可能需要安装&lt;code&gt;ntfs-3g&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;运行命令 &lt;code&gt;sudo blkid&lt;/code&gt; 查看磁盘情况 ，在我的输出中可以看到我想要自动挂载的两个磁盘分区的信息：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;/dev/sdb2: &lt;span class=&#34;nv&#34;&gt;LABEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Data&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;BLOCK_SIZE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;512&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;UUID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;9C02C50E02C4EE78&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;TYPE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ntfs&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PARTLABEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Basic data partition&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PARTUUID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;77a6e441-bae1-4d2a-b83b-612154aeca3c&amp;#34;&lt;/span&gt;
+
+/dev/sdb3: &lt;span class=&#34;nv&#34;&gt;LABEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Games&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;BLOCK_SIZE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;512&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;UUID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2C16224116220C80&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;TYPE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;ntfs&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PARTLABEL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Basic data partition&amp;#34;&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PARTUUID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;5bf83111-53ff-4009-9a84-c905b96d461c&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;根据你的需求修改&lt;code&gt;/etc/fstab&lt;/code&gt;，可以和 KDE 文件管理程序自动挂载到一样的文件目录。我在&lt;code&gt;/etc/fstab&lt;/code&gt;末尾增加了以下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;/dev/sdb2	/run/media/finctive/Data       ntfs     defaults          0 0
+/dev/sdb3	/run/media/finctive/Games      ntfs     defaults          0 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;检查并挂载新添项：&lt;code&gt;sudo mount -a&lt;/code&gt; 。这个命令会尝试挂载&lt;code&gt;/etc/fstab&lt;/code&gt;中的内容，如果有错误，则会提示相关信息。想了解更详细的说明，请看&lt;a href=&#34;https://blog.csdn.net/GoDevelop/article/details/52314501&#34; target=&#34;_blank&#34;&gt;参考来源&lt;/a&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;交换-esc-键和-caps-lock-键&#34;&gt;交换 Esc 键和 Caps Lock 键&lt;/h3&gt;
+&lt;p&gt;当然是为了愉快地使用 vim 啦！&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210203223333167&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2020-08-archlinux-installation/image-20210203223333167.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;在 VS Code 下不起作用？请在 VS Code 的设置中加上&lt;code&gt;&amp;quot;keyboard.dispatch&amp;quot;: &amp;quot;keyCode&amp;quot;&lt;/code&gt; &lt;a href=&#34;https://bbs.archlinux.org/viewtopic.php?pid=782679#p782679&#34; target=&#34;_blank&#34;&gt;来源&lt;/a&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;kde&#34;&gt;KDE&lt;/h3&gt;
+&lt;p&gt;KDE 可以更改的设置很多，如果不喜欢一些功能，不妨打开设置看一看。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Touchpad（触摸板） 的默认配置很奇怪，需要自己修改。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;进入桌面后不启动其他程序：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2020-08-archlinux-installation/8.png&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;强烈建议大家绑定自己的快捷键。&lt;/li&gt;
+&lt;li&gt;Virtual Desktop + KDE 平铺脚本非常好用。没错，借助 KWin Script，你也能获得类似 i3 的体验。&lt;a href=&#34;https://www.youtube.com/watch?v=n4pppzPxD3Q&#34; target=&#34;_blank&#34;&gt;Configure KDE to function like a tiling WM&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;应用推荐&#34;&gt;应用推荐&lt;/h3&gt;
+&lt;p&gt;命令行软件留到下一篇文章讲解👏&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Markdon 编辑器 &lt;code&gt;typora&lt;/code&gt;，这篇博客就是用它写的，做笔记也很好用。&lt;/li&gt;
+&lt;li&gt;聊天软件&lt;code&gt;telegram&lt;/code&gt;， 中文技术交流群很多（比如 Arch Linux 群组）。&lt;/li&gt;
+&lt;li&gt;第三方网易云播放器 &lt;code&gt;yesplaymusic&lt;/code&gt;，界面简约，无社交功能。&lt;/li&gt;
+&lt;li&gt;跨平台的电子书阅读器 &lt;a href=&#34;https://github.com/troyeguo/koodo-reader&#34; target=&#34;_blank&#34;&gt;koodo reader&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;视频播放器 &lt;code&gt;mpv&lt;/code&gt;，界面UI很少。我参考 Youtube 的快捷键写了一套 &lt;a href=&#34;https://gist.github.com/FINCTIVE/2abebb6995e3e650c0f8a3afdc9720f1&#34; target=&#34;_blank&#34;&gt;input.conf&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;截图应用 &lt;code&gt;flameshot&lt;/code&gt; 或者 KDE 的 &lt;code&gt;spectacle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;下拉终端 &lt;code&gt;yakuake&lt;/code&gt; 或者 &lt;code&gt;tilda&lt;/code&gt;，把终端绑定到快捷键，随手开启、收起。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;kdeconnect&lt;/code&gt; 可以在局域网和手机互相传文件，无敌好用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;更多内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://printempw.github.io/setting-up-manjaro-linux/&#34; target=&#34;_blank&#34;&gt;Manjaro Linux 踩坑调教记录&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;end&#34;&gt;END&lt;/h2&gt;
+&lt;p&gt;至此，你已经成功安装好了 Arch Linux，并且有了可以满足基本使用需求的桌面环境 🎉&lt;/p&gt;
+&lt;p&gt;欢迎加入 &lt;a href=&#34;https://t.me/archlinuxcn_group&#34; target=&#34;_blank&#34;&gt;#archlinux-cn&lt;/a&gt;
+ 群组，你可以在这里和大家交流 Arch Linux 相关的问题。&lt;/p&gt;
+&lt;p&gt;后续我可能还会更新 Linux 工具相关的博文，最后推荐一下我喜欢的相关内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://space.bilibili.com/13081489&#34; target=&#34;_blank&#34;&gt;Bilibili - TheCW&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/vim-video&#34; target=&#34;_blank&#34;&gt;知乎专栏 - 玩转 vim 与 Terminal (视频) - PegasusWang&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>西安-冬-大二上</title>
+      <link>https://finctive.com/2020-02-university-second-year-1/</link>
+      <pubDate>Sat, 29 Feb 2020 08:02:17 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/2020-02-university-second-year-1/</guid>
+      <description>&lt;p&gt;……这个学期几乎把各种学了就会忘的“基础课”学完了！数理基础当然很重要，但是像我这样的人，靠应试教育填鸭的知识只需要几个月就会忘了！&lt;/p&gt;
+&lt;p&gt;我更喜欢在实践中学习理论。期末考试前4周和朋友们突击复习，&lt;del&gt;一上手发现全是预习&lt;/del&gt;；预想中必定挂科的课目竟然全都过了，有的课程靠老师捞了一把拿了优秀。于是，你发现其中可以优化的部分了吗？当然我不方便说出来，但我确实打算好好“重构”我的大学生活了，我需要更多的时间在更有收益的事情上。&lt;/p&gt;
+&lt;p&gt;如果你读过我的前两篇学期总结文章，你会发现，我换段落的时候前后没有关联！我第一次意识到“情绪值”的存在是在阅读特斯拉自传时，读了《游戏改变世界》（&lt;em&gt;Reality Is Broken&lt;/em&gt;）后我有了一个更清晰的概念。这是一个我自己造的词，重点在“值”字，我认为情绪是一种消耗品，类比生存游戏里的饥饿值。当情绪值消耗殆尽，我仍然会继续手头上的工作，即使毫无进展，同时心情会变得越来越焦虑。不知道你有没有这样的经历：睡前遇上棘手难题，无论怎么样都解决不了；起床之后灵光一现，一会儿就完成了任务。&lt;/p&gt;
+&lt;p&gt;对我来说有3个重大因素会影响情绪值：1. 休息。2. 成就感。3.工作/学习地点。我一直在寻找合适的工作、学习地点，改进 GTD 方法，但是截至目前为止我还是没能获得一套完美的方案。&lt;/p&gt;
+&lt;p&gt;这学期我还做到了一件以前完全不可能做到的事情：我停止使用了 QQ 空间、微信朋友圈。因为这种熟人社交网络，有一种自说自话的感觉，大家都在说，都在“造人设”，没有人在听（我作为一个普通大学生，熟人网络社交圈确实是这样的。插一个没收钱的硬广告，即刻 APP 还不错哈哈哈）。与之相对，我现在更关注可以面对面的社交。推荐你也试试，真的不会丢朋友，把别人发在社交网络的消息从口头获取，有一种开启新世界的感觉。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>和弦进行可视化工具</title>
+      <link>https://finctive.com/2020-01-chord-map/</link>
+      <pubDate>Thu, 09 Jan 2020 08:02:17 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/2020-01-chord-map/</guid>
+      <description>&lt;p&gt;一个为方便编写和弦进行而诞生的网页工具，同时也是我的第一个Web项目。&lt;/p&gt;
+&lt;p&gt;希望可以帮到你 (゜-゜)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/FINCTIVE/chord-map&#34; target=&#34;_blank&#34;&gt;FINCTIVE/chord-map&lt;/a&gt;
+&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;乐理参考：&lt;a href=&#34;https://www.youtube.com/playlist?list=PLXmi76euGSyx5LrRF0_czqlJZJYOjwqgL&#34; target=&#34;_blank&#34;&gt;YouTube - Music Theory for Producers - Music Tech Help Guy&lt;/a&gt;
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;img&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2020-01-chord-map/Github-chord-map-pic.png&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>关于我</title>
+      <link>https://finctive.com/about/</link>
+      <pubDate>Fri, 22 Nov 2019 09:22:14 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/about/</guid>
+      <description>&lt;p&gt;初级 Web 后端开发工程师，近期专注于 Go / Linux 领域学习。&lt;/p&gt;
+&lt;p&gt;我是一个极简主义者，相信平凡原则带来的巨大力量。&lt;/p&gt;
+&lt;h3 id=&#34;讨论&#34;&gt;讨论&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t.me/create_worlds&#34; target=&#34;_blank&#34;&gt;造物指南&lt;/a&gt;
+，我的 Telegram 分享频道&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;链接&#34;&gt;链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/FINCTIVE&#34; target=&#34;_blank&#34;&gt;Github, Code for fun!&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;即刻ID: 镜岛 &amp;lt;= 日常内容发在这里&lt;/li&gt;
+&lt;li&gt;我的音乐 =&amp;gt; &lt;a href=&#34;https://music.163.com/#/artist?id=12852875&#34; target=&#34;_blank&#34;&gt;网易云&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;联系邮箱📭 finctive&lt;code&gt;at&lt;/code&gt;qq.com&lt;/li&gt;
+&lt;li&gt;请通过邮件获取我的 微信 / QQ 帐号 😄&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;s&#34;&gt;**s&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/FINCTIVE/lost-in-the-wilderness-nightmare&#34; target=&#34;_blank&#34;&gt;lost-in-the-wilderness-nightmare&lt;/a&gt;
+ A tiny Unity 3D shooter game.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/FINCTIVE/chord-map&#34; target=&#34;_blank&#34;&gt;chord-map&lt;/a&gt;
+ 一个为方便编写和弦进行而诞生的网页工具。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;近期兴趣&#34;&gt;近期兴趣&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;#Notion&lt;/code&gt; &lt;code&gt;#知识管理&lt;/code&gt; &lt;code&gt;#Apex Legends&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#双链笔记&lt;/code&gt; &lt;code&gt;#Post-rock&lt;/code&gt; &lt;code&gt;#Yorushika&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#自学&lt;/code&gt; &lt;code&gt;#Midtempo&lt;/code&gt; &lt;code&gt;#矢量设计&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#Madeon&lt;/code&gt; &lt;code&gt;#Voxel&lt;/code&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>关于本站</title>
+      <link>https://finctive.com/about-blog/</link>
+      <pubDate>Fri, 22 Nov 2019 09:22:14 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/about-blog/</guid>
+      <description>&lt;p&gt;本博客使用 &lt;a href=&#34;https://gohugo.io/&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt;
+ 搭建，主题修改于 &lt;a href=&#34;https://github.com/varkai/hugo-theme-zozo&#34; target=&#34;_blank&#34;&gt;zozo&lt;/a&gt;
+（作者 &lt;a href=&#34;https://varkai.com/&#34; target=&#34;_blank&#34;&gt;varkai&lt;/a&gt;
+）&lt;/p&gt;
+&lt;p&gt;截取自 varkai/hugo-theme-zozo 项目说明：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It&amp;rsquo;s a port of &lt;a href=&#34;https://github.com/PCDotFan/Aragaki&#34; target=&#34;_blank&#34;&gt;Aragaki&lt;/a&gt;
+,  The style is reference from &lt;a href=&#34;https://blog.caicai.me/&#34; target=&#34;_blank&#34;&gt;菩提树下&lt;/a&gt;
+, Some functions are referenced from &lt;a href=&#34;https://github.com/olOwOlo/hugo-theme-even&#34; target=&#34;_blank&#34;&gt;Even&lt;/a&gt;
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;博客的所有内容都部署在 &lt;a href=&#34;https://github.com/FINCTIVE/finctive.github.io&#34; target=&#34;_blank&#34;&gt;FINCTIVE/finctive.github.io&lt;/a&gt;
+ 项目中，当域名过期时仍可以 clone 该项目到本地来查看所有内容 : )&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>游戏 AI 控制脚本基本状态机 (FSM)</title>
+      <link>https://finctive.com/2019-11-fsm-game-ai/</link>
+      <pubDate>Tue, 19 Nov 2019 08:30:18 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/2019-11-fsm-game-ai/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;视频教程 &lt;a href=&#34;https://www.youtube.com/watch?v=YdERlPfwUb0&#34; target=&#34;_blank&#34;&gt;Unity3D AI with State Machine (FSM), Drones, and Lasers!&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;译文 &lt;a href=&#34;https://gpp.tkchu.me/state.html&#34; target=&#34;_blank&#34;&gt;游戏设计模式-状态模式&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;英语原文 &lt;a href=&#34;http://gameprogrammingpatterns.com/state.html&#34; target=&#34;_blank&#34;&gt;Game Programming Patterns - State&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文为示例游戏项目 &lt;a href=&#34;https://github.com/FINCTIVE/lost-in-the-wilderness-nightmare&#34; target=&#34;_blank&#34;&gt;FINCTIVE/lost-in-the-wilderness-nightmare&lt;/a&gt;
+ 开发笔记系列文章之一：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;游戏 AI 控制脚本基本状态机 (FSM)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://finctive.com/2019-10-coroutine-level-manager/&#34; target=&#34;_blank&#34;&gt;使用 Unity 协程控制游戏回合逻辑&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://finctive.com/2019-10-observer-ugui/&#34; target=&#34;_blank&#34;&gt;游戏 UI 观察者模式&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;应用场景&#34;&gt;应用场景&lt;/h2&gt;
+&lt;p&gt;在荒野迷踪：噩梦中，敌人的行为如下图：&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-11-fsm-game-ai/1.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;文字描述再详细也不如你亲自打开网页玩一下 :D &lt;a href=&#34;https://finctive.github.io/lost-in-the-wilderness-nightmare/&#34; target=&#34;_blank&#34;&gt;在线运行 Demo&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;看起来可以用大大的 &lt;code&gt;if{...}else if{...}else{...}&lt;/code&gt; 语句实现，但实际上手开发之后我发现……&lt;/p&gt;
+&lt;p&gt;切入正题：一个&lt;strong&gt;状态&lt;/strong&gt;指AI的一系列行为，例如本项目中的静止、追逐、自爆状态，可以使用一个类描述。对于一个状态，应该把处理代码写在一个类中。比如，“追逐玩家”状态相关的代码，尽量不要写到其他状态的类里面。&lt;/p&gt;
+&lt;h2 id=&#34;解决方案&#34;&gt;解决方案&lt;/h2&gt;
+&lt;p&gt;敌人AI游戏对象截图&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-11-fsm-game-ai/2.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;以下是状态的&lt;strong&gt;基类&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;abstract&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;BaseState&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MonoBehaviour&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;c1&#34;&gt;// 执行本状态的相关操作，返回值是下一次游戏循环的状态
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;abstract&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseState&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Tick&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// 与本状态有关的初始化代码
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;virtual&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OnStateStart&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){}&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// 与本状态有关的退出代码
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;virtual&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OnStateExit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;状态机&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;StateMachine&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MonoBehaviour&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseState&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;defaultState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;    [HideInInspector]&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseState&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Awake&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;currentState&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;defaultState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FixedUpdate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;BaseState&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nextStateType&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Tick&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nextStateType&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;currentState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;nextStateType&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OnStateStart&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;currentState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OnStateExit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;currentState&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;nextStateType&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我把与所有状态相关的控制脚本写在了EnemyController组件中，暴露出公共方法让状态机脚本调用。这样可以复用代码，并且让状态机的逻辑代码只负责更高一层的控制，而不管细节如何。
+以下是追逐状态的代码，其他状态同理。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;EnemyChasingState&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseState&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;EnemyAttackingState&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;enemyAttackingState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;EnemyIdlingState&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;enemyIdlingState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;EnemyController&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;enemyController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Awake&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;m&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;enemyController&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GetComponent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;readonly&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AnimMove&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Animator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;StringToHash&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;move&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;override&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BaseState&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Tick&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;Vector3&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;targetPos&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PlayerController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;playerTransform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;position&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;m&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;enemyController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MoveToTarget&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;targetPos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+        
+        &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;distanceSqrMag&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;targetPos&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;transform&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;position&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sqrMagnitude&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;c1&#34;&gt;// 距离足够近，开始攻击（自爆）
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;distanceSqrMag&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;enemyController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;enemyInfo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;startAttackingDistance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;enemyController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;enemyInfo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;startAttackingDistance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;enemyAttackingState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        
+        &lt;span class=&#34;c1&#34;&gt;// 距离太远，放弃追逐
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;distanceSqrMag&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;enemyController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;enemyInfo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stopChasingDistance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;enemyController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;enemyInfo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stopChasingDistance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;enemyIdlingState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;override&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OnStateExit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;m&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;enemyController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;modelAnimator&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SetFloat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;AnimMove&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用 Unity 协程控制游戏回合逻辑</title>
+      <link>https://finctive.com/2019-10-coroutine-level-manager/</link>
+      <pubDate>Sun, 27 Oct 2019 08:20:57 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/2019-10-coroutine-level-manager/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;相关内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.unity3d.com/Manual/Coroutines.html&#34; target=&#34;_blank&#34;&gt;Unity Coroutine&lt;/a&gt;
+ &lt;/li&gt;
+&lt;li&gt;C#序列化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;前置知识：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/zhaoqingqing/p/3995304.html&#34; target=&#34;_blank&#34;&gt;SerializeField和Serializable&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文为示例游戏项目 &lt;a href=&#34;https://github.com/FINCTIVE/lost-in-the-wilderness-nightmare&#34; target=&#34;_blank&#34;&gt;FINCTIVE/lost-in-the-wilderness-nightmare&lt;/a&gt;
+ 开发笔记系列文章之一：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://finctive.com/2019-11-fsm-game-ai/&#34; target=&#34;_blank&#34;&gt;游戏 AI 控制脚本基本状态机 (FSM)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;使用 Unity 协程控制游戏回合逻辑&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://finctive.com/2019-10-observer-ugui/&#34; target=&#34;_blank&#34;&gt;游戏 UI 观察者模式&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;应用场景&#34;&gt;应用场景&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/FINCTIVE/lost-in-the-wilderness-nightmare&#34; target=&#34;_blank&#34;&gt;荒野迷踪：噩梦&lt;/a&gt;
+是一个生存游戏，游戏难度逐渐增加，玩家的目的是尽可能活得更久。这个项目的游戏进程由一个游戏管理对象控制：当达到某一个时间段的时候（一个回合），随机生成怪物或者生成补给子弹箱。&lt;/p&gt;
+&lt;p&gt;每个回合有自己的属性：如怪物生成速度、子弹补给生成速度、子弹补给箱容量和种类。通过设置不同的属性值来控制该回合的难度。
+初学游戏开发的时候，我是这样实现这个功能的：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;totalTime&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Update&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;totalTime&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Time&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;deltaTime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;totalTime&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;时间点&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;err&#34;&gt;生成怪物&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;速度&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;；&lt;/span&gt;
+        &lt;span class=&#34;err&#34;&gt;生成补给箱&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;速度&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;；&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;totalTime&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;时间点&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;B&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;err&#34;&gt;生成怪物&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;速度&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;；&lt;/span&gt;
+        &lt;span class=&#34;err&#34;&gt;生成补给箱&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;速度&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;；&lt;/span&gt;
+        &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// 根据需要扩展出长长的else if
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这么写可以实现想要的功能，但如果需要修改某个关卡的时间，或者对应的属性值，我需要打开代码编辑器修改，或者在组件开头声明出长长的一串public变量来控制相应的值。进一步来考虑，这种写法是不易扩展的。&lt;/p&gt;
+&lt;h2 id=&#34;解决方案&#34;&gt;解决方案&lt;/h2&gt;
+&lt;h3 id=&#34;大体思路&#34;&gt;大体思路&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;创建一个类来保存回合属性信息（例如怪物生成速度、子弹补给生成速度等等，本例中为GameRoundInfo类）。&lt;/li&gt;
+&lt;li&gt;在管理脚本中使用Unity协程逐个遍历回合。（本例中为GameLoop方法）&lt;/li&gt;
+&lt;li&gt;在每一个回合中（本例中为GameRound方法），同时有两件事情要处理：生成敌人，生成怪物（本例中为SpawnEnemy方法、SpawnProps方法）。&lt;/li&gt;
+&lt;li&gt;上述的GameLoop方法、GameRound方法、SpawnEnemy方法、SpawnProps方法，都可以使用协程来编写脚本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文提到的所有功能都写在如下结构的一个文件中：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;LevelManager&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MonoBehaviour&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;    [SerializeField]&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GameRoundInfo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gameRoundInfos&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;na&#34;&gt;    [System.Serializable]&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;GameRoundInfo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{...}&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;IEnumerator&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GameLoop&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){...}&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;IEnumerator&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GameRound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GameRoundInfo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){...}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Coroutine&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;spawnEnemyCoro&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Coroutine&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;spawnPropsCoro&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;IEnumerator&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SpawnEnemy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;waitingTimeBase&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;randomTime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){...}&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;IEnumerator&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SpawnProps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;waitingTimeBase&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;randomTime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;propsAmmoPistal&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;propsAmmoRifle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){...}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-10-coroutine-level-manager/2.png&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;具体实现&#34;&gt;具体实现&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;创建GameRoundInfo类来保存回合属性信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;为了方便，我在本例中直接把这个类作为内部类声明在了LevelManager组件中。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 注意第二行是不可省的，否则这个类将无法在Inspector窗口中显示出来
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;[System.Serializable]&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;GameRoundInfo&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;roundTime&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;enemySpawnTime&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;propsSpawnTime&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;propsAmmoPistal&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;propsAmmoRifle&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;启动游戏循环过程&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//如果无特别需求，可以在Start函数中调用 StartCoroutine(GameLoop());来启动游戏循环过程
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;IEnumerator&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GameLoop&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gameRoundIndex&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gameRoundIndex&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gameRoundInfos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;gameRoundCoro&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;StartCoroutine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GameRound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gameRoundInfos&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gameRoundIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]));&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gameRoundCoro&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 等待gameRoundCoro执行完毕后，继续往下执行
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;p&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gameRoundIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;启动每一个游戏回合中的操作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Coroutine&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;spawnEnemyCoro&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Coroutine&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;spawnPropsCoro&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;IEnumerator&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GameRound&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;GameRoundInfo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;spawnEnemyCoro&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;StartCoroutine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SpawnEnemy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;enemySpawnTime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;spawnPropsCoro&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;StartCoroutine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SpawnProps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;propsSpawnTime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;propsAmmoPistal&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;propsAmmoRifle&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;WaitForSeconds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;roundTime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// 结束触发的协程，否则他们会一直执行下去
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;StopCoroutine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;spawnEnemyCoro&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;StopCoroutine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;spawnPropsCoro&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;具体生成方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span class=&#34;n&#34;&gt;IEnumerator&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SpawnEnemy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;waitingTimeBase&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;randomTime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;yield&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;WaitForSeconds&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;waitingTimeBase&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Random&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Range&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(-&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;randomTime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;randomTime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+
+    &lt;span class=&#34;c1&#34;&gt;// ...各项操作...
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// 启动下一次生成过程
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;spawnEnemyCoro&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;StartCoroutine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SpawnEnemy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;waitingTimeBase&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;randomTime&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;完全版本的代码源文件（其中包含有其他与本文无关的功能，直接阅读这个脚本并不利于理解）：&lt;a href=&#34;https://github.com/FINCTIVE/lost-in-the-wilderness-nightmare/blob/master/Assets/GameProject/Scripts/Manager/LevelManager.cs&#34; target=&#34;_blank&#34;&gt;LevelManager.cs&lt;/a&gt;
+
+这样实现流程管理，不仅方便了我们对代码差错，还便于策划修改参数，设计游戏细节。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>游戏 UI 观察者模式</title>
+      <link>https://finctive.com/2019-10-observer-ugui/</link>
+      <pubDate>Sat, 19 Oct 2019 08:26:08 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/2019-10-observer-ugui/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;参考：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;视频教程 &lt;a href=&#34;https://www.youtube.com/watch?v=Yy7Dt2usGy0&amp;amp;list=PLB5_EOMkLx_VOmnIytx37lFMiajPHppmj&amp;amp;index=1&#34; target=&#34;_blank&#34;&gt;Observer Pattern - Game Programming Patterns in Unity &amp;amp; C#&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;中文译文 &lt;a href=&#34;https://gpp.tkchu.me/observer.html&#34; target=&#34;_blank&#34;&gt;游戏设计模式-观察者模式&lt;/a&gt;
+ &lt;/li&gt;
+&lt;li&gt;英语原文 &lt;a href=&#34;http://gameprogrammingpatterns.com/observer.html&#34; target=&#34;_blank&#34;&gt;Game Programming Patterns - Observer&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文为示例游戏项目 &lt;a href=&#34;https://github.com/FINCTIVE/lost-in-the-wilderness-nightmare&#34; target=&#34;_blank&#34;&gt;FINCTIVE/lost-in-the-wilderness-nightmare&lt;/a&gt;
+ 开发笔记系列文章之一：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://finctive.com/2019-11-fsm-game-ai/&#34; target=&#34;_blank&#34;&gt;游戏 AI 控制脚本基本状态机 (FSM)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://finctive.com/2019-10-coroutine-level-manager/&#34; target=&#34;_blank&#34;&gt;使用 Unity 协程控制游戏回合逻辑&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;游戏 UI 观察者模式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;应用场景&#34;&gt;应用场景&lt;/h2&gt;
+&lt;p&gt;假如有一天，你在一个游戏项目中实现了一个角色控制器。这个控制器相对复杂，于是你想新开一个空场景来单独测试这个控制器脚本。你发现在新场景中，游戏角色对象缺乏相关UI对象的引用，导致程序无法测试。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Slider&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;hpSlider&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 举个例子，角色HP的血条
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;GetDamage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  	&lt;span class=&#34;c1&#34;&gt;// ...处理受伤代码...
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  	&lt;span class=&#34;c1&#34;&gt;// 更新相应UI
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;	&lt;span class=&#34;n&#34;&gt;hpSlider&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 在新场景中导致空引用
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;解决方案&#34;&gt;解决方案&lt;/h2&gt;
+&lt;p&gt;使用C#委托和事件来建立hp更新和UI更新的联系。
+在管理玩家属性的脚本中(本例中是PlayerInfo.cs)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;event&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Action&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OnPlayerHpChange&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;hp&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;get&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;set&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;m&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hp&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OnPlayerHpChange&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;OnPlayerHpChange&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在控制UI更新行为的脚本中(本例是PlayerHpUI.cs)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-csharp&#34; data-lang=&#34;csharp&#34;&gt;&lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;c1&#34;&gt;// 通过全局变量获取player示例中的playerInfo对象（与上一个代码示例对应）
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;PlayerController&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;player&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;playerInfo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OnPlayerHpChange&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;_&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;OnPlayerHpChange&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; 
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;OnPlayerHpChange&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;hp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;hpSlider&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;float&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hp&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;100f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在本例中Player控制器部分代码与UI更新代码分离开了，实际工程项目中会出现更复杂的情况；本文例子是“一对一”的情况，实际工程中有可能会出现“&lt;strong&gt;一对多&lt;/strong&gt;”甚至“&lt;strong&gt;多对多&lt;/strong&gt;”的情况。&lt;/p&gt;
+&lt;p&gt;更经典的应用场景是游戏成就系统：游戏成就千奇百怪，把判定游戏成就的代码耦合到其他游戏系统中不是一个明智的做法。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Git 备忘录</title>
+      <link>https://finctive.com/2019-08-git-cheatsheet/</link>
+      <pubDate>Mon, 19 Aug 2019 08:47:05 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/2019-08-git-cheatsheet/</guid>
+      <description>&lt;p&gt;本文内容为方便查询的备忘录，如果你想从零开始学习使用 Git, 你可以学习以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bilibili.com/video/av17603446&#34; target=&#34;_blank&#34;&gt;表严肃讲Git (视频教程)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://biaoyansu.com/27.cheatsheet&#34; target=&#34;_blank&#34;&gt;表严肃讲Git - 速查表&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;互动式学习git，加深理解 &lt;a href=&#34;https://learngitbranching.js.org/&#34; target=&#34;_blank&#34;&gt;learngitbranching.js&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如有错误，欢迎指正。&lt;/p&gt;
+&lt;h2 id=&#34;基础&#34;&gt;基础&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https:_www.runoob.com_git_git-workspace-index-repo&#34; target=&#34;_blank&#34;&gt;菜鸟教程 - Git 工作区、暂存区和版本库&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git config --global user.name &amp;quot;姓名&amp;quot;&lt;/code&gt; 设置提交者姓名，注意双引号（英文）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git config --global user.email &amp;quot;邮箱&amp;quot;&lt;/code&gt;设置提交者邮箱&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git init 目录名&lt;/code&gt;初始化仓库。创建.git文件夹。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git clone 远程仓库地址&lt;/code&gt;从指定地址克隆（下载）仓库内容&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git add 目录名或者文件名&lt;/code&gt; 将文件或目录中已修改的代码添加到暂存区。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git commit -m &amp;quot;注释消息&amp;quot;&lt;/code&gt;提交暂存区内容。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git status&lt;/code&gt;查看仓库状态&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;常用示例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git add . &lt;span class=&#34;c1&#34;&gt;# 添加当前文件夹下所有修改到暂存区&lt;/span&gt;
+git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;修改了xxx部分内容&amp;#34;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# 提交&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;历史信息&#34;&gt;历史信息&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git log&lt;/code&gt;打印出已经提交的信息&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git log --oneline&lt;/code&gt;打印为单行log&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git log --all&lt;/code&gt; 打印所有记录&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git log --graph&lt;/code&gt;打印示意图&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git log --grep 筛选信息&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以&amp;quot;&amp;ndash;&amp;ldquo;开头的参数可以叠加组合（出现的顺序不重要），比如： &lt;code&gt;git log --oneline --all --graph&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;分支&#34;&gt;分支&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git branch&lt;/code&gt;列出所有分支信息&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git branch 分支名称&lt;/code&gt;创建分支。注意这时候并没有在当前分支上。需要再执行 &lt;code&gt;git checkout 新分支名称&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git checkout 目标&lt;/code&gt;切换至目标，其中目标可以是branch、commit、tag。&lt;/li&gt;
+&lt;li&gt;checkout指令可以使用相对引用符号 &lt;code&gt;^&lt;/code&gt;  与 &lt;code&gt;~数字&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git checkout	-b 分支名称&lt;/code&gt;创建分支，同时移动到新的分支上&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git	branch	-d 分支名称&lt;/code&gt;删除已经合并的分支，commit仍会保留。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git	branch	-D 分支名称&lt;/code&gt;强行删除分支&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git merge 目标分支名称&lt;/code&gt;将目标分支合并到当前分支。常见操作的例子：切换到master分支，再用merge命令把目标分支合并过来。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git merge --abort&lt;/code&gt;用于合并分支有冲突时，取消合并操作&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git tag&lt;/code&gt;打标签&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;远程&#34;&gt;远程&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;远程分支命名格式： 仓库名/分支名，例如 origin/master&lt;/li&gt;
+&lt;li&gt;一个远程仓库 = 一个储存着仓库链接的变量&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git remote add 自定义仓库名 项目地址&lt;/code&gt;添加新的仓库&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git remote set-url 仓库名称 项目地址&lt;/code&gt;修改已经存在的仓库的url&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git remote get-url&lt;/code&gt;获取已经存在的仓库的url&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git clone 远程仓库地址&lt;/code&gt;从指定地址克隆仓库&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git pull 仓库名称 分支名称&lt;/code&gt;拉取远程仓库，并把远程仓库的修改合并到当前分支。示例： git pull origin master&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git push 仓库名 分支名&lt;/code&gt;将修改推送至远程仓库。示例：git push origin master&lt;/li&gt;
+&lt;li&gt;push命令可以加上 -f 参数，强制把代码上传到远程仓库，但这是一个非常危险的操作！有丢失数据的风险，而使用git管理项目的最大意义之一，就是防止数据丢失。当修改无法推送到远程仓库的时候，你应该解决冲突问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;比对&#34;&gt;比对&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;git diff 比较对象A 比较对象B&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以使用 VS Code 的 git 工具，更直观。&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-08-git-cheatsheet/1.png&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;撤销修改&#34;&gt;撤销修改&lt;/h2&gt;
+&lt;p&gt;这部分内容建议动手试一试。如果你已经提交了多个commit，突然想回到历史记录中的某个commit节点怎么办？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git revert 目标&lt;/code&gt;建议使用这种方式。该命令在当前提交记录的基础上，创建了一个新的提交记录来还原代码，原有的commit节点保持不变。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git reset 目标&lt;/code&gt;该命令有三种模式，详解：&lt;a href=&#34;https://www.jianshu.com/p/cbd5cd504f14&#34; target=&#34;_blank&#34;&gt;Git reset命令的使用&lt;/a&gt;
+尽量避免这种方式。该命令删除目标节点之后的提交记录，还原代码到目标commit节点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;为什么我建议使用&lt;code&gt;revert&lt;/code&gt;而不是&lt;code&gt;reset&lt;/code&gt;？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;reset到旧的commit节点后，你可能需要使用git push -f 指令才能上传到远程代码仓库。&lt;/li&gt;
+&lt;li&gt;并且，使用revert可以让你添加回滚的commit信息，提醒同事。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;子模块&#34;&gt;子模块&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://juejin.im/post/5aa11f486fb9a028e0140e34&#34; target=&#34;_blank&#34;&gt;Git 子模块：git submodule&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;常用技巧&#34;&gt;常用技巧&lt;/h2&gt;
+&lt;h3 id=&#34;为log命令添加别名方便查看log信息&#34;&gt;为log命令添加别名，方便查看log信息&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git	config	--global	alias.lg	&lt;span class=&#34;s2&#34;&gt;&amp;#34;log	--graph	--pretty=format:&amp;#39;%Cred%h%Creset	-%C(yellow)% d%Creset	%s	%Cgreen(%cr)	%C(bold	blue)&amp;lt;%an&amp;gt;%Creset&amp;#39;	--abbrev-commit	--date=relative&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用方法： &lt;code&gt;git lg&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;撤销当前修改回到最后一次提交commit的状态&#34;&gt;撤销当前修改，回到最后一次提交commit的状态&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# reset只影响被track过的文件&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# 这条命令把目前暂存区的所有修改(staged changes)移出暂存区(成为changes)。&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# 相当于撤销add操作&lt;/span&gt;
+git reset .
+&lt;span class=&#34;c1&#34;&gt;# 对所有不在暂存区的文件撤销修改&lt;/span&gt;
+git checkout .   
+&lt;span class=&#34;c1&#34;&gt;# 以上两句可以合并为 git reset --hard&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# clean命令用来从你的工作目录中删除所有没有tracked过的文件(untracked files)&lt;/span&gt;
+git clean -df
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;git-head-detached-from-xxx-git-head-游离-解决办法&#34;&gt;Git HEAD detached from XXX (git HEAD 游离) 解决办法&lt;/h3&gt;
+&lt;p&gt;参考资料： &lt;a href=&#34;https://blog.csdn.net/u011240877/article/details/76273335&#34; target=&#34;_blank&#34;&gt;Git HEAD detached from XXX (git HEAD 游离) 解决办法&lt;/a&gt;
+出现原因：使用 &lt;code&gt;git checkout commit-id&lt;/code&gt;，切换到指定的某一次提交，HEAD 就会处于 detached 状态（游离状态）。在这种情况下提交会新建一个匿名分支（旧的master分支没有改变），如果切换到另一个分支，这个匿名分支就找不回来了！解决方法：新建一个分支。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git checkout -b 分支名称
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;把最近的多个commit节点并为一个&#34;&gt;把最近的多个commit节点并为一个&lt;/h3&gt;
+&lt;p&gt;如图，目前有3个commit节点（1、2、3），这时候我想把2和3合并。&lt;strong&gt;整个过程中实际文件(工作区)都没有变化。&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git reset 结点1 --soft &lt;span class=&#34;c1&#34;&gt;#移动HEAD到节点1&lt;/span&gt;
+git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;新的注释&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这时候，所有修改都保存在暂存区中（staged changes)&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-08-git-cheatsheet/2.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用这个方法有可能导致无法直接push到远程仓库&lt;/strong&gt;，这种情况会在远程仓库的节点也被合并的时候发生。&lt;/p&gt;
+&lt;h2 id=&#34;拓展阅读&#34;&gt;拓展阅读&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md&#34; target=&#34;_blank&#34;&gt;Git飞行规则(Flight Rules)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ohshitgit.com/zh&#34; target=&#34;_blank&#34;&gt;Oh Shit, Git!?!&lt;/a&gt;
+ ：Git 使用实例（救急清单）&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>西安-冬-大一上</title>
+      <link>https://finctive.com/2019-05-university-first-year-1/</link>
+      <pubDate>Wed, 01 May 2019 08:02:17 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/2019-05-university-first-year-1/</guid>
+      <description>&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;article-background&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-05-university-first-year-1/bg-g1-winter.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;几周前就搭建好了这个博客，但是一直没有时间写这篇极具历史意义的废话文章！&lt;/p&gt;
+&lt;p&gt;从哪里开始聊呢？也许所有事情的开头都是最难的，写一篇闲聊文章也是。昨天拿到了大一上学期星火杯(校内创新大赛)校一等奖的奖状和奖品。上学期硬着头皮开发了一个局域网联机游戏，还真有意思哈哈哈（或者诚实一些，这叫做半个游戏项目）。游戏的名字就叫&amp;quot;OVO&amp;quot;，但是为了防止初审就被踢出报名表，我起了一个烂俗的傻名字。结果这个游戏进入校赛了，周围同学的项目名字近乎一个风格：“基于XXX技术实现XXX”、“实用XX”，报名表上我的项目名字相当扎眼哈哈哈😂&lt;/p&gt;
+&lt;p&gt;上述是上学期校园生活中唯一可以聊的事情了，加入了好几个社团，但是几乎没参加什么活动，社交能力不行，或者说社交能力未知（因为除了想交朋友，社团里大多数活动我都不感兴趣嘛）；花费了大量时间应试，但是效果很差，成绩不行，而且现在的我已经不太记得上学期学过的知识了。&lt;/p&gt;
+&lt;p&gt;那么我学到了什么呢？“项目驱动学习法”！举一个例子，比如我要学习Unity3D游戏开发，那么我需要：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找一本书阅读/开始阅读官方文档/开始观看某某慕课 （NO）&lt;/li&gt;
+&lt;li&gt;想好自己要做什么游戏，然后一边动手一边学习，这是一个反复迭代的过程 (YEP)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;也许第二种方法会让我走很多弯路，跑上错误的跑道。但是最最重要的，是我开始跑了，而不是继续停留在原地犹豫。我相信世界上像我这样的懒人还是有很多的 😄&lt;/p&gt;
+&lt;p&gt;几周前我删除了豆瓣账号，算是一种对过去的告别吧，远离高中真是一件非常快乐的事情。大学 == 大把机会挤时间追逐梦想，所有感兴趣的事情我都想尝试。这些疯狂的念头值得记录，于是就有了你现在看到的这个博客！&lt;/p&gt;
+&lt;p&gt;(ง •_•)ง&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;KEEP CALM AND MAKE EPIC SHIT&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;附：&lt;/p&gt;
+&lt;p&gt;大一上学期开发的游戏《OVO》截图&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;img&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-05-university-first-year-1/ovo1.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;img&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-05-university-first-year-1/ovo2.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;img&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-05-university-first-year-1/ovo3.gif&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>西安-夏-大一下</title>
+      <link>https://finctive.com/2019-05-university-first-year-2/</link>
+      <pubDate>Wed, 01 May 2019 08:02:17 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/2019-05-university-first-year-2/</guid>
+      <description>&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;article-background&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-05-university-first-year-2/bg-g1-summer.jpg&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;总感觉时间被浪费掉了！我应该能再多做一些有意思、有意义的事情！今天是即刻 APP 关闭服务器的第二天，我终于想起了这个挂在 Github 上的博客……&lt;/p&gt;
+&lt;p&gt;我在这个学期花了大量时间来写 Unity3D 引擎游戏脚本，其次自学的内容还有音乐制作和矢量绘图基础。说实话感觉一般，总觉得自己能做更多的事情。自律太难了😭，划水真有趣。（加之学校带来的多重大山，学习进展缓慢似乎是必然的。）&lt;/p&gt;
+&lt;p&gt;不过进步还是有的，因为看开了许多事情，相比上学期我挤出了更多的时间自学（于是成绩好了一些）。我不好意思说我是怎么挤时间的（嗯！）希望下学期的我能更自律吧，在清单上把计划一行一行的计划完成，感觉太好了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I have never let my schooling interfere with my education. —— Mark Twain&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本学期的最大成就：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;开始开发一个开源的游戏项目 &lt;a href=&#34;https://github.com/FINCTIVE/lost-in-the-wilderness-nightmare&#34; target=&#34;_blank&#34;&gt;FINCTIVE/lost-in-the-wilderness-nightmare&lt;/a&gt;
+ 这是一个练手项目，我打算边学 Unity 边给它加入新的功能。&lt;/li&gt;
+&lt;li&gt;参加了CiGA Gamejam 2019 (西安站) ！我的队伍是两人小队，都是程序员，现场没有找到美术、策划和音效队友。于是，我挂着程序的牌子干了美术、策划和音效的工作😂 最终游戏没有做完，太惨了，我在Gamejam开了一个大坑，然后乖乖送人头。不过在路演环节，大家对我们的点子反响不错！那天受到的关注也比较多，还认识了一些新的朋友。上大学以来第一次感觉做游戏好棒，长时间以来的学习与练习得到了外界的肯定。有志开发游戏的学生朋友们，强烈建议参加一次Gamejam！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;摸鱼活动？这个学期最大的时间黑洞是《Apex英雄》，这款游戏最吸引我的亮点有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;优秀的交流系统，上手之后，队友间几乎可以不开语音进行交流。&lt;/li&gt;
+&lt;li&gt;大部分情况下，战术与队友间的合作比单人实力更重要。相对其他FPS游戏来说，《Apex英雄》中玩家的血量更厚，跑的更快，跳的更高，更难打中。加之各类技能的作用，逃命的几率大大增加。在《彩虹六号：围攻》中，一人打倒三人的情况很有可能发生。而在《Apex英雄》中，几乎不可能（除非逐个消灭）。&lt;/li&gt;
+&lt;li&gt;队友互相帮助的机会变多了，比如：玩家“成盒”后，队友仍能在重生点复活玩家。&lt;/li&gt;
+&lt;li&gt;大逃杀类游戏有趣的随机性，还有收集装备逐渐变强的快感。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;创造新的游戏玩法，感觉像在创造一个新的世界。&lt;/p&gt;
+&lt;p&gt;(ง •_•)ง&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>如何在 Windows 安装 MinGW</title>
+      <link>https://finctive.com/2019-01-windows-mingw-install/</link>
+      <pubDate>Mon, 07 Jan 2019 08:02:17 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/2019-01-windows-mingw-install/</guid>
+      <description>&lt;p&gt;点击图片中箭头指向的链接&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/?tdsourcetag=s_pctim_aiomsg&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;下载链接&lt;/strong&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-2a0d4049deaf67c0.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;在官网下载连接速度可能会非常慢&amp;hellip;在这个&lt;a href=&#34;https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/?tdsourcetag=s_pctim_aiomsg&#34; target=&#34;_blank&#34;&gt;&lt;strong&gt;链接&lt;/strong&gt;&lt;/a&gt;
+ 下载会好很多。&lt;/p&gt;
+&lt;p&gt;下载好之后，解压，得到下图文件：
+
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-3970f3e47ab1dd5b.png&#34; /&gt;
+可以看到bin文件夹里面有g++.exe和gcc.exe
+
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-455925697f1e50be.png&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;将gccexe以及gexe添加到环境变量&#34;&gt;将gcc.exe以及g++.exe添加到&lt;strong&gt;环境变量&lt;/strong&gt;：&lt;/h4&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-a386b1fc1518b95b.png&#34; /&gt;
+
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-0489b550bd6fcca4.png&#34; /&gt;
+
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-b99d2f624584691b.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-d797f5c046c0bba1.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-e94ee9c96925efe2.png&#34; /&gt;&lt;/p&gt;
+&lt;h4 id=&#34;重启电脑&#34;&gt;重启电脑！&lt;/h4&gt;
+&lt;p&gt;实验是否安装成功
+输入命令 gcc，得到如图结果说明已经成功配置环境变量
+
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-01-windows-mingw-install/7687630-ff9ebae1ff1ccbef.png&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>如何使用 VS Code 写 C/C&#43;&#43; 程序</title>
+      <link>https://finctive.com/2018-11-vscode-cpp-windows-setup/</link>
+      <pubDate>Fri, 02 Nov 2018 08:02:17 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/2018-11-vscode-cpp-windows-setup/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;2019年五月更新&lt;/strong&gt;：&lt;strong&gt;直接看这篇知乎专栏文章！！不需要麻烦地配置了&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/35178331&#34; target=&#34;_blank&#34;&gt;https://zhuanlan.zhihu.com/p/35178331&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
+&lt;p&gt;为什么要使用VS Code呢？&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/29984607&#34; target=&#34;_blank&#34;&gt;如何评价 Visual Studio Code？-知乎&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/41857899&#34; target=&#34;_blank&#34;&gt;Atom、Sublime Text、VSCode 三者比较，各有哪些优势和弱势？&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;好吧看的有点晕，这篇文章是给&lt;strong&gt;零基础&lt;/strong&gt;的同学看的，大家可以配置好VS Code之后再回头了解一下。&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;VS Code&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2018-11-vscode-cpp-windows-setup/7687630-bffe152837a54ef4.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;VS Code界面美观，而且有一个很方便的命令行控制台，再者&amp;hellip;
+不管从哪个角度看都比Dev-C++好用啊！在高颜值界面下写代码会越敲越开心( ´･ω･)&lt;/p&gt;
+&lt;p&gt;同时，希望阅读完本文之后了解一下Sublime Text，这两个软件我都安装了。&lt;/p&gt;
+&lt;h2 id=&#34;一安装vs-code&#34;&gt;一、安装VS Code&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://code.visualstudio.com/&#34; target=&#34;_blank&#34;&gt;Visual Studio Code - Code Editing. Redefined - 官网&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;点最大那个按钮下载安装即可！（Stable Build)&lt;/p&gt;
+&lt;p&gt;安装这个插件可以显示中文界面&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2018-11-vscode-cpp-windows-setup/7687630-5876d33c9fcdccd6.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;再安装这个插件，写代码的时候会出现提示&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2018-11-vscode-cpp-windows-setup/7687630-c148ec2acb728fb2.png&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;二安装mingw&#34;&gt;二、安装MinGW&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://finctive.com/2018-11-vscode-cpp-windows-setup/&#34; target=&#34;_blank&#34;&gt;如何安装MinGW&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;三配置vs-code&#34;&gt;三、配置VS Code&lt;/h2&gt;
+&lt;p&gt;安装如图插件&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2018-11-vscode-cpp-windows-setup/7687630-4c21b0e90b8fc781.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;打开设置，搜索&amp;quot;run in terminal&amp;quot;，勾选该选项（否则程序无法在运行时使用键盘输入数据）&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2018-11-vscode-cpp-windows-setup/7687630-9b37685de4046090.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;此时，在代码文件中按下鼠标右键，点击该选项就能运行代码了！&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;我更喜欢用快捷键Ctrl &amp;#43; Alt &amp;#43;N&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2018-11-vscode-cpp-windows-setup/7687630-f0b9da4588a01ada.png&#34; /&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;基本配置过程就此结束，
+这时候你应该可以输出Hello World了 ヽ(ﾟ∀ﾟ)ﾉ
+请跳转到文末第四点继续阅读。&lt;/p&gt;
+&lt;p&gt;以下内容写给喜欢折腾的同学继续折腾。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;更多Code Runner扩展的设置，内容来自&lt;a href=&#34;https://blessing.studio/vscode-c-cpp-configuration-for-acm-oj/&#34; target=&#34;_blank&#34;&gt;printempw的博客&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;{
+    // 在终端中运行编译命令，否则我们无法与程序通过标准输入交互
+    &amp;#34;code-runner.runInTerminal&amp;#34;: true,
+    // 如果你全局设置中的默认终端是 WSL 之类的，那么可以在工作区设置中改回 PowerShell
+    &amp;#34;terminal.integrated.shell.windows&amp;#34;: &amp;#34;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe&amp;#34;,
+    // 运行代码之前清除之前的输出
+    &amp;#34;code-runner.clearPreviousOutput&amp;#34;: true,
+    // 开启这个后在运行编译命令之前会自动 cd 至文件所在目录
+    &amp;#34;code-runner.fileDirectoryAsCwd&amp;#34;: true,
+    // 因为上面那个选项会自动 cd，所以我删除了默认编译命令中的 cd 语句
+    // 同时我将编译结果的输出目录修改为了同目录下的 build 文件夹
+    // 不然源码文件和编译结果混杂在一个目录中非常杂乱（尤其是刷题时）
+    // 这里只保留了 C 和 C++ 的编译命令，有需要其他语言的请自行添加
+    &amp;#34;code-runner.executorMap&amp;#34;: {
+        &amp;#34;c&amp;#34;: &amp;#34;gcc $fileName -o build/$fileNameWithoutExt &amp;amp;&amp;amp; .\\build\\$fileNameWithoutExt&amp;#34;,
+        &amp;#34;cpp&amp;#34;: &amp;#34;g++ $fileName -o build/$fileNameWithoutExt &amp;amp;&amp;amp; .\\build\\$fileNameWithoutExt&amp;#34;,
+    },
+    // 运行代码后切换焦点至终端，方便直接输入测试数据
+    &amp;#34;code-runner.preserveFocus&amp;#34;: false,
+    // 在运行代码之前保存文件
+    &amp;#34;code-runner.saveFileBeforeRun&amp;#34;: true,
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;这时候输出中文是乱码的，百度到的最简单方法是修改VS Code的字符编码格式。这里&lt;strong&gt;不建议&lt;/strong&gt;修改，原因超出本文讨论范围，如果你还是好奇，请自己使用搜索引擎查资料😁 （关键字：“字符编码格式” “UTF-8” “GBK”）&lt;/li&gt;
+&lt;li&gt;也可以用编写launch.json和tasks.json的传统方式配置C/C++开发环境，不过比较麻烦。&lt;a href=&#34;https://blog.csdn.net/bat67/article/details/81268581&#34; target=&#34;_blank&#34;&gt;Visual Studio Code (vscode) 配置C、C++环境/编写运行C、C++（Windows）【真正的小白版】&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;使用这个编译选项可以让编译后的程序在控制台正常输出中文
+参考: &lt;a href=&#34;https://blog.csdn.net/Timekeeperl/article/details/68266218&#34; target=&#34;_blank&#34;&gt;windows下使用MinGw编译出现中文乱码问题解决&lt;/a&gt;
+   &lt;br&gt;
+&lt;code&gt;gcc -fexec-charset=GBK test.c -o test&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;四额外内容&#34;&gt;四、额外内容&lt;/h2&gt;
+&lt;h3 id=&#34;修改设置&#34;&gt;修改设置&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/u013304372/article/details/78917536&#34; target=&#34;_blank&#34;&gt;VS Code使用之基本设置与配置详解&lt;/a&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;一个实用功能&#34;&gt;一个实用功能&lt;/h3&gt;
+&lt;p&gt;注意代码缩进，没有正经的程序员能忍受排列凌乱的代码
+
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2018-11-vscode-cpp-windows-setup/7687630-4cee50e4e7ff3a42.gif&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>零基础爱好者如何入门音乐制作</title>
+      <link>https://finctive.com/2017-12-music-production-from-zero/</link>
+      <pubDate>Tue, 19 Dec 2017 08:02:17 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/2017-12-music-production-from-zero/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;本文发布于&lt;a href=&#34;https://zhuanlan.zhihu.com/p/25713782&#34; target=&#34;_blank&#34;&gt;知乎&lt;/a&gt;
+，现在已经停止更新了，请注意信息时效性。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.yuque.com/xdu-nova-audio/learning&#34; target=&#34;_blank&#34;&gt;Nova独游社(XDU)音频组语雀学习资料分享区&lt;/a&gt;
+ 之前在社团内部整理的学习资料，内容比本文更新更全面。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;一引言&#34;&gt;一、引言&lt;/h2&gt;
+&lt;p&gt;关于我：&lt;a href=&#34;http://music.163.com/#/artist?id=12852875&#34; target=&#34;_blank&#34;&gt;我的网易云音乐人主页-镜岛&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;先看一个视频：&lt;a href=&#34;https://www.youtube.com/watch?v=-jYkGy9N4aI&#34; target=&#34;_blank&#34;&gt;Doyoudo-音乐是怎么制作出来的&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;科技发展到今天，制作音乐可以只需：&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;img&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2017-12-music-production-from-zero/img1.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;（至于工作室里那些各式各样的专业设备，当你入门之后自然会明白它们的作用）&lt;/p&gt;
+&lt;h2 id=&#34;二选择daw数字音频工作站制作音乐的软件&#34;&gt;二、选择DAW（数字音频工作站，制作音乐的软件）&lt;/h2&gt;
+&lt;p&gt;我建议你在以下软件中选择：&lt;/p&gt;
+&lt;p&gt;FL Studio、Ableton Live、Cubase、Logic 等等&lt;/p&gt;
+&lt;p&gt;为什么？因为国内用户多，可以找到组织提问，教程也相对多一些。&lt;/p&gt;
+&lt;p&gt;我喜欢用Ableton Live ᕕ( ᐛ )ᕗ&lt;/p&gt;
+&lt;p&gt;遇到安装问题请善用搜索引擎 ：）&lt;/p&gt;
+&lt;h2 id=&#34;三入门&#34;&gt;三、入门&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;乐理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;乐理学习：&lt;a href=&#34;http://doyoudo.com/p/5001093.html&#34; target=&#34;_blank&#34;&gt;Doyoudo零基础乐理教程&lt;/a&gt;
+、  &lt;a href=&#34;http://i.youku.com/i/UNDIzNjAwOTAw/videos%3Forder%3D1%26page%3D2%26last_item%3D%26last_pn%3D1%26last_vid%3D312033515%26spm%3Da2hzp.8253869.0.0&#34; target=&#34;_blank&#34;&gt;NiceChord&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;好好学乐理&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.zhihu.com/question/284611169/answer/439540952&#34; target=&#34;_blank&#34;&gt;歌曲创作人不懂乐理，犹如作家不识字一般。&lt;/a&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;软件上手&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;FL Studio&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://doyoudo.com/p/5001142.html&#34; target=&#34;_blank&#34;&gt;Doyoudo - 20 分钟入门 FL Studio 12&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/user/imageline/featured&#34; target=&#34;_blank&#34;&gt;FL STUDIO by Image-Line Software - Youtube - 官方教程&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Ableton Live&lt;/p&gt;
+&lt;p&gt;个人观点：Ableton Live的官方教程对纯新手不是特别友好&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/9541ab8ed48e&#34; target=&#34;_blank&#34;&gt;Ableton Live 10 官方视频教程&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.bilibili.com/video/av4720586&#34; target=&#34;_blank&#34;&gt;AndreChen - Audio Effects系列——常用篇&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.bilibili.com/video/av4826284&#34; target=&#34;_blank&#34;&gt;AndreChen - Audio Effects系列——进阶篇&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.bilibili.com/video/av21508277&#34; target=&#34;_blank&#34;&gt;从零开始 - Ableton Live10 快速入门教程&lt;/a&gt;
+ AndreChen的付费教程&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用插件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我不建议你学习软件自带的音色合成器，因为以下软件有更多的音色包可以使用，同时使用的人比较多，请教问题、找教程也比较方便（原因同上）。&lt;/p&gt;
+&lt;p&gt;Sylenth1、Serum、Massive、Nexus 等等&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;学习别人的工程文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;FL自带有一些工程文件。&lt;/p&gt;
+&lt;p&gt;在youtube上搜索 &amp;ldquo;free flp&amp;rdquo;、&amp;ldquo;free als&amp;quot;等关键词可以找到很多工程文件来学习.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找组织&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;各类音乐制作交流群、论坛都都去看看；有的制作人的粉丝群里也会有很多音乐人讨论技术。学习如何正确提问：&lt;a href=&#34;https://www.baidu.com/s?ie=UTF-8&amp;amp;wd=%e6%8f%90%e9%97%ae%e7%9a%84%e8%89%ba%e6%9c%af&#34; target=&#34;_blank&#34;&gt;提问的艺术 - 百度&lt;/a&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;学习混音&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由小白跨向专业的重要一步！&lt;/p&gt;
+&lt;p&gt;FL官方混音教程：&lt;a href=&#34;https://www.youtube.com/watch%3Fv%3DeawWbfV2hTY%26list%3DRDeawWbfV2hTY%26index%3D1&#34; target=&#34;_blank&#34;&gt;FL Studio Guru | Compression &amp;amp; the Anatomy of Sound&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;四分享一些学习资源&#34;&gt;四、分享一些学习资源&lt;/h2&gt;
+&lt;p&gt;本文提供的教程链接并不完美，建议自行搜索更多的学习资料来学习。搜索能力很重要 (&amp;ldquo;▔□▔)/&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.audiobar.cn/forum.php&#34; target=&#34;_blank&#34;&gt;音频应用&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.midifan.com/&#34; target=&#34;_blank&#34;&gt;Midifan&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://space.bilibili.com/1991140/&#34; target=&#34;_blank&#34;&gt;Trebor_TTTTT老师的《光头说》- Bilibili&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;值得关注的YouTube频道：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCTdmkLO98YKDV2-Zay_bv5Q&#34; target=&#34;_blank&#34;&gt;EDWAN&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCtk97JD-Zsmng_NnJcx82jw&#34; target=&#34;_blank&#34;&gt;LHB Music&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCIu2Fj4x_VMn2dgSB1bFyQA&#34; target=&#34;_blank&#34;&gt;Dylan Tallchief&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCSBUDr3oUg9y7YS1TZL_Jeg&#34; target=&#34;_blank&#34;&gt;Wubbix&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCmomtZFNN-A_nB7jHM7H1bw&#34; target=&#34;_blank&#34;&gt;AcesToAces&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCqK9dqyE1ct-hUMf5hGFsqQ&#34; target=&#34;_blank&#34;&gt;Cymatics.FM&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/user/reidiculousremix&#34; target=&#34;_blank&#34;&gt;Reid Stefan&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCvEbeiu63qFW-CirRMOEVcA&#34; target=&#34;_blank&#34;&gt;FLP Family&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCNRD06rR7bR0Xwd-7gAKDEA&#34; target=&#34;_blank&#34;&gt;Zen World&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCMLRL8SFdYOV1bxjHkHP1tA&#34; target=&#34;_blank&#34;&gt;Musician on a Mission&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCIcCXe3iWo6lq-iWKV40Oug&#34; target=&#34;_blank&#34;&gt;In The Mix&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCYSWMDuCVCXkXYiDRpf4HgA&#34; target=&#34;_blank&#34;&gt;DeliFB&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/channel/UCdcemy56JtVTrsFIOoqvV8g&#34; target=&#34;_blank&#34;&gt;ANDREW HUANG&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;其他&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://help.apple.com/logicpro/mac/9.1.6/cn/logicpro/instruments/index.html#chapter=A%26section=3%26tasks=true&#34; target=&#34;_blank&#34;&gt;Logic Pro 9 乐器: 减法合成器的工作原理&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://cymatics.fm/blog/ultimate-list-ableton-project-files/&#34; target=&#34;_blank&#34;&gt;Ultimate List of Ableton Project Files - 免费下载的Live工程&lt;/a&gt;
+ (很多链接都失效了)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.google.com/&#34; target=&#34;_blank&#34;&gt;第一学习网站-Google&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/&#34; target=&#34;_blank&#34;&gt;第二学习网站-Youtube&lt;/a&gt;
+&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

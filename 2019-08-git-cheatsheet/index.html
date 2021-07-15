@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<html lang="zh" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FINCTIVE" />   
+    <title>Git 备忘录 - 造物指南</title>
+    
+    
+    
+    
+    <meta name="description" content="本文内容为方便查询的备忘录，如果你想从零开始学习使用 Git, 你可以学习以下内容： 表严肃讲Git (视频教程) 表严肃讲Git - 速查表 互动式学习git，" /> 
+    
+    
+     
+    
+    <meta name="keywords" content="FINCTIVE, 镜岛, programming, 编程开发, 编程, 开发" /> 
+     
+    
+    
+
+    <link rel="shortcut icon" href="https://finctive.com/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/normalize.min.css@8.0.1/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme.css" />
+    <link disabled id="dark-mode-theme-css" rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme-dark.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/github-gist.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/@fontsource/encode-sans@4.2.0/index.min.css" />
+
+    
+    
+    <script>
+        var darkTheme = document.getElementById("dark-mode-theme-css");
+
+        var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+        setTheme(savedTheme);
+        function setTheme(mode) {
+            localStorage.setItem("dark-mode-storage", mode);
+            savedTheme = mode;
+            if(mode === "light") {
+                darkTheme.disabled = true;
+            } else if(mode === "dark") {
+                darkTheme.disabled = false;
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <article class="main">
+        <div class="header">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://finctive.com">
+                    <span>造物指南</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <div class="my_socials">
+                <a href="https://github.com/FINCTIVE" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                <a href="https://t.me/create_worlds" title="telegram" target="_blank"><i class="ri-telegram-fill"></i></a>
+                <a href="https://www.google.com/search?q=site%3Ahttps://finctive.com" title="search" target="_blank"><i class="ri-search-eye-fill"></i></a>
+                <a id="dark-mode-toggle" title="theme"><i class="ri-moon-fill"></i></a>
+                <a href="https://finctive.com/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post">
+                <div class="post_title post_detail_title">
+                    <h1>Git 备忘录</h1>
+                    
+                    <span class="author">FINCTIVE</span>
+                    <span class="date">2019-08</span>
+                    
+                </div>
+                
+                <div class="post_content"><p>本文内容为方便查询的备忘录，如果你想从零开始学习使用 Git, 你可以学习以下内容：</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/av17603446" target="_blank">表严肃讲Git (视频教程)</a>
+</li>
+<li><a href="https://biaoyansu.com/27.cheatsheet" target="_blank">表严肃讲Git - 速查表</a>
+</li>
+<li>互动式学习git，加深理解 <a href="https://learngitbranching.js.org/" target="_blank">learngitbranching.js</a>
+</li>
+</ul>
+<p>如有错误，欢迎指正。</p>
+<h2 id="基础">基础</h2>
+<ul>
+<li><a href="https:_www.runoob.com_git_git-workspace-index-repo" target="_blank">菜鸟教程 - Git 工作区、暂存区和版本库</a>
+</li>
+<li><code>git config --global user.name &quot;姓名&quot;</code> 设置提交者姓名，注意双引号（英文）</li>
+<li><code>git config --global user.email &quot;邮箱&quot;</code>设置提交者邮箱</li>
+<li><code>git init 目录名</code>初始化仓库。创建.git文件夹。</li>
+<li><code>git clone 远程仓库地址</code>从指定地址克隆（下载）仓库内容</li>
+<li><code>git add 目录名或者文件名</code> 将文件或目录中已修改的代码添加到暂存区。</li>
+<li><code>git commit -m &quot;注释消息&quot;</code>提交暂存区内容。</li>
+<li><code>git status</code>查看仓库状态</li>
+</ul>
+<p>常用示例：</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git add . <span class="c1"># 添加当前文件夹下所有修改到暂存区</span>
+git commit -m <span class="s2">&#34;修改了xxx部分内容&#34;</span> <span class="c1"># 提交</span>
+</code></pre></div><h2 id="历史信息">历史信息</h2>
+<ul>
+<li><code>git log</code>打印出已经提交的信息</li>
+<li><code>git log --oneline</code>打印为单行log</li>
+<li><code>git log --all</code> 打印所有记录</li>
+<li><code>git log --graph</code>打印示意图</li>
+<li><code>git log --grep 筛选信息</code></li>
+</ul>
+<p>以&quot;&ndash;&ldquo;开头的参数可以叠加组合（出现的顺序不重要），比如： <code>git log --oneline --all --graph</code></p>
+<h2 id="分支">分支</h2>
+<ul>
+<li><code>git branch</code>列出所有分支信息</li>
+<li><code>git branch 分支名称</code>创建分支。注意这时候并没有在当前分支上。需要再执行 <code>git checkout 新分支名称</code></li>
+<li><code>git checkout 目标</code>切换至目标，其中目标可以是branch、commit、tag。</li>
+<li>checkout指令可以使用相对引用符号 <code>^</code>  与 <code>~数字</code></li>
+<li><code>git checkout	-b 分支名称</code>创建分支，同时移动到新的分支上</li>
+<li><code>git	branch	-d 分支名称</code>删除已经合并的分支，commit仍会保留。</li>
+<li><code>git	branch	-D 分支名称</code>强行删除分支</li>
+<li><code>git merge 目标分支名称</code>将目标分支合并到当前分支。常见操作的例子：切换到master分支，再用merge命令把目标分支合并过来。</li>
+<li><code>git merge --abort</code>用于合并分支有冲突时，取消合并操作</li>
+<li><code>git tag</code>打标签</li>
+</ul>
+<h2 id="远程">远程</h2>
+<ul>
+<li>远程分支命名格式： 仓库名/分支名，例如 origin/master</li>
+<li>一个远程仓库 = 一个储存着仓库链接的变量</li>
+<li><code>git remote add 自定义仓库名 项目地址</code>添加新的仓库</li>
+<li><code>git remote set-url 仓库名称 项目地址</code>修改已经存在的仓库的url</li>
+<li><code>git remote get-url</code>获取已经存在的仓库的url</li>
+<li><code>git clone 远程仓库地址</code>从指定地址克隆仓库</li>
+<li><code>git pull 仓库名称 分支名称</code>拉取远程仓库，并把远程仓库的修改合并到当前分支。示例： git pull origin master</li>
+<li><code>git push 仓库名 分支名</code>将修改推送至远程仓库。示例：git push origin master</li>
+<li>push命令可以加上 -f 参数，强制把代码上传到远程仓库，但这是一个非常危险的操作！有丢失数据的风险，而使用git管理项目的最大意义之一，就是防止数据丢失。当修改无法推送到远程仓库的时候，你应该解决冲突问题。</li>
+</ul>
+<h2 id="比对">比对</h2>
+<ul>
+<li>
+<p><code>git diff 比较对象A 比较对象B</code></p>
+</li>
+<li>
+<p>可以使用 VS Code 的 git 工具，更直观。</p>
+<p>
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-08-git-cheatsheet/1.png" /></p>
+</li>
+</ul>
+<h2 id="撤销修改">撤销修改</h2>
+<p>这部分内容建议动手试一试。如果你已经提交了多个commit，突然想回到历史记录中的某个commit节点怎么办？</p>
+<ul>
+<li><code>git revert 目标</code>建议使用这种方式。该命令在当前提交记录的基础上，创建了一个新的提交记录来还原代码，原有的commit节点保持不变。</li>
+<li><code>git reset 目标</code>该命令有三种模式，详解：<a href="https://www.jianshu.com/p/cbd5cd504f14" target="_blank">Git reset命令的使用</a>
+尽量避免这种方式。该命令删除目标节点之后的提交记录，还原代码到目标commit节点。</li>
+</ul>
+<p>为什么我建议使用<code>revert</code>而不是<code>reset</code>？</p>
+<ul>
+<li>reset到旧的commit节点后，你可能需要使用git push -f 指令才能上传到远程代码仓库。</li>
+<li>并且，使用revert可以让你添加回滚的commit信息，提醒同事。</li>
+</ul>
+<h2 id="子模块">子模块</h2>
+<p><a href="https://juejin.im/post/5aa11f486fb9a028e0140e34" target="_blank">Git 子模块：git submodule</a>
+</p>
+<h2 id="常用技巧">常用技巧</h2>
+<h3 id="为log命令添加别名方便查看log信息">为log命令添加别名，方便查看log信息</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git	config	--global	alias.lg	<span class="s2">&#34;log	--graph	--pretty=format:&#39;%Cred%h%Creset	-%C(yellow)% d%Creset	%s	%Cgreen(%cr)	%C(bold	blue)&lt;%an&gt;%Creset&#39;	--abbrev-commit	--date=relative&#34;</span>
+</code></pre></div><p>使用方法： <code>git lg</code></p>
+<h3 id="撤销当前修改回到最后一次提交commit的状态">撤销当前修改，回到最后一次提交commit的状态</h3>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># reset只影响被track过的文件</span>
+<span class="c1"># 这条命令把目前暂存区的所有修改(staged changes)移出暂存区(成为changes)。</span>
+<span class="c1"># 相当于撤销add操作</span>
+git reset .
+<span class="c1"># 对所有不在暂存区的文件撤销修改</span>
+git checkout .   
+<span class="c1"># 以上两句可以合并为 git reset --hard</span>
+<span class="c1"># clean命令用来从你的工作目录中删除所有没有tracked过的文件(untracked files)</span>
+git clean -df
+</code></pre></div><h3 id="git-head-detached-from-xxx-git-head-游离-解决办法">Git HEAD detached from XXX (git HEAD 游离) 解决办法</h3>
+<p>参考资料： <a href="https://blog.csdn.net/u011240877/article/details/76273335" target="_blank">Git HEAD detached from XXX (git HEAD 游离) 解决办法</a>
+出现原因：使用 <code>git checkout commit-id</code>，切换到指定的某一次提交，HEAD 就会处于 detached 状态（游离状态）。在这种情况下提交会新建一个匿名分支（旧的master分支没有改变），如果切换到另一个分支，这个匿名分支就找不回来了！解决方法：新建一个分支。</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git checkout -b 分支名称
+</code></pre></div><h3 id="把最近的多个commit节点并为一个">把最近的多个commit节点并为一个</h3>
+<p>如图，目前有3个commit节点（1、2、3），这时候我想把2和3合并。<strong>整个过程中实际文件(工作区)都没有变化。</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">git reset 结点1 --soft <span class="c1">#移动HEAD到节点1</span>
+git commit -m <span class="s2">&#34;新的注释&#34;</span>
+</code></pre></div><p>这时候，所有修改都保存在暂存区中（staged changes)</p>
+<p>
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-08-git-cheatsheet/2.png" /></p>
+<p><strong>使用这个方法有可能导致无法直接push到远程仓库</strong>，这种情况会在远程仓库的节点也被合并的时候发生。</p>
+<h2 id="拓展阅读">拓展阅读</h2>
+<ul>
+<li><a href="https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md" target="_blank">Git飞行规则(Flight Rules)</a>
+</li>
+<li><a href="https://ohshitgit.com/zh" target="_blank">Oh Shit, Git!?!</a>
+ ：Git 使用实例（救急清单）</li>
+</ul>
+</div>
+            </div>
+            
+            
+            
+        </div>
+    </article>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="/about-blog">About</a> - 
+        <a href="https://gohugo.io/">Hugo</a>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://finctive.com/js/theme.js"></script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,506 @@
+
+
+<!DOCTYPE html>
+<html lang="zh" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FINCTIVE" />   
+    <title>终端工具新手上路包 - 造物指南</title>
+    
+    
+    
+    
+    <meta name="description" content="本文遵循「懒人推荐」原则：花最少配置时间大幅度提升你的工作效率。想要更深入地学习各类工具的高级使用方法，请移步至具体程序的相应社区。 以下内容" /> 
+    
+    
+     
+    
+    <meta name="keywords" content="FINCTIVE, 镜岛, programming, 编程开发, 编程, 开发" /> 
+     
+    
+    
+
+    <link rel="shortcut icon" href="https://finctive.com/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/normalize.min.css@8.0.1/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme.css" />
+    <link disabled id="dark-mode-theme-css" rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme-dark.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/github-gist.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/@fontsource/encode-sans@4.2.0/index.min.css" />
+
+    
+    
+    <script>
+        var darkTheme = document.getElementById("dark-mode-theme-css");
+
+        var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+        setTheme(savedTheme);
+        function setTheme(mode) {
+            localStorage.setItem("dark-mode-storage", mode);
+            savedTheme = mode;
+            if(mode === "light") {
+                darkTheme.disabled = true;
+            } else if(mode === "dark") {
+                darkTheme.disabled = false;
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <article class="main">
+        <div class="header">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://finctive.com">
+                    <span>造物指南</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <div class="my_socials">
+                <a href="https://github.com/FINCTIVE" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                <a href="https://t.me/create_worlds" title="telegram" target="_blank"><i class="ri-telegram-fill"></i></a>
+                <a href="https://www.google.com/search?q=site%3Ahttps://finctive.com" title="search" target="_blank"><i class="ri-search-eye-fill"></i></a>
+                <a id="dark-mode-toggle" title="theme"><i class="ri-moon-fill"></i></a>
+                <a href="https://finctive.com/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post">
+                <div class="post_title post_detail_title">
+                    <h1>终端工具新手上路包</h1>
+                    
+                    <span class="author">FINCTIVE</span>
+                    <span class="date">2021-03</span>
+                    
+                </div>
+                
+                    <div id="post_toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#实用命令行程序">实用命令行程序</a></li>
+    <li><a href="#命令行">命令行</a>
+      <ul>
+        <li><a href="#基础">基础</a></li>
+        <li><a href="#fish">fish</a></li>
+        <li><a href="#下拉终端">下拉终端</a></li>
+      </ul>
+    </li>
+    <li><a href="#vim">Vim</a></li>
+    <li><a href="#终端文件管理-ranger">终端文件管理 Ranger</a>
+      <ul>
+        <li><a href="#退出时切换工作目录">退出时切换工作目录</a></li>
+        <li><a href="#fzf-集成">fzf 集成</a></li>
+      </ul>
+    </li>
+    <li><a href="#终端复用器-tmux">终端复用器 Tmux</a></li>
+    <li><a href="#结语">结语</a></li>
+  </ul>
+</nav>
+</div>
+<style>
+#post_toc a:hover {
+    color: #f3b440;
+}
+
+.toc-active {
+    color: #588ea1 !important;
+    font-weight: bold;
+}
+
+ 
+
+#post_toc a {
+    color: #6e6e6e;
+}
+#post_toc nav ul li {
+  list-style-type: disc;
+}
+#post_toc nav ul,
+#post_toc nav ol,
+#post_toc nav dl {
+  padding: 0px 20px;
+}
+
+ 
+@media screen and (min-width: 1024px) {
+    #post_toc {
+        position: sticky;
+        width: 100%;
+        top: 20px;
+    }
+    #post_toc nav {
+        position: absolute;
+        right: -240px;
+        width : 160px;
+
+        padding-left: 0;
+        border-left: 2px solid #eeeeee;
+        font-size: 0.9em;
+    } 
+
+    #post_toc a {
+        color: #a0a0a0;
+    }
+
+    #post_toc nav ul li {
+    list-style-type: none;
+    }
+
+    #post_toc nav ul,
+    #post_toc nav ol,
+    #post_toc nav dl {
+    padding: 0px 10px;
+    }
+}
+
+</style>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const id = entry.target.getAttribute('id');
+            if (entry.intersectionRatio > 0) {
+                document.querySelector(`nav ul li a[href="#${id}"]`).classList.add('toc-active');
+            } else {
+                document.querySelector(`nav ul li a[href="#${id}"]`).classList.remove('toc-active');
+            }
+        });
+    });
+
+    
+    document.querySelectorAll('h1[id]').forEach((section) => {
+        observer.observe(section);
+    });
+
+    document.querySelectorAll('h2[id]').forEach((section) => {
+        observer.observe(section);
+    });
+
+    document.querySelectorAll('h3[id]').forEach((section) => {
+        observer.observe(section);
+    });
+});
+</script>
+                
+                <div class="post_content"><p>本文遵循「懒人推荐」原则：花最少配置时间大幅度提升你的工作效率。想要更深入地学习各类工具的高级使用方法，请移步至具体程序的相应社区。</p>
+<blockquote>
+<p>以下内容默认读者也在使用 Linux 系统，大部分程序在 macOS 下是大同小异的。</p>
+</blockquote>
+<h2 id="实用命令行程序">实用命令行程序</h2>
+<p>安装方式请查看相应文档，大部分都能在 Github 找到，也可以在系统的包管理器安装。</p>
+<ul>
+<li><a href="https://github.com/aristocratos/bpytop" target="_blank"><code>bpytop</code></a>
+ 系统资源监视器（这是我目前见过最漂亮的命令行工具！）</li>
+</ul>
+<p>
+
+    
+
+
+<img alt="image-20210210221856811" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210210221856811.png" /></p>
+<ul>
+<li><code>ncdu</code> 查看文件大小</li>
+</ul>
+<p>
+
+    
+
+
+<img alt="image-20210210221725025" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210210221725025.png" /></p>
+<ul>
+<li><code>nload</code> 网络监控工具</li>
+</ul>
+<p>
+
+    
+
+
+<img alt="image-20210210222210916" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210210222210916.png" /></p>
+<ul>
+<li><a href="https://github.com/ggreer/the_silver_searcher" target="_blank"><code>ag</code></a>
+ 搜索工具</li>
+</ul>
+<p>
+
+    
+
+
+<img alt="image-20210210224546888" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210210224546888.png" /></p>
+<ul>
+<li><a href="https://github.com/junegunn/fzf" target="_blank"><code>fzf</code></a>
+ 模糊搜索工具，直接在命令行调用可以搜索文件名。可以和 <code>ranger</code>、<code>vim</code> 搭配使用。</li>
+<li><a href="https://github.com/ranger/ranger" target="_blank"><code>ranger</code></a>
+ 具有 Vim 键位风格的终端文件管理器。下文仍有相关介绍。</li>
+</ul>
+<p>
+
+    
+
+
+<img alt="image-20210210225023130" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210210225023130.png" /></p>
+<ul>
+<li>
+<p><a href="https://github.com/jarun/nnn" target="_blank"><code>nnn</code></a>
+ 终端文件管理器，资源占用非常低。我在树莓派上使用 <code>nnn</code>.</p>
+</li>
+<li>
+<p><code>proxychains-ng</code> 以及 <code>graftcp</code>，连接命令行程序到代理服务器。</p>
+</li>
+<li>
+<p><a href="https://github.com/tldr-pages/tldr" target="_blank"><code>tldr</code></a>
+ 太长不看，懒人必备的文档查看工具。如果要看详细文档请使用<code>man</code>.</p>
+</li>
+</ul>
+<p>
+
+    
+
+
+<img alt="image-20210210230451003" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210210230451003.png" /></p>
+<h2 id="命令行">命令行</h2>
+<h3 id="基础">基础</h3>
+<p>推荐阅读：<a href="https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md" target="_blank">命令行的艺术</a>
+，比较长，你也可以通过视频来学习这些操作。</p>
+<p>分享几个我常用的快捷键：</p>
+<ul>
+<li><code>Tab</code> 补全</li>
+<li><code>上下方向键</code> 历史记录</li>
+<li><code>Ctrl + A</code> 光标移动到开头</li>
+<li><code>Ctrl + E</code> 光标移动到末尾</li>
+<li><code>Ctrl + U</code> 清除当前内容</li>
+<li><code>Ctrl + F</code> 光标往前移动</li>
+<li><code>Ctrl + D</code> 删除光标下的字符</li>
+</ul>
+<h3 id="fish">fish</h3>
+<p>开箱即用不多说！</p>
+<p><a href="http://www.ruanyifeng.com/blog/2017/05/fish_shell.html" target="_blank">Fish shell 入门教程 - 阮一峰的网络日志</a>
+</p>
+<p>
+
+    
+
+
+<img alt="image-20210318181746263" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210318181746263.png" /></p>
+<p>亮点：</p>
+<ul>
+<li>新手友好</li>
+<li>功能强大且反应迅速</li>
+<li>出色的补全功能</li>
+<li>支持网页端配置</li>
+</ul>
+<p>为了让 fish 在我打开终端的时候自动启动，我在 <code>~/.bashrc</code>文件末尾加上了 <code>exec fish</code></p>
+<h3 id="下拉终端">下拉终端</h3>
+<p>推荐使用 Guake. 我把快捷键 <code>Win</code> + <code>Enter</code> 绑定到了终端开关，非常顺手。</p>
+<h2 id="vim">Vim</h2>
+<p>学习 Vim 的主要目的不是更快地输入代码，而是拥有一套工具能更贴合思维地操作。使用 Vim 时，很少会使用<code>ctrl</code>键和其他键配合，大部分时间只敲击一个键。</p>
+<blockquote>
+<p>推荐阅读 <a href="https://blog.lilydjwg.me/2015/11/16/vim-creep.188665.html" target="_blank">[译] Vim 的蔓延 - 依云&rsquo;s Blog</a>
+</p>
+</blockquote>
+<p>入门视频教程：<a href="https://www.youtube.com/watch?v=IiwGbcd8S7I" target="_blank">Vim Tutorial - YouTube - Ben Awad</a>
+</p>
+<p>Vim 大量使用了<code>Esc</code>键。我把<code>CapsLk</code>键和<code>Esc</code>键的功能做了交换，否则无法获得流畅的体验。（<a href="https://finctive.com/2020-08-archlinux-installation/#%E4%BA%A4%E6%8D%A2-esc-%E9%94%AE%E5%92%8C-caps-lock-%E9%94%AE" target="_blank">我的配置方法 - Linux KDE</a>
+）mac OS 可以通过系统设置修改。如果你使用的键盘有驱动配置程序，也许也可以通过设置交换按键。（我没有找到方便的 Windows 系统的修改方法，如果你恰好知道，欢迎分享。）</p>
+<p>关于 Vim 的配置教程，推荐 Bilibili Up 主 <a href="https://space.bilibili.com/13081489?from=search&amp;seid=1529017428553781112" target="_blank">TheCW</a>
+</p>
+<p>我不使用 Vim 开发程序，因为它的配置并不简单，需要大量时间学习，我更喜欢开箱即用。Jetbrains 系列 IDE 可以安装 ideavim 插件，目前支持的功能已经很多了，强烈推荐。ideavim 插件也可以把自定义的 Vim 快捷键绑定到 IDE 功能中，举个例子，我把代码格式化功能绑定到了 <code>&lt;leader&gt;f</code>：</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># ~/.ideavimrc
+nnoremap &lt;leader&gt;f :action ReformatCode&lt;CR&gt;
+</code></pre></div><p>具体配置方法：<a href="https://github.com/JetBrains/ideavim#executing-ide-actions" target="_blank">Executing IDE Actions</a>
+</p>
+<h2 id="终端文件管理-ranger">终端文件管理 Ranger</h2>
+<p><a href="https://github.com/ranger/ranger" target="_blank">Ranger - Github</a>
+</p>
+<p>Ranger 是一款终端文件管理程序，拥有 Vim 风格的键位绑定（比如使用 <code>hjkl</code> 移动浏览）。在初学 Linux 命令行时，我认为 <code>ls</code>、<code>cd</code>、<code>mv</code>这些命令的操作远远没有图形界面文件管理器方便。直到我开始使用 Ranger, 我才体会到终端操作的迅捷。</p>
+<p>
+
+    
+
+
+<img alt="image-20210210225023130" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210210225023130.png" /></p>
+<p>关于 Ranger 的基本用法，请查看官方文档。</p>
+<h3 id="退出时切换工作目录">退出时切换工作目录</h3>
+<p>在退出 Ranger 时，工作目录并没有改变。使用以下别名启动 Ranger 可以实现这个功能，将下列内容加入到你使用的 shell 的启动配置中。（比如 <code>.bashrc</code> ）</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 退出 ranger 的时候，cd 到相应的目录</span>
+<span class="nb">alias</span> <span class="nv">ra</span><span class="o">=</span><span class="s1">&#39;ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd &#34;$LASTDIR&#34;&#39;</span>
+</code></pre></div><p>如果你使用 fish:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">alias</span> <span class="nv">ra</span><span class="o">=</span><span class="s1">&#39;ranger --choosedir=&#34;$HOME/.rangerdir&#34;; cd (cat $HOME/.rangerdir)&#39;</span>
+</code></pre></div><h3 id="fzf-集成">fzf 集成</h3>
+<p>fzf 是一款方便的模糊搜索程序。</p>
+<p>安装好 fzf 之后，创建 <code>~/.config/ranger/commands.py</code>， 粘贴以下内容。</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">ranger.api.commands</span> <span class="kn">import</span> <span class="n">Command</span>
+
+<span class="k">class</span> <span class="nc">fzf</span><span class="p">(</span><span class="n">Command</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    :fzf
+</span><span class="s2">
+</span><span class="s2">    Find a file using fzf.
+</span><span class="s2">
+</span><span class="s2">    With a prefix argument select only directories.
+</span><span class="s2">
+</span><span class="s2">    See: https://github.com/junegunn/fzf
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">subprocess</span>
+        <span class="kn">import</span> <span class="nn">os.path</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantifier</span><span class="p">:</span>
+            <span class="c1"># match only directories</span>
+            <span class="n">command</span><span class="o">=</span><span class="s2">&#34;find -L . \( -path &#39;*/\.*&#39; -o -fstype &#39;dev&#39; -o -fstype &#39;proc&#39; \) -prune </span><span class="se">\
+</span><span class="se"></span><span class="s2">            -o -type d -print 2&gt; /dev/null | sed 1d | cut -b3- | fzf +m&#34;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># match files and directories</span>
+            <span class="n">command</span><span class="o">=</span><span class="s2">&#34;find -L . \( -path &#39;*/\.*&#39; -o -fstype &#39;dev&#39; -o -fstype &#39;proc&#39; \) -prune </span><span class="se">\
+</span><span class="se"></span><span class="s2">            -o -print 2&gt; /dev/null | sed 1d | cut -b3- | fzf +m&#34;</span>
+        <span class="n">fzf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fm</span><span class="o">.</span><span class="n">execute_command</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">universal_newlines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+        <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">fzf</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">fzf</span><span class="o">.</span><span class="n">returncode</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">fzf_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">stdout</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">fzf_file</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fm</span><span class="o">.</span><span class="n">cd</span><span class="p">(</span><span class="n">fzf_file</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">fm</span><span class="o">.</span><span class="n">select_file</span><span class="p">(</span><span class="n">fzf_file</span><span class="p">)</span>
+
+</code></pre></div><p>使用方法：打开 Ranger， 输入 <code>:fzf</code>，回车！这时候你可以输入关键词，通过 <code>Ctrl</code> + <code>J</code> / <code>K</code> 上下移动选择文件。</p>
+<p>
+
+    
+
+
+<img alt="image-20210318161033303" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210318161033303.png" /></p>
+<h2 id="终端复用器-tmux">终端复用器 Tmux</h2>
+<p>终端复用器 Tmux 常被用于将远程服务器的会话和窗口解绑，让程序保持运行。这篇文章可以帮助你入门 Tmux 的使用：<a href="http://www.ruanyifeng.com/blog/2019/10/tmux.html" target="_blank">Tmux 使用教程 - 阮一峰的网络日志</a>
+</p>
+<p>Tmux 也能作为分屏工具使用，通过修改、绑定快捷键，终端的使用体验会得到大幅提升。</p>
+<p>（下图为一个终端窗口的3个 Tmux pane）</p>
+<p>
+
+    
+
+
+<img alt="image-20210318162311881" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2021-03-terminal-runner/image-20210318162311881.png" /></p>
+<p>我的配置文件 <code>~/.tmux.conf</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># reference: </span>
+<span class="c1"># https://gist.github.com/spicycode/1229612</span>
+<span class="c1"># https://unix.stackexchange.com/questions/348913/copy-selection-to-a-clipboard-in-tmux</span>
+
+
+<span class="c1"># keys</span>
+
+<span class="c1"># 按下 Ctrl+b 然后按 r</span>
+<span class="c1"># Reload tmux config</span>
+<span class="nb">bind</span> r source-file ~/.tmux.conf
+
+<span class="c1"># Set new panes to open in current directory</span>
+<span class="c1"># 左右分屏，按下 Ctrl+b 然后按 |</span>
+bind-key <span class="p">|</span> split-window -h -c <span class="s2">&#34;#{pane_current_path}&#34;</span>
+<span class="c1"># 上下分屏，按下 Ctrl+b 然后按 -</span>
+bind-key - split-window -v -c <span class="s2">&#34;#{pane_current_path}&#34;</span>
+
+<span class="c1"># bind-key J resize-pane -D 5</span>
+<span class="c1"># bind-key K resize-pane -U 5</span>
+<span class="c1"># bind-key H resize-pane -L 5</span>
+<span class="c1"># bind-key L resize-pane -R 5</span>
+
+<span class="c1"># Use Alt-vim keys without prefix key to switch panes</span>
+<span class="c1"># 按住 Alt, 使用 hjkl 移动</span>
+<span class="nb">bind</span> -n M-h <span class="k">select</span>-pane -L
+<span class="nb">bind</span> -n M-j <span class="k">select</span>-pane -D 
+<span class="nb">bind</span> -n M-k <span class="k">select</span>-pane -U
+<span class="nb">bind</span> -n M-l <span class="k">select</span>-pane -R
+<span class="c1"># Alt+C 创建新页面（窗口）</span>
+<span class="nb">bind</span> -n M-c new-window -c <span class="s2">&#34;#{pane_current_path}&#34;</span>
+<span class="c1"># Alt+P 切换页面（窗口）</span>
+<span class="nb">bind</span> -n M-p previous-window
+<span class="c1"># Alt+P 切换页面（窗口）</span>
+<span class="c1"># 按下 Ctrl+b 然后按 x, 删除pane (窗格)</span>
+
+<span class="c1"># copy selected</span>
+<span class="c1"># 将选中内容加入剪贴板</span>
+set-option -g mouse on
+set-option -s set-clipboard off
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel <span class="s2">&#34;xclip -se c -i&#34;</span>
+
+<span class="c1"># right color</span>
+<span class="nb">set</span> -g terminal-overrides <span class="s2">&#34;,xterm-256color:Tc&#34;</span>
+<span class="nb">set</span> -g default-terminal screen-256color
+
+<span class="c1"># theme(copied from nord tmux theme plugin)</span>
+<span class="c1"># Colors</span>
+<span class="nb">set</span> -g status-bg default
+<span class="c1"># set -g status-bg colour235</span>
+<span class="nb">set</span> -g status-fg white
+<span class="c1"># Panes</span>
+<span class="nb">set</span> -g pane-border-style <span class="nv">bg</span><span class="o">=</span>black
+<span class="nb">set</span> -g pane-border-style <span class="nv">fg</span><span class="o">=</span>black
+<span class="nb">set</span> -g pane-active-border-style <span class="nv">bg</span><span class="o">=</span>black
+<span class="nb">set</span> -g pane-active-border-style <span class="nv">fg</span><span class="o">=</span>brightblack
+<span class="nb">set</span> -g display-panes-colour black
+<span class="nb">set</span> -g display-panes-active-colour brightblack
+
+<span class="c1"># 0 is too far from ` ;)</span>
+<span class="nb">set</span> -g base-index <span class="m">1</span>
+
+<span class="c1"># Automatically set window title</span>
+set-window-option -g automatic-rename on
+set-option -g set-titles on
+
+<span class="c1"># No delay for escape key press</span>
+<span class="nb">set</span> -sg escape-time <span class="m">0</span>
+
+<span class="nb">set</span> -g status-keys vi
+<span class="nb">set</span> -g history-limit <span class="m">10000</span>
+
+setw -g mode-keys vi
+setw -g monitor-activity on
+</code></pre></div><h2 id="结语">结语</h2>
+<p>本文介绍的内容并不深入，如果你有兴趣，可以沿着这些兔子洞折腾一下。</p>
+<p>最后，推荐一些我自己也没有看完的学习资料：</p>
+<ul>
+<li><a href="https://www.zhihu.com/column/commandline" target="_blank">知乎专栏 - 我爱命令行</a>
+</li>
+<li><a href="https://space.bilibili.com/13081489" target="_blank">Bilibili - TheCW</a>
+</li>
+<li><a href="https://zhuanlan.zhihu.com/vim-video" target="_blank">知乎专栏 - 玩转 vim 与 Terminal (视频)</a>
+</li>
+<li><a href="https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md" target="_blank">命令行的艺术</a>
+</li>
+<li><a href="https://github.com/wsdjeg/vim-galore-zh_cn" target="_blank">Vim 从入门到精通</a>
+</li>
+</ul>
+</div>
+            </div>
+            
+            
+            
+        </div>
+    </article>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="/about-blog">About</a> - 
+        <a href="https://gohugo.io/">Hugo</a>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://finctive.com/js/theme.js"></script>
+
+
+
+</body>
+
+</html>

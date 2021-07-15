@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html lang="zh" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FINCTIVE" />   
+    <title>使用 Unity 协程控制游戏回合逻辑 - 造物指南</title>
+    
+    
+    
+    
+    <meta name="description" content="前言 相关内容： Unity Coroutine C#序列化 前置知识： SerializeField和Serializable 本文为示例游戏项目 FINCTIVE/lost-in-the-wilderness-nightmare 开发笔记系列文章之一： 游戏 AI" /> 
+    
+    
+     
+    
+    <meta name="keywords" content="FINCTIVE, 镜岛, programming, 编程开发, 编程, 开发" /> 
+     
+    
+    
+
+    <link rel="shortcut icon" href="https://finctive.com/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/normalize.min.css@8.0.1/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme.css" />
+    <link disabled id="dark-mode-theme-css" rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme-dark.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/github-gist.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/@fontsource/encode-sans@4.2.0/index.min.css" />
+
+    
+    
+    <script>
+        var darkTheme = document.getElementById("dark-mode-theme-css");
+
+        var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+        setTheme(savedTheme);
+        function setTheme(mode) {
+            localStorage.setItem("dark-mode-storage", mode);
+            savedTheme = mode;
+            if(mode === "light") {
+                darkTheme.disabled = true;
+            } else if(mode === "dark") {
+                darkTheme.disabled = false;
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <article class="main">
+        <div class="header">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://finctive.com">
+                    <span>造物指南</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <div class="my_socials">
+                <a href="https://github.com/FINCTIVE" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                <a href="https://t.me/create_worlds" title="telegram" target="_blank"><i class="ri-telegram-fill"></i></a>
+                <a href="https://www.google.com/search?q=site%3Ahttps://finctive.com" title="search" target="_blank"><i class="ri-search-eye-fill"></i></a>
+                <a id="dark-mode-toggle" title="theme"><i class="ri-moon-fill"></i></a>
+                <a href="https://finctive.com/index.xml" type="application/rss+xml" title="rss" target="_blank"><i class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="content">
+            <div class="post">
+                <div class="post_title post_detail_title">
+                    <h1>使用 Unity 协程控制游戏回合逻辑</h1>
+                    
+                    <span class="author">FINCTIVE</span>
+                    <span class="date">2019-10</span>
+                    
+                </div>
+                
+                <div class="post_content"><h2 id="前言">前言</h2>
+<p>相关内容：</p>
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/Coroutines.html" target="_blank">Unity Coroutine</a>
+ </li>
+<li>C#序列化</li>
+</ul>
+<p>前置知识：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/zhaoqingqing/p/3995304.html" target="_blank">SerializeField和Serializable</a>
+</li>
+</ul>
+<blockquote>
+<p>本文为示例游戏项目 <a href="https://github.com/FINCTIVE/lost-in-the-wilderness-nightmare" target="_blank">FINCTIVE/lost-in-the-wilderness-nightmare</a>
+ 开发笔记系列文章之一：</p>
+<ul>
+<li><a href="https://finctive.com/2019-11-fsm-game-ai/" target="_blank">游戏 AI 控制脚本基本状态机 (FSM)</a>
+</li>
+<li>使用 Unity 协程控制游戏回合逻辑</li>
+<li><a href="https://finctive.com/2019-10-observer-ugui/" target="_blank">游戏 UI 观察者模式</a>
+</li>
+</ul>
+</blockquote>
+<h2 id="应用场景">应用场景</h2>
+<p><a href="https://github.com/FINCTIVE/lost-in-the-wilderness-nightmare" target="_blank">荒野迷踪：噩梦</a>
+是一个生存游戏，游戏难度逐渐增加，玩家的目的是尽可能活得更久。这个项目的游戏进程由一个游戏管理对象控制：当达到某一个时间段的时候（一个回合），随机生成怪物或者生成补给子弹箱。</p>
+<p>每个回合有自己的属性：如怪物生成速度、子弹补给生成速度、子弹补给箱容量和种类。通过设置不同的属性值来控制该回合的难度。
+初学游戏开发的时候，我是这样实现这个功能的：</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">private</span> <span class="kt">float</span> <span class="n">totalTime</span> <span class="p">=</span> <span class="m">0f</span><span class="p">;</span>
+<span class="k">void</span> <span class="n">Update</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">totalTime</span> <span class="p">+=</span> <span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">totalTime</span> <span class="p">&gt;</span> <span class="err">时间点</span><span class="n">A</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="err">生成怪物</span><span class="p">(</span><span class="err">速度</span><span class="p">)</span><span class="err">；</span>
+        <span class="err">生成补给箱</span><span class="p">(</span><span class="err">速度</span><span class="p">)</span><span class="err">；</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">totalTime</span> <span class="p">&gt;</span> <span class="err">时间点</span><span class="n">B</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="err">生成怪物</span><span class="p">(</span><span class="err">速度</span><span class="p">)</span><span class="err">；</span>
+        <span class="err">生成补给箱</span><span class="p">(</span><span class="err">速度</span><span class="p">)</span><span class="err">；</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+    <span class="c1">// 根据需要扩展出长长的else if
+</span><span class="c1"></span><span class="p">}</span>
+    
+</code></pre></div><p>这么写可以实现想要的功能，但如果需要修改某个关卡的时间，或者对应的属性值，我需要打开代码编辑器修改，或者在组件开头声明出长长的一串public变量来控制相应的值。进一步来考虑，这种写法是不易扩展的。</p>
+<h2 id="解决方案">解决方案</h2>
+<h3 id="大体思路">大体思路</h3>
+<ul>
+<li>创建一个类来保存回合属性信息（例如怪物生成速度、子弹补给生成速度等等，本例中为GameRoundInfo类）。</li>
+<li>在管理脚本中使用Unity协程逐个遍历回合。（本例中为GameLoop方法）</li>
+<li>在每一个回合中（本例中为GameRound方法），同时有两件事情要处理：生成敌人，生成怪物（本例中为SpawnEnemy方法、SpawnProps方法）。</li>
+<li>上述的GameLoop方法、GameRound方法、SpawnEnemy方法、SpawnProps方法，都可以使用协程来编写脚本。</li>
+</ul>
+<p>本文提到的所有功能都写在如下结构的一个文件中：</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">LevelManager</span> <span class="p">:</span> <span class="n">MonoBehaviour</span>
+<span class="p">{</span>
+<span class="na">    [SerializeField]</span><span class="k">private</span> <span class="n">GameRoundInfo</span><span class="p">[]</span> <span class="n">gameRoundInfos</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="na">    [System.Serializable]</span>
+    <span class="k">private</span> <span class="k">class</span> <span class="nc">GameRoundInfo</span><span class="p">{...}</span>
+    <span class="n">IEnumerator</span> <span class="n">GameLoop</span><span class="p">(){...}</span>
+    <span class="n">IEnumerator</span> <span class="n">GameRound</span><span class="p">(</span><span class="n">GameRoundInfo</span> <span class="n">info</span><span class="p">){...}</span>
+    <span class="k">private</span> <span class="n">Coroutine</span> <span class="n">spawnEnemyCoro</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">Coroutine</span> <span class="n">spawnPropsCoro</span><span class="p">;</span>
+    <span class="n">IEnumerator</span> <span class="n">SpawnEnemy</span><span class="p">(</span><span class="kt">float</span> <span class="n">waitingTimeBase</span><span class="p">,</span> <span class="kt">float</span> <span class="n">randomTime</span><span class="p">){...}</span>
+    <span class="n">IEnumerator</span> <span class="n">SpawnProps</span><span class="p">(</span><span class="kt">float</span> <span class="n">waitingTimeBase</span><span class="p">,</span> <span class="kt">float</span> <span class="n">randomTime</span><span class="p">,</span> <span class="kt">int</span> <span class="n">propsAmmoPistal</span><span class="p">,</span> <span class="kt">int</span> <span class="n">propsAmmoRifle</span><span class="p">){...}</span>
+<span class="p">}</span>
+</code></pre></div><p>
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/2019-10-coroutine-level-manager/2.png" /></p>
+<h3 id="具体实现">具体实现</h3>
+<ol>
+<li>创建GameRoundInfo类来保存回合属性信息</li>
+</ol>
+<p>为了方便，我在本例中直接把这个类作为内部类声明在了LevelManager组件中。</p>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// 注意第二行是不可省的，否则这个类将无法在Inspector窗口中显示出来
+</span><span class="c1"></span><span class="na">[System.Serializable]</span>
+<span class="k">private</span> <span class="k">class</span> <span class="nc">GameRoundInfo</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">float</span> <span class="n">roundTime</span> <span class="p">=</span> <span class="m">1f</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">float</span> <span class="n">enemySpawnTime</span> <span class="p">=</span> <span class="m">1f</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">float</span> <span class="n">propsSpawnTime</span> <span class="p">=</span> <span class="m">1f</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">propsAmmoPistal</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">propsAmmoRifle</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><ol start="2">
+<li>启动游戏循环过程</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">//如果无特别需求，可以在Start函数中调用 StartCoroutine(GameLoop());来启动游戏循环过程
+</span><span class="c1"></span><span class="n">IEnumerator</span> <span class="n">GameLoop</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">gameRoundIndex</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">gameRoundIndex</span> <span class="p">&lt;</span> <span class="n">gameRoundInfos</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">gameRoundCoro</span> <span class="p">=</span> <span class="n">StartCoroutine</span><span class="p">(</span><span class="n">GameRound</span><span class="p">(</span><span class="n">gameRoundInfos</span><span class="p">[</span><span class="n">gameRoundIndex</span><span class="p">]));</span>
+        <span class="k">yield</span> <span class="k">return</span> <span class="n">gameRoundCoro</span><span class="p">;</span> <span class="c1">// 等待gameRoundCoro执行完毕后，继续往下执行
+</span><span class="c1"></span>        <span class="p">++</span><span class="n">gameRoundIndex</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><ol start="3">
+<li>启动每一个游戏回合中的操作</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">private</span> <span class="n">Coroutine</span> <span class="n">spawnEnemyCoro</span><span class="p">;</span>
+<span class="k">private</span> <span class="n">Coroutine</span> <span class="n">spawnPropsCoro</span><span class="p">;</span>
+<span class="n">IEnumerator</span> <span class="n">GameRound</span><span class="p">(</span><span class="n">GameRoundInfo</span> <span class="n">info</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">spawnEnemyCoro</span>  <span class="p">=</span> <span class="n">StartCoroutine</span><span class="p">(</span><span class="n">SpawnEnemy</span><span class="p">(</span><span class="n">info</span><span class="p">.</span><span class="n">enemySpawnTime</span><span class="p">,</span> <span class="m">2f</span><span class="p">));</span>
+    <span class="n">spawnPropsCoro</span>  <span class="p">=</span> <span class="n">StartCoroutine</span><span class="p">(</span><span class="n">SpawnProps</span><span class="p">(</span><span class="n">info</span><span class="p">.</span><span class="n">propsSpawnTime</span><span class="p">,</span> <span class="m">2f</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">propsAmmoPistal</span><span class="p">,</span> <span class="n">info</span><span class="p">.</span><span class="n">propsAmmoRifle</span><span class="p">));</span>
+    <span class="k">yield</span> <span class="k">return</span> <span class="k">new</span> <span class="n">WaitForSeconds</span><span class="p">(</span><span class="n">info</span><span class="p">.</span><span class="n">roundTime</span><span class="p">);</span>
+    <span class="c1">// 结束触发的协程，否则他们会一直执行下去
+</span><span class="c1"></span>    <span class="n">StopCoroutine</span><span class="p">(</span><span class="n">spawnEnemyCoro</span><span class="p">);</span>
+    <span class="n">StopCoroutine</span><span class="p">(</span><span class="n">spawnPropsCoro</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><ol start="4">
+<li>具体生成方法</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">IEnumerator</span> <span class="n">SpawnEnemy</span><span class="p">(</span><span class="kt">float</span> <span class="n">waitingTimeBase</span><span class="p">,</span> <span class="kt">float</span> <span class="n">randomTime</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">yield</span> <span class="k">return</span> <span class="k">new</span> <span class="n">WaitForSeconds</span><span class="p">(</span><span class="n">waitingTimeBase</span> <span class="p">+</span> <span class="n">Random</span><span class="p">.</span><span class="n">Range</span><span class="p">(-</span><span class="m">1f</span><span class="p">*</span><span class="n">randomTime</span><span class="p">,</span> <span class="n">randomTime</span><span class="p">));</span>
+
+    <span class="c1">// ...各项操作...
+</span><span class="c1"></span>
+    <span class="c1">// 启动下一次生成过程
+</span><span class="c1"></span>    <span class="n">spawnEnemyCoro</span> <span class="p">=</span> <span class="n">StartCoroutine</span><span class="p">(</span><span class="n">SpawnEnemy</span><span class="p">(</span><span class="n">waitingTimeBase</span><span class="p">,</span> <span class="n">randomTime</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div><p>完全版本的代码源文件（其中包含有其他与本文无关的功能，直接阅读这个脚本并不利于理解）：<a href="https://github.com/FINCTIVE/lost-in-the-wilderness-nightmare/blob/master/Assets/GameProject/Scripts/Manager/LevelManager.cs" target="_blank">LevelManager.cs</a>
+
+这样实现流程管理，不仅方便了我们对代码差错，还便于策划修改参数，设计游戏细节。</p>
+</div>
+            </div>
+            
+            
+            
+        </div>
+    </article>
+    <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
+    <footer class="footer">
+    <div class="powered_by">
+        <a href="/about-blog">About</a> - 
+        <a href="https://gohugo.io/">Hugo</a>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://finctive.com/js/theme.js"></script>
+
+
+
+</body>
+
+</html>
