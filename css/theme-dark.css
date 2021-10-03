@@ -1,0 +1,79 @@
+/* dark */
+html, 
+.main,
+body {
+    background-color: #292929 !important;
+    color: rgb(175, 175, 175) !important;
+}
+
+a {
+    color: #c2c2c2 !important;
+}
+
+a:hover {
+    color: #90c2c5 !important;
+}
+
+#post_toc nav {
+    border-left: 2px solid #3b3b3b !important;
+} 
+
+hr {
+    background-color: #3d3d3d !important;
+}
+
+.post .post_content h1 {
+    border-bottom: 1px solid rgb(87, 87, 87) !important;
+}
+  
+.post .post_content h2 {
+    border-bottom: 1px solid rgb(87, 87, 87) !important;
+}
+
+.about .description {
+    border-left: 4px solid #696862 !important;
+    color: gray !important;
+}
+
+.about a {
+    color: #3d9bc7 !important;
+}
+
+.about a:hover {
+    color: #90c2c5 !important;
+}
+
+.post .post_content a {
+    color: #db9235 !important;
+    transition: color 1.4s cubic-bezier(.25, .8, .25, 1) !important;
+}
+
+.post .post_content a:hover {
+    color: #979797 !important;
+}
+
+code {
+    color: black  !important;
+}
+
+.highlight {
+    filter: invert(90%) hue-rotate(180deg) brightness(115%);
+    -webkit-filter: invert(90%) hue-rotate(180deg) brightness(115%);
+}
+
+code::-webkit-scrollbar-track {
+    background: #d0d0d0 !important
+}
+
+code::-webkit-scrollbar-thumb {
+    background: #a8a8a8 !important
+}
+
+
+body::-webkit-scrollbar-track {
+    background: #4d4d4d !important;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #8a8a8a !important;
+}

@@ -1,0 +1,513 @@
+
+
+<!DOCTYPE html>
+<html lang="zh" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FINCTIVE" />   
+    <title>Arch Linux &#43; Windows 双系统安装配置踩坑记 - 造物指南</title>
+    
+    
+    
+    
+    <meta name="description" content="在你看到这篇文章时，有些内容可能已经过时了，请以 Arch Wiki 为准。 我不是 Linux 方面的专家，文章内容难免有误，欢迎交流。 系统安装 Arch Linux 的安装过程难度较大，我" /> 
+    
+    
+     
+    
+    <meta name="keywords" content="FINCTIVE, 镜岛, 编程, 开发" /> 
+     
+    
+    
+
+    <link rel="shortcut icon" href="https://finctive.com/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/normalize.min.css@8.0.1/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme.css" />
+    <link disabled id="dark-mode-theme-css" rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme-dark.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/github-gist.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/@fontsource/encode-sans@4.2.0/index.min.css" />
+
+    
+    
+    <script>
+        var darkTheme = document.getElementById("dark-mode-theme-css");
+
+        var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+        setTheme(savedTheme);
+        function setTheme(mode) {
+            localStorage.setItem("dark-mode-storage", mode);
+            savedTheme = mode;
+            if(mode === "light") {
+                darkTheme.disabled = true;
+            } else if(mode === "dark") {
+                darkTheme.disabled = false;
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <style>
+        .post {
+            margin-top: 50px;
+            padding-bottom: 50px;
+        }
+
+         
+        .post .post_title h1 {
+            font-size: 1.6rem;
+            line-height: 1;
+            font-weight: bold;
+            margin: 0 0 6px 0;
+            padding-bottom: 10px;
+
+        }
+
+         
+        .post .post_title span {
+            color: gray;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+    </style>
+    <article class="main">
+        <style>
+    .header {
+        width: 720px;
+        padding: 60px 0 70px 0;
+        margin: 0 auto;
+        background-size: cover;
+    }
+
+    .header .header_container {
+        padding: 0 0;
+    }
+
+    .header .header_container h1 {
+        line-height: 1;
+        margin: 0;
+    }
+
+    .header .header_container a {
+        text-decoration: none;
+        font-weight: normal;
+        float: left;
+    }
+
+    .header .header_container .site_title a {
+        font-size: 28px;
+        width: 65px;
+        letter-spacing: 2px;
+        line-height: 1.2;
+        color: #000000;
+    }
+
+    .header .header_container .site_title a span {
+        display: block;
+    }
+
+    .header .header_container .site_title a:hover {
+        color: #666666;
+    }
+
+    .header .header_container .description {
+        font-size: 1rem;
+        color: #565654;
+        float: right;
+    }
+
+    .header .icons {
+        list-style: none;
+        font-size: 16px;
+        float: right;
+        margin: 20px 0 0 0;
+    }
+
+    .header .icons i {
+        margin-left: 10px;
+    }
+
+    .header .icons a {
+        color: #5f5f5f;
+        font-size: 20px;
+        float: none;
+        cursor: pointer;
+    }
+
+    .header .icons a:hover {
+        color: #000000;
+    }
+
+    @media screen and (max-width: 900px) {
+        .header {
+            width: 90%;
+            padding: 30px 0 70px 0;
+        }
+    }
+</style>
+
+<div class="header">
+    <div class="header_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://finctive.com">
+                    <span>造物指南</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <div class="icons">
+                <a href="https://github.com/FINCTIVE" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                <a href="https://t.me/create_worlds" title="telegram" target="_blank"><i
+                        class="ri-telegram-fill"></i></a>
+                <a href="https://www.google.com/search?q=site%3Ahttps://finctive.com" title="search" target="_blank"><i
+                        class="ri-search-eye-fill"></i></a>
+                <a id="dark-mode-toggle" title="theme"><i class="ri-moon-fill"></i></a>
+                <a href="https://finctive.com/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="main_container">
+            <div class="post">
+                <div class="post_title">
+                    <h1>Arch Linux &#43; Windows 双系统安装配置踩坑记</h1>
+                    
+                    <span class="author">FINCTIVE</span>
+                    <span class="date">2020-08-19</span>
+                    
+                </div>
+                
+                <div id="post_toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#系统安装">系统安装</a>
+      <ul>
+        <li><a href="#双系统">双系统</a></li>
+        <li><a href="#如何查错">如何查错</a></li>
+        <li><a href="#双系统时间不同步">双系统时间不同步</a></li>
+      </ul>
+    </li>
+    <li><a href="#安装桌面环境">安装桌面环境</a></li>
+    <li><a href="#软件安装">软件安装</a>
+      <ul>
+        <li><a href="#包管理器">包管理器</a></li>
+        <li><a href="#字体">字体</a></li>
+        <li><a href="#输入法-fcitx5">输入法 Fcitx5</a></li>
+        <li><a href="#外观主题">外观主题</a></li>
+      </ul>
+    </li>
+    <li><a href="#应用推荐">应用推荐</a></li>
+    <li><a href="#结语">结语</a></li>
+  </ul>
+</nav>
+</div>
+<style>
+#post_toc a:hover {
+    color: #f3b440;
+}
+
+.toc-active {
+    color: #588ea1 !important;
+    font-weight: bold;
+}
+
+ 
+
+#post_toc a {
+    color: #6e6e6e;
+}
+#post_toc nav ul li {
+  list-style-type: disc;
+}
+#post_toc nav ul,
+#post_toc nav ol,
+#post_toc nav dl {
+  padding: 0px 20px;
+}
+#post_toc li {
+  padding-top: 3px;
+   
+}
+
+ 
+@media screen and (min-width: 1024px) {
+    #post_toc {
+        position: sticky;
+        width: 100%;
+        top: 20px;
+    }
+    #post_toc nav {
+        position: absolute;
+        right: -240px;
+        width : 160px;
+
+        padding-left: 0;
+        border-left: 2px solid #eeeeee;
+        font-size: 0.9em;
+    } 
+
+    #post_toc a {
+        color: #a0a0a0;
+    }
+
+    #post_toc nav ul li {
+    list-style-type: none;
+    }
+
+    #post_toc nav ul,
+    #post_toc nav ol,
+    #post_toc nav dl {
+    padding: 0px 10px;
+    }
+}
+
+</style>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const id = entry.target.getAttribute('id');
+            if (entry.intersectionRatio > 0) {
+                document.querySelector(`nav ul li a[href="#${id}"]`).classList.add('toc-active');
+            } else {
+                document.querySelector(`nav ul li a[href="#${id}"]`).classList.remove('toc-active');
+            }
+        });
+    });
+
+    
+    document.querySelectorAll('h1[id]').forEach((section) => {
+        observer.observe(section);
+    });
+
+    document.querySelectorAll('h2[id]').forEach((section) => {
+        observer.observe(section);
+    });
+
+    document.querySelectorAll('h3[id]').forEach((section) => {
+        observer.observe(section);
+    });
+});
+</script>
+                
+                <div class="post_content"><blockquote>
+<p>在你看到这篇文章时，有些内容可能已经过时了，请以 <a href="https://wiki.archlinux.org/" target="_blank">Arch Wiki </a>
+为准。</p>
+<p>我不是 Linux 方面的专家，文章内容难免有误，欢迎交流。</p>
+</blockquote>
+<p><img src="image-20211003115121968.png" alt="image-20211003115121968" style="width:550px;" /></p>
+<h2 id="系统安装">系统安装</h2>
+<p>Arch Linux 的安装过程难度较大，我并不推荐初学者使用这个发行版。当然，在摸索过程中解决问题也是一种对初学者大有帮助的学习方式。</p>
+<p><strong>请在对安装过程有大致理解之后再开始动手安装。</strong></p>
+<p><a href="https://wiki.archlinux.org/index.php/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank">ArchWiki 安装指导</a>
+ <strong>一定要看</strong>，即使可能暂时看不懂。</p>
+<p>推荐观看 The CW 的视频教程，手把手级别教学，非常适合新手学习。</p>
+<ol>
+<li>
+<p><a href="https://www.bilibili.com/video/BV11J411a7Tp" target="_blank">最全 Arch Linux 安装教程——打造真正属于你的操作系统</a>
+</p>
+<p>注意：这个视频安装的<strong>不是双系统</strong>，有的步骤不能和视频教程里一模一样。（详见下文。）</p>
+</li>
+<li>
+<p><a href="https://www.bilibili.com/video/BV1q7411s7LS/" target="_blank">装完 Arch Linux 你该做什么？用户权限，图形界面及软件安装详解【Arch第二期】</a>
+</p>
+<p>这里安装的桌面环境为 Deepin，个人更推荐 KDE. （详见下文。）</p>
+</li>
+</ol>
+<p>看完视频后，请参考这个文档开始动手安装：<a href="https://github.com/NiiiKlaus/Get-my-Arch-Linux" target="_blank">NiiiKlaus/Get-my-Arch-Linux</a>
+. 文档内容与以上视频大致相同，并且有一些修改和补充。</p>
+<h3 id="双系统">双系统</h3>
+<ul>
+<li>在挂载（mount）环节的时候，我把 <code>/mnt</code> 挂载到了我想挂载的 Linux 分区上；把<code>/mnt/efi</code>挂载到了EFI分区（如图所示）；不挂载<code>/mnt/boot</code>。</li>
+</ul>
+<p>
+
+    
+
+
+<img alt="" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/arch-installation/1.png" /></p>
+<ul>
+<li><strong>不能格式化EFI分区</strong>（<a href="https://github.com/NiiiKlaus/Get-my-Arch-Linux/blob/master/system-installation.md/#43-%E5%AE%9A%E4%B9%89%E5%88%86%E5%8C%BA%E6%A0%BC%E5%BC%8F" target="_blank">4.3 定义分区格式</a>
+），否则可能会破坏 Windows 的 EFI 文件。直接挂载上去就好。</li>
+<li>在执行<code>grub-install</code> 这一步（<a href="https://github.com/NiiiKlaus/Get-my-Arch-Linux/blob/master/system-installation.md/#79-%E5%AE%89%E8%A3%85grub%E7%9B%B8%E5%85%B3" target="_blank">7.9 安装grub相关</a>
+）的时候，我在<code>efi-directory</code>参数填写的是 <code>/efi</code></li>
+</ul>
+<p>以上步骤的详细解释请看 <a href="https://wiki.archlinux.org/index.php/GRUB_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank">GRUB (简体中文)-ArchWiki</a>
+。上面描述的只是方法之一，你也可以使用其他方法，比如挂载<code>/mnt/boot</code>。具体情况不再详述，ArchWiki 能解答你的大部分疑惑。</p>
+<h3 id="如何查错">如何查错</h3>
+<p>如果系统安装好后出现异常，可以修改内核启动参数打印更多报错信息：</p>
+<ul>
+<li>在 GRUB 菜单选择启动项时，移动选项至 Arch Linux，按 <code>e</code> 修改内核启动参数，进入文本编辑界面。</li>
+<li>找到 <code>linux</code> 开头的一行，把 <code>quiet</code> 参数去掉，按下 <code>ctrl + x</code> 启动系统。</li>
+</ul>
+<p>这个技巧在遇到一些难以定位的问题时非常好用，输出的报错信息也可以用于向其他人求助。</p>
+<h3 id="双系统时间不同步">双系统时间不同步</h3>
+<p>问题现象：关闭Windows系统，打开Linux系统后（或者相反），发现时间错乱了。</p>
+<p>时间错乱会给 <em>有些软件</em> 带来致命问题。解决方案：</p>
+<blockquote>
+<p>来源：<a href="https://printempw.github.io/setting-up-manjaro-linux/#%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E4%B8%8D%E5%90%8C%E6%AD%A5" target="_blank">printempw - Manjaro Linux 踩坑调教记录 - 双系统时间不同步</a>
+</p>
+<p>让 Windows 认为硬件时钟是 UTC，修改一下 Windows 注册表即可：</p>
+<p><code>reg add &quot;HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation&quot; /v RealTimeIsUniversal /d 1 /t REG_QWORD /f</code></p>
+</blockquote>
+<h2 id="安装桌面环境">安装桌面环境</h2>
+<p>综合个人使用体验以及对社区内活跃成员的观察，我推荐 <a href="https://kde.org/" target="_blank">KDE</a>
+.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># SDDM 桌面管理器（用于登陆）</span>
+sudo pacman -S sddm
+sudo systemctl <span class="nb">enable</span> sddm
+
+<span class="c1"># KDE Plasma</span>
+sudo pacman -S xorg plasma
+
+<span class="c1"># 网络管理</span>
+sudo pacman -S networkmanager
+sudo systemctl <span class="nb">enable</span> NetworkManager
+
+<span class="c1"># KDE 大礼包</span>
+sudo pacman -S kde-applications
+
+<span class="c1"># 我喜欢保持简洁，没有安装所有的 KDE 应用，只安装了以下几个来自 KDE 的软件：</span>
+<span class="c1"># 文件浏览器，终端，文档阅读器，图片查看器，解压软件，截图工具</span>
+<span class="c1"># sudo pacman -S dolphin konsole okular gwenview ark spectacle</span>
+</code></pre></div><p>重启。至此，一个具有基本功能的系统已经安装好了！</p>
+<h2 id="软件安装">软件安装</h2>
+<h3 id="包管理器">包管理器</h3>
+<h4 id="编辑镜像源列表">编辑镜像源列表</h4>
+<p>编辑镜像列表文件 ，将速度比较快的镜像源地址放到文件最上面。比如：</p>
+<ul>
+<li><a href="https://mirror.tuna.tsinghua.edu.cn/help/archlinux/" target="_blank">清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a>
+</li>
+<li><a href="https://mirrors.ustc.edu.cn/help/archlinux.html" target="_blank">Arch Linux 源使用帮助 — USTC Mirror Help 文档</a>
+</li>
+</ul>
+<h4 id="添加-arch-linux-中文社区仓库">添加 Arch Linux 中文社区仓库</h4>
+<p>详情请看：<a href="https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/" target="_blank">Arch Linux 中文社区仓库 « Arch Linux</a>
+</p>
+<p>建议使用<a href="https://github.com/archlinuxcn/mirrorlist-repo" target="_blank">这里</a>
+的镜像链接，我使用中国科学技术大学的镜像源，速度不错。记得安装 archlinuxcn-keyring 包。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S archlinuxcn-keyring
+</code></pre></div><p>添加 archlinuxcn 源之后，许多常用的软件能直接在pacman高速下载。</p>
+<h4 id="yay">yay</h4>
+<blockquote>
+<p>来源：<a href="https://wiki.archlinux.org/index.php/Arch_User_Repository_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank">Arch Wiki</a>
+</p>
+<p><a href="https://aur.archlinux.org/" target="_blank">Arch 用户软件仓库</a>
+（Arch User Repository，AUR）是为用户而建、由用户主导的 Arch 软件仓库。AUR 中的软件包以软件包生成脚本（<a href="https://wiki.archlinux.org/index.php/PKGBUILD_%28%e7%ae%80%e4%bd%93%e4%b8%ad%e6%96%87%29" target="_blank">PKGBUILD</a>
+）的形式提供，用户自己通过 <a href="https://wiki.archlinux.org/index.php/Makepkg_%28%e7%ae%80%e4%bd%93%e4%b8%ad%e6%96%87%29" target="_blank">makepkg</a>
+ 生成包，再由 <a href="https://wiki.archlinux.org/index.php/Pacman_%28%e7%ae%80%e4%bd%93%e4%b8%ad%e6%96%87%29" target="_blank">pacman</a>
+ 安装。创建 AUR 的初衷是方便用户维护和分享新软件包，并由官方定期从中挑选软件包进入 <a href="https://wiki.archlinux.org/index.php/Community_repository" target="_blank">community</a>
+ 仓库。本文介绍用户访问和使用 AUR 的方法。</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S yay
+</code></pre></div><p>有了 AUR，许多 Github 上的软件也可以通过包管理器安装！（如果有人写了安装脚本。）<code>yay</code> 是帮助下载 AUR 内容的工具，用法类似 <code>pacman</code>.</p>
+<p>由于部分软件包是从 Github 上下载的，你也许会碰上这个问题：<a href="https://github.com/Jguer/yay/issues/701" target="_blank">Jguer/yay - Github Issue - Proxy env variables being ignored.</a>
+</p>
+<p>本文提到的软件包如果无法在 pacman 安装，请试一下 <code>yay</code>.（搜索软件包 <code>yay -Ss [keyword]</code>）</p>
+<h3 id="字体">字体</h3>
+<p>如果系统没有安装中文字体，中文内容可能会变成小方块。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 思源黑体</span>
+sudo pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts 
+<span class="c1"># emoji</span>
+sudo pacman -S noto-fonts-emoji
+</code></pre></div><p>在 KDE 设置中修改字体即可。</p>
+<p>如果有更细致的配置需求，请参考这篇文档 <a href="https://wiki.archlinux.org/index.php/Font_Configuration_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29/Chinese_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29" target="_blank">Font Configuration/Chinese (简体中文) </a>
+</p>
+<h3 id="输入法-fcitx5">输入法 Fcitx5</h3>
+<p><a href="https://wiki.archlinux.org/index.php/Fcitx5_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E4%B8%AD%E6%96%87" target="_blank">Fcitx5 (简体中文) - ArchWiki</a>
+</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S fcitx5-im fcitx5-chinese-addons
+<span class="c1"># 词库（可选）</span>
+sudo pacman -S fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl
+</code></pre></div><p>修改环境变量，编辑 <code>~/.pam_environment</code> 加入以下内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">INPUT_METHOD  <span class="nv">DEFAULT</span><span class="o">=</span>fcitx5
+GTK_IM_MODULE <span class="nv">DEFAULT</span><span class="o">=</span>fcitx5
+QT_IM_MODULE  <span class="nv">DEFAULT</span><span class="o">=</span>fcitx5
+XMODIFIERS    <span class="nv">DEFAULT</span><span class="o">=</span><span class="se">\@</span><span class="nv">im</span><span class="o">=</span>fcitx5
+</code></pre></div><p>设置开机启动，编辑 <code>~/.xprofile</code> ，加入以下内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">fcitx5 <span class="p">&amp;</span>
+</code></pre></div><p>输入法启动后，在系统托盘里可用找到fcitx5的图标，右键菜单 =&gt; Configure 打开配置窗口。（或者在终端使用命令<code>fcitx5-configtool</code>）
+添加 “Pinyin”选项，完成。（注意不是添加 Chinese 选项）</p>
+<p><img src="2.png" alt="image.png" style="width: 400px;" /></p>
+<p>Fcitx5 也可以安装搜狗拼音的细胞词库，非常方便。安装方式略。</p>
+<h3 id="外观主题">外观主题</h3>
+<p>Linux 的灵活性让桌面配置变得非常有趣，推荐你到 <a href="https://www.reddit.com/r/unixporn/" target="_blank">r/unixporn</a>
+ 逛一逛。</p>
+<p>不过我最近更喜欢 KDE 默认主题🤣</p>
+<h2 id="应用推荐">应用推荐</h2>
+<p>命令行软件留到下一篇文章讲解👏</p>
+<ul>
+<li>Markdown 编辑器 <code>typora</code>，这篇博客就是用它写的。</li>
+<li>聊天软件 <code>telegram</code>， 中文技术交流群很多（比如 Arch Linux 群组），用户体验极佳。</li>
+<li>第三方网易云播放器 <code>yesplaymusic</code>，界面简洁美观，无社交功能。</li>
+<li>跨平台的电子书阅读器 <a href="https://github.com/troyeguo/koodo-reader" target="_blank">koodo reader</a>
+.</li>
+<li>视频播放器 <code>mpv</code>，界面UI很少。我参考 Youtube 的快捷键写了一套 <a href="https://gist.github.com/FINCTIVE/2abebb6995e3e650c0f8a3afdc9720f1" target="_blank">input.conf</a>
+.</li>
+<li><code>kdeconnect</code> 可以在局域网和手机互相传文件，无敌好用。</li>
+</ul>
+<h2 id="结语">结语</h2>
+<p>至此，你已经成功安装好了 Arch Linux 🎉</p>
+<p>欢迎加入 <a href="https://t.me/archlinuxcn_group" target="_blank">#archlinux-cn</a>
+ 群组，你可以在这里和大家交流 Arch Linux 相关的问题。</p>
+</div>
+            </div>
+            <div id="contact_email">
+    
+    <p>作者: FINCTIVE</p>
+    <p>日期: 2020-08-19</p>
+    <p>联系方式: finctive@qq.com</p>
+    <p>欢迎交流、指正、提问。</p>
+    
+</div>
+<style>
+    #contact_email {
+        color: gray;
+        padding-bottom: 50px;
+    }
+</style>
+        </div>
+    </article>
+    <footer class="footer">
+    <style>
+        .footer {
+        clear: both;
+        max-width: 780px;
+        font-size: 14px;
+        text-align: center;
+        padding: 15px 0;
+        margin: 0 auto;
+        color: #a6a6a6;
+        }
+
+        .footer a {
+        margin: 0 12px;
+        color: #b4b3b3;
+        }
+
+        .footer a:hover {
+        color: #1f1f1f;
+        }
+    </style>
+    <div style="min-height: 30px;">
+        <a href="/about-blog">About</a> - 
+        <a href="https://gohugo.io/" target="_blank">Hugo</a>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://finctive.com/js/theme.js"></script>
+</body>
+
+</html>

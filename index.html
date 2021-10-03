@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh" >
+
+<head>
+	<meta name="generator" content="Hugo 0.88.1" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FINCTIVE" />   
+    
+    <title>造物指南</title>
+    
+    
+    
+    
+    <meta name="description" content="造物指南。" /> 
+    
+    
+     
+    
+    <meta name="keywords" content="FINCTIVE, 镜岛, 编程, 开发" /> 
+     
+    
+     
+    
+    <link rel="alternate" type="application/rss+xml" href="https://finctive.com/index.xml" title="造物指南" />
+    
+
+    <link rel="shortcut icon" href="https://finctive.com/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/normalize.min.css@8.0.1/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme.css" />
+    <link disabled id="dark-mode-theme-css" rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme-dark.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/github-gist.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/@fontsource/encode-sans@4.2.0/index.min.css" />
+
+    
+    
+    <script>
+        var darkTheme = document.getElementById("dark-mode-theme-css");
+
+        var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+        setTheme(savedTheme);
+        function setTheme(mode) {
+            localStorage.setItem("dark-mode-storage", mode);
+            savedTheme = mode;
+            if(mode === "light") {
+                darkTheme.disabled = true;
+            } else if(mode === "dark") {
+                darkTheme.disabled = false;
+            }
+        };
+    </script>
+</head>
+<style>
+  .about .description {
+     
+    border-left: 4px solid #fdd655;
+    padding: 0px 15px;
+    margin: 60px 0px;
+    color: #616161;
+  }
+
+  .about hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #f8f8f8;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+  }
+
+  .about a {
+    color: #2a7fa7;
+    margin-right: 30px;
+  }
+
+  .about a:hover {
+    color: #0f4a4e;
+  }
+
+  .post-list .container {
+    width: 720px;
+    margin: 0 auto;
+  }
+
+  .post-list {
+    font-size: 18px;
+    margin: 30px 0;
+    padding: 0 0 30px 0;
+  }
+
+  .post-list li {
+    list-style-type: none;
+    padding: 0;
+  }
+
+   
+
+  .post-list .post-group {
+    margin: 5px 0 25px 0;
+    padding: 0;
+    line-height: 2.1;
+  }
+
+  .post-list .post-group .post-row {
+    padding-bottom: 1px;
+  }
+
+  .post-list .post-group .post-row a {
+    display: inline-block;
+     
+  }
+
+  .post-list .post-group .post-row .post_time {
+    float: right;
+    color: #acacac;
+     
+    font-family: 'FiraCode', sans-serif;
+    font-size: 0.8em;
+  }
+
+  @media print,
+  screen and (max-width: 680px) {
+    .post-list .post-group .post-row .post_time {
+      display: none;
+    }
+  }
+
+  .post-list .divide-title {
+    color: #979797;
+    font-size: 0.8em;
+    margin: 0px;
+  }
+</style>
+
+<body>
+  <div class="main">
+    <style>
+    .header {
+        width: 720px;
+        padding: 60px 0 70px 0;
+        margin: 0 auto;
+        background-size: cover;
+    }
+
+    .header .header_container {
+        padding: 0 0;
+    }
+
+    .header .header_container h1 {
+        line-height: 1;
+        margin: 0;
+    }
+
+    .header .header_container a {
+        text-decoration: none;
+        font-weight: normal;
+        float: left;
+    }
+
+    .header .header_container .site_title a {
+        font-size: 28px;
+        width: 65px;
+        letter-spacing: 2px;
+        line-height: 1.2;
+        color: #000000;
+    }
+
+    .header .header_container .site_title a span {
+        display: block;
+    }
+
+    .header .header_container .site_title a:hover {
+        color: #666666;
+    }
+
+    .header .header_container .description {
+        font-size: 1rem;
+        color: #565654;
+        float: right;
+    }
+
+    .header .icons {
+        list-style: none;
+        font-size: 16px;
+        float: right;
+        margin: 20px 0 0 0;
+    }
+
+    .header .icons i {
+        margin-left: 10px;
+    }
+
+    .header .icons a {
+        color: #5f5f5f;
+        font-size: 20px;
+        float: none;
+        cursor: pointer;
+    }
+
+    .header .icons a:hover {
+        color: #000000;
+    }
+
+    @media screen and (max-width: 900px) {
+        .header {
+            width: 90%;
+            padding: 30px 0 70px 0;
+        }
+    }
+</style>
+
+<div class="header">
+    <div class="header_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://finctive.com">
+                    <span>造物指南</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <div class="icons">
+                <a href="https://github.com/FINCTIVE" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                <a href="https://t.me/create_worlds" title="telegram" target="_blank"><i
+                        class="ri-telegram-fill"></i></a>
+                <a href="https://www.google.com/search?q=site%3Ahttps://finctive.com" title="search" target="_blank"><i
+                        class="ri-search-eye-fill"></i></a>
+                <a id="dark-mode-toggle" title="theme"><i class="ri-moon-fill"></i></a>
+                <a href="https://finctive.com/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="main_container">
+      <div class="about">
+        <p class="description">Connect the dots.</p>
+        <a href="/about">🤯关于我</a>
+        <a href="https://t.me/create_worlds" target="_blank">✈️个人频道</a>
+        <hr>
+      </div>
+
+      <div class="post-list">
+        
+        
+        
+        
+        
+        
+        <div class="post-group">
+          
+          
+          <div class="post-row">
+            <div class="post_time"><span class="date">2021-03</span></div>
+            <a href="/terminal-runner/">终端工具新手上路包</a>
+          </div>
+          
+          
+        </div>
+        
+        
+        <div class="post-group">
+          
+          
+          <div class="post-row">
+            <div class="post_time"><span class="date">2020-08</span></div>
+            <a href="/arch-installation/">Arch Linux &#43; Windows 双系统安装配置踩坑记</a>
+          </div>
+          
+          
+        </div>
+        
+        
+        <div class="post-group">
+          
+          
+          
+          
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <style>
+        .footer {
+        clear: both;
+        max-width: 780px;
+        font-size: 14px;
+        text-align: center;
+        padding: 15px 0;
+        margin: 0 auto;
+        color: #a6a6a6;
+        }
+
+        .footer a {
+        margin: 0 12px;
+        color: #b4b3b3;
+        }
+
+        .footer a:hover {
+        color: #1f1f1f;
+        }
+    </style>
+    <div style="min-height: 30px;">
+        <a href="/about-blog">About</a> - 
+        <a href="https://gohugo.io/" target="_blank">Hugo</a>
+    </div>
+</footer>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://finctive.com/js/theme.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,313 @@
+@charset "UTF-8";
+
+/* Part 全局，边距 */
+.main {
+  background: #fff;
+  width: 850px;
+  margin: 50px auto 0;
+}
+
+.main_container {
+  width: 720px;
+  height: auto;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 900px) {
+  .main {
+    width: 95%;
+    margin-top: 20px;
+  }
+  .main_container {
+    width: 90%;
+    padding-top: 0;
+  }
+}
+
+/* Part 默认值 */
+@font-face {
+    font-family: 'FiraCode'; 
+    src: url('https://cdn.jsdelivr.net/npm/firacode@5.2.0/distr/woff2/FiraCode-Regular.woff2') format('woff2');
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #f7f7f7;
+}
+
+body {
+  color: rgb(51, 51, 51);
+  /* cdn font*/
+  font-family: 'Encode Sans', Helvetica, Arial, sans-serif; 
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: #3a3a3a;
+  transition: color 1.4s cubic-bezier(.25,.8,.25,1);
+}
+
+a:hover {
+  color: #1c99a1;
+}
+
+
+/* 选中区域 */
+::selection {
+  background-color: #e3f2ff
+}
+
+/* 滚动条 */
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+*::-webkit-scrollbar-button {
+  display: none;
+}
+
+*::-webkit-scrollbar-track {
+  background: #fcfcfc;
+}
+
+*::-webkit-scrollbar-thumb {
+  min-height: 16px;
+  background-color: #dddddd;
+  background-clip: padding-box;
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #d6d6d6;
+  border-width: 2px;
+}
+
+code::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+
+/* Part 文章，Markdown */
+
+.post .post_content {
+  text-align: left;
+  margin-top: 20px;
+  line-height: 1.6em;
+  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.post .post_content p {
+  line-height: 1.6em;
+  margin-bottom: 20px;
+}
+
+.post .post_content a {
+  font-weight: 500;
+  text-decoration: none;
+  color: #db9235;
+  transition: color 1.4s cubic-bezier(.25,.8,.25,1);
+}
+
+.post .post_content a:hover {
+  color: #1c99a1;
+}
+
+.post .post_content h1,
+.post .post_content h2,
+.post .post_content h3,
+.post .post_content h4,
+.post .post_content h5,
+.post .post_content h6 {
+  position: relative;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.post .post_content h1 {
+  font-size: 1.75em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.post .post_content h2 {
+  font-size: 1.5em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.post .post_content h3 {
+  font-size: 1.25em;
+  line-height: 1.43;
+}
+
+.post .post_content h4 {
+  font-size: 1em;
+}
+
+/* 代码复制按钮 */
+.highlight {
+    position: relative;
+}
+.highlight-copy-btn {
+  position: absolute;
+  top: 5px;
+  right: 6px;
+  border: 0;
+  border-radius: 4px;
+  padding: 1px;
+  font-size: 0.7em;
+	font-weight: 600;
+	color: #c4c4c4;
+	background-color: Transparent;
+  min-width: 50px;
+  text-align: right;
+}
+.highlight-copy-btn:hover {
+	cursor: pointer;
+}
+
+.highlight-copy-btn:focus {
+    outline: 0;
+}
+
+.post .post_content p,
+.post .post_content blockquote,
+.post .post_content ul,
+.post .post_content ol,
+.post .post_content dl,
+.post .post_content table{
+    margin: 0.8em 0;
+}
+.post .post_content li>ol,
+.post .post_content li>ul {
+    margin: 0 0;
+}
+
+.post .post_content hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+
+.post .post_content li p.first {
+  display: inline-block;
+}
+.post .post_content ul,
+.post .post_content ol {
+  padding-left: 30px;
+}
+.post .post_content ul:first-child,
+.post .post_content ol:first-child {
+  margin-top: 0;
+}
+.post .post_content ul:last-child,
+.post .post_content ol:last-child {
+  margin-bottom: 0;
+}
+.post .post_content blockquote {
+  border-left: 4px solid #dfe2e5;
+  padding: 0 15px;
+  color: #777777;
+}
+.post .post_content blockquote blockquote {
+  padding-right: 0;
+}
+
+table {
+  padding: 0;
+  word-break: initial;
+}
+table tr {
+  border-top: 1px solid #dfe2e5;
+  margin: 0;
+  padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+  background-color: #f8f8f8;
+}
+table tr th {
+  font-weight: bold;
+  border: 1px solid #dfe2e5;
+  border-bottom: 0;
+  margin: 0;
+  padding: 6px 13px;
+}
+table tr td {
+  border: 1px solid #dfe2e5;
+  margin: 0;
+  padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+  margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+  margin-bottom: 0;
+}
+
+.post .post_content code,
+.post .post_content tt,
+.post .post_content pre {
+  font-family: 'Encode Sans', sans-serif; 
+  font-size: 0.9em;
+
+  tab-size: 4;
+
+  border: 1px solid #e7eaed;
+  border-radius: 3px;
+
+  overflow: auto;
+  word-wrap: break-word;
+}
+
+/* inline */
+.post .post_content code {
+  background-color: #f3f4f4;
+  padding: 0 2px 0 2px;
+}
+
+/* 代码块 */
+.post .post_content pre {
+  background-color: #f8f8f8;
+  padding: 2px 4px;
+}
+/* 代码 */
+.post .post_content pre code {
+  font-family: 'FiraCode', sans-serif; 
+  font-size: 1em;
+
+  background-color: #f8f8f8;
+  border:none;
+}
+
+/* 图片 */
+.post .post_content img {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table th {
+  background-color: #f6f8fa;
+}
+
+table th, table td {
+  padding: 10px 20px;
+  border: 1px solid #dfe2e5;
+}

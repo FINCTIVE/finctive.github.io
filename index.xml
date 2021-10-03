@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>造物指南</title>
+    <link>https://finctive.com/</link>
+    <description>Recent content on 造物指南</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <managingEditor>finctive@qq.com (FINCTIVE)</managingEditor>
+    <webMaster>finctive@qq.com (FINCTIVE)</webMaster><atom:link href="https://finctive.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>终端工具新手上路包</title>
+      <link>https://finctive.com/terminal-runner/</link>
+      <pubDate>Thu, 18 Mar 2021 08:02:17 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/terminal-runner/</guid>
+      <description>&lt;p&gt;本文遵循懒人原则：花最少配置时间最大幅度提升你的工作效率。&lt;/p&gt;
+&lt;h2 id=&#34;终端程序推荐&#34;&gt;终端程序推荐&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;安装过程略。推荐使用包管理器，或查询相应帮助文档手动安装。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/aristocratos/btop&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;btop&lt;/code&gt;&lt;/a&gt;
+ 系统资源监视工具。（这是我目前见过最漂亮的命令行工具！）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210210221856811&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/terminal-runner/image-20210210221856811.png&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;ncdu&lt;/code&gt; 查看文件大小。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20210210221725025.png&#34; alt=&#34;image-20210210221725025&#34; style=&#34;width: 600px;&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;nload&lt;/code&gt; 网络监控工具。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20211002184658451.png&#34; alt=&#34;image-20211002184658451&#34; style=&#34;width: 600px;&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ggreer/the_silver_searcher&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;ag&lt;/code&gt;&lt;/a&gt;
+ 文本搜索工具。&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210210224546888&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/terminal-runner/image-20210210224546888.png&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/junegunn/fzf&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;fzf&lt;/code&gt;&lt;/a&gt;
+ 模糊搜索工具。直接在命令行调用可以搜索文件名，但更好的使用方式是在 &lt;code&gt;ranger&lt;/code&gt;、&lt;code&gt;vim&lt;/code&gt; 或 &lt;code&gt;fish&lt;/code&gt; 中搭配使用。&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20211002184508807&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/terminal-runner/image-20211002184508807.png&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ranger/ranger&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;ranger&lt;/code&gt;&lt;/a&gt;
+ Vim 风格的终端文件管理器。下文仍有相关介绍。&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210210225023130&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/terminal-runner/image-20210210225023130.png&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/jarun/nnn&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;nnn&lt;/code&gt;&lt;/a&gt;
+ 终端文件管理器，资源占用非常低。我在树莓派上使用 &lt;code&gt;nnn&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;proxychains-ng&lt;/code&gt; 以及 &lt;code&gt;graftcp&lt;/code&gt;，连接命令行程序到代理服务器。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/tldr-pages/tldr&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;tldr&lt;/code&gt;&lt;/a&gt;
+ 太长不看，懒人必备，查询某个命令的使用示例。如果要看详细文档请使用&lt;code&gt;man&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20210210230451003.png&#34; alt=&#34;image-20210210230451003&#34; style=&#34;width: 600px;&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ogham/exa&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;exa&lt;/code&gt;&lt;/a&gt;
+ 增强美化版的 ls 命令。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20211002183631538.png&#34; alt=&#34;image-20211002183631538&#34; style=&#34;width: 400px;&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;命令行&#34;&gt;命令行&lt;/h2&gt;
+&lt;h3 id=&#34;基础&#34;&gt;基础&lt;/h3&gt;
+&lt;p&gt;推荐阅读：&lt;a href=&#34;https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md&#34; target=&#34;_blank&#34;&gt;命令行的艺术&lt;/a&gt;
+，比较长，你也可以通过视频来学习这些操作。&lt;/p&gt;
+&lt;p&gt;一些简单有用的快捷键：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Tab&lt;/code&gt; 补全命令、参数。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;上下方向键&lt;/code&gt; 历史记录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + a&lt;/code&gt; 光标移动到开头。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + e&lt;/code&gt; 光标移动到末尾。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + u&lt;/code&gt; 清除当前内容。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + f&lt;/code&gt; 光标往前移动。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + d&lt;/code&gt; 删除光标下的字符。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + r&lt;/code&gt; 查询历史命令。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;fish&#34;&gt;fish&lt;/h3&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20211002231655126&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/terminal-runner/image-20211002231655126.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;系统的默认 shell 往往过于简洁，缺少一些方便的辅助功能，比如高亮、自动补全、分支信息等等。如果没有其他需求，我在终端进行的操作都会使用 fish 完成；除非我需要编写 bash 脚本。（fish 的脚本语言不兼容 bash.）&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.ruanyifeng.com/blog/2017/05/fish_shell.html&#34; target=&#34;_blank&#34;&gt;Fish shell 入门教程 - 阮一峰的网络日志&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;亮点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;新手友好，开箱即用！不用做过多的配置工作。&lt;/li&gt;
+&lt;li&gt;反应迅速。&lt;/li&gt;
+&lt;li&gt;出色的补全功能。&lt;/li&gt;
+&lt;li&gt;自带 Web 端配置界面，直观。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果想拓展 fish 的功能，需要使用 &lt;a href=&#34;https://github.com/jorgebucaran/fisher&#34; target=&#34;_blank&#34;&gt;fisher&lt;/a&gt;
+ 安装插件。&lt;/p&gt;
+&lt;p&gt;推荐插件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/jethrokuan/z&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;z&lt;/code&gt;&lt;/a&gt;
+ 根据模糊关键词，快速打开文件夹。以下图举例，根据关键词“blog”，切换到最匹配的文件夹。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20211003000006148.png&#34; alt=&#34;image-20211003000006148&#34; style=&#34;width: 400px;&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/PatrickF1/fzf.fish&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;fzf.fish&lt;/code&gt;&lt;/a&gt;
+ 把模糊搜索功能加入到 fish 中！以下图举例：在按下 &lt;code&gt;ctrl + r&lt;/code&gt; 搜索历史记录时使用模糊搜索。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20211002234453341.png&#34; alt=&#34;image-20211002234453341&#34; style=&#34;width: 400px;&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;下拉终端&#34;&gt;下拉终端&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;英文名称叫  &lt;em&gt;Drop-down Terminal&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;当你在终端可以完成大部分工作的时候，如果有一个快捷键可以快速打开和关闭终端（就像抽屉一样），工作效率将会大大提升。这就是下拉终端：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux：推荐使用 Guake 或者 Yakuake.&lt;/li&gt;
+&lt;li&gt;macOS: 修改 iterm2 的设置可以满足这个需求，但是体验可能不是很好。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;文本编辑器-vim&#34;&gt;文本编辑器 Vim&lt;/h2&gt;
+&lt;p&gt;学习 Vim 的目的不只是更快地输入代码，而是拥有一套工具能更贴合思维地操作代码文本。使用 Vim 时，很少会使用 &lt;code&gt;ctrl&lt;/code&gt; 键和其他键组合，大部分时间只同时敲击一个键。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;推荐阅读 &lt;a href=&#34;https://blog.lilydjwg.me/2015/11/16/vim-creep.188665.html&#34; target=&#34;_blank&#34;&gt;[译] Vim 的蔓延 - 依云&amp;rsquo;s Blog&lt;/a&gt;
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;入门视频教程：&lt;a href=&#34;https://www.youtube.com/watch?v=IiwGbcd8S7I&#34; target=&#34;_blank&#34;&gt;Vim Tutorial - YouTube - Ben Awad&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Vim 大量使用了 &lt;code&gt;Esc&lt;/code&gt; 键。我交换了 &lt;code&gt;Caps Lock&lt;/code&gt; 键和 &lt;code&gt;Esc&lt;/code&gt; 键的功能，否则无法获得流畅的体验。你可以通过系统设置修改（Linux 以及 macOS 都很方便），或者直接通过键盘本身的硬件功能修改。&lt;/p&gt;
+&lt;p&gt;关于 Vim 的配置教程，推荐 Bilibili Up 主 &lt;a href=&#34;https://space.bilibili.com/13081489?from=search&amp;amp;seid=1529017428553781112&#34; target=&#34;_blank&#34;&gt;TheCW&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;我不使用 Vim 开发程序，因为它的配置方式并不简单，需要大量时间学习，我更喜欢开箱即用。&lt;/p&gt;
+&lt;p&gt;Jetbrains 系列 IDE 可以安装 ideavim 插件，目前支持的功能已经很多了，强烈推荐。ideavim 插件也可以把自定义的 Vim 快捷键与 IDE 功能绑定，举个例子，我把代码格式化功能绑定到了 &lt;code&gt;&amp;lt;leader&amp;gt;f&lt;/code&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;nnoremap &amp;lt;leader&amp;gt;f :action ReformatCode&amp;lt;CR&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;具体配置方法：&lt;a href=&#34;https://github.com/JetBrains/ideavim#executing-ide-actions&#34; target=&#34;_blank&#34;&gt;Executing IDE Actions&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;终端文件管理器-ranger&#34;&gt;终端文件管理器 ranger&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ranger/ranger&#34; target=&#34;_blank&#34;&gt;ranger - Github&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;ranger 是一款终端文件管理程序，拥有 Vim 风格的键位绑定（比如使用 &lt;code&gt;hjkl&lt;/code&gt; 移动浏览）。&lt;/p&gt;
+&lt;p&gt;在初学 Linux 命令行操作时，我认为 &lt;code&gt;ls&lt;/code&gt;、&lt;code&gt;cd&lt;/code&gt;、&lt;code&gt;mv&lt;/code&gt; 等命令远远不如图形界面方便。直到我开始上手 ranger.&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210210225023130&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/terminal-runner/image-20210210225023130.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;本文省略关于 ranger 的用法，请查看&lt;a href=&#34;https://github.com/ranger/ranger/wiki/Official-user-guide&#34; target=&#34;_blank&#34;&gt;官方文档&lt;/a&gt;
+。（顺便提一下，&lt;a href=&#34;https://github.com/ranger/ranger/wiki/Custom-Commands#fzf-integration&#34; target=&#34;_blank&#34;&gt;fzf集成&lt;/a&gt;
+非常好用。）&lt;/p&gt;
+&lt;p&gt;附带小技巧：如何在退出 ranger 时切换工作目录？&lt;/p&gt;
+&lt;p&gt;在默认配置中，退出 ranger 时，工作目录并没有改变。使用以下别名启动 ranger 可以实现这个功能。&lt;/p&gt;
+&lt;p&gt;将下列内容加入到你使用的 shell 的启动配置文件中。（比如 &lt;code&gt;.bashrc&lt;/code&gt; ）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 退出 ranger 的时候，cd 到相应的目录&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# bash 或者 zsh&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;alias&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ranger&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd &amp;#34;$LASTDIR&amp;#34;&amp;#39;&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# fish&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;alias&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ranger&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ranger --choosedir=&amp;#34;$HOME/.rangerdir&amp;#34;; cd (cat $HOME/.rangerdir)&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;终端复用器-tmux&#34;&gt;终端复用器 Tmux&lt;/h2&gt;
+&lt;p&gt;Tmux 常被用于将远程服务器的会话和窗口解绑，让程序保持运行。这篇文章可以帮助你入门 Tmux 的使用：&lt;a href=&#34;http://www.ruanyifeng.com/blog/2019/10/tmux.html&#34; target=&#34;_blank&#34;&gt;Tmux 使用教程 - 阮一峰的网络日志&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;Tmux 也能作为分屏工具使用。它的默认键位并不顺手，但是通过自定义快捷键，终端的使用体验会得到大幅提升。&lt;/p&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;image-20210318162311881&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/terminal-runner/image-20210318162311881.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;我的配置文件： &lt;a href=&#34;https://gist.github.com/FINCTIVE/30da370126695ad6d837456b4504d41d&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;.tmux.conf&lt;/code&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;结语&#34;&gt;结语&lt;/h2&gt;
+&lt;p&gt;本文介绍的内容并不深入，如果你有兴趣，可以沿着这些兔子洞折腾一下。&lt;/p&gt;
+&lt;p&gt;最后，分享一些我自己也没有看完的学习资料：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.zhihu.com/column/commandline&#34; target=&#34;_blank&#34;&gt;知乎专栏 - 我爱命令行&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://space.bilibili.com/13081489&#34; target=&#34;_blank&#34;&gt;Bilibili - TheCW&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/vim-video&#34; target=&#34;_blank&#34;&gt;知乎专栏 - 玩转 vim 与 Terminal (视频)&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md&#34; target=&#34;_blank&#34;&gt;命令行的艺术&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wsdjeg/vim-galore-zh_cn&#34; target=&#34;_blank&#34;&gt;Vim 从入门到精通&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Arch Linux &#43; Windows 双系统安装配置踩坑记</title>
+      <link>https://finctive.com/arch-installation/</link>
+      <pubDate>Wed, 19 Aug 2020 08:02:17 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/arch-installation/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;在你看到这篇文章时，有些内容可能已经过时了，请以 &lt;a href=&#34;https://wiki.archlinux.org/&#34; target=&#34;_blank&#34;&gt;Arch Wiki &lt;/a&gt;
+为准。&lt;/p&gt;
+&lt;p&gt;我不是 Linux 方面的专家，文章内容难免有误，欢迎交流。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;image-20211003115121968.png&#34; alt=&#34;image-20211003115121968&#34; style=&#34;width:550px;&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;系统安装&#34;&gt;系统安装&lt;/h2&gt;
+&lt;p&gt;Arch Linux 的安装过程难度较大，我并不推荐初学者使用这个发行版。当然，在摸索过程中解决问题也是一种对初学者大有帮助的学习方式。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;请在对安装过程有大致理解之后再开始动手安装。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://wiki.archlinux.org/index.php/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29&#34; target=&#34;_blank&#34;&gt;ArchWiki 安装指导&lt;/a&gt;
+ &lt;strong&gt;一定要看&lt;/strong&gt;，即使可能暂时看不懂。&lt;/p&gt;
+&lt;p&gt;推荐观看 The CW 的视频教程，手把手级别教学，非常适合新手学习。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.bilibili.com/video/BV11J411a7Tp&#34; target=&#34;_blank&#34;&gt;最全 Arch Linux 安装教程——打造真正属于你的操作系统&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;注意：这个视频安装的&lt;strong&gt;不是双系统&lt;/strong&gt;，有的步骤不能和视频教程里一模一样。（详见下文。）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.bilibili.com/video/BV1q7411s7LS/&#34; target=&#34;_blank&#34;&gt;装完 Arch Linux 你该做什么？用户权限，图形界面及软件安装详解【Arch第二期】&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;这里安装的桌面环境为 Deepin，个人更推荐 KDE. （详见下文。）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;看完视频后，请参考这个文档开始动手安装：&lt;a href=&#34;https://github.com/NiiiKlaus/Get-my-Arch-Linux&#34; target=&#34;_blank&#34;&gt;NiiiKlaus/Get-my-Arch-Linux&lt;/a&gt;
+. 文档内容与以上视频大致相同，并且有一些修改和补充。&lt;/p&gt;
+&lt;h3 id=&#34;双系统&#34;&gt;双系统&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在挂载（mount）环节的时候，我把 &lt;code&gt;/mnt&lt;/code&gt; 挂载到了我想挂载的 Linux 分区上；把&lt;code&gt;/mnt/efi&lt;/code&gt;挂载到了EFI分区（如图所示）；不挂载&lt;code&gt;/mnt/boot&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+
+    
+
+
+&lt;img alt=&#34;&#34; src=&#34;https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/arch-installation/1.png&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;不能格式化EFI分区&lt;/strong&gt;（&lt;a href=&#34;https://github.com/NiiiKlaus/Get-my-Arch-Linux/blob/master/system-installation.md/#43-%E5%AE%9A%E4%B9%89%E5%88%86%E5%8C%BA%E6%A0%BC%E5%BC%8F&#34; target=&#34;_blank&#34;&gt;4.3 定义分区格式&lt;/a&gt;
+），否则可能会破坏 Windows 的 EFI 文件。直接挂载上去就好。&lt;/li&gt;
+&lt;li&gt;在执行&lt;code&gt;grub-install&lt;/code&gt; 这一步（&lt;a href=&#34;https://github.com/NiiiKlaus/Get-my-Arch-Linux/blob/master/system-installation.md/#79-%E5%AE%89%E8%A3%85grub%E7%9B%B8%E5%85%B3&#34; target=&#34;_blank&#34;&gt;7.9 安装grub相关&lt;/a&gt;
+）的时候，我在&lt;code&gt;efi-directory&lt;/code&gt;参数填写的是 &lt;code&gt;/efi&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上步骤的详细解释请看 &lt;a href=&#34;https://wiki.archlinux.org/index.php/GRUB_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29&#34; target=&#34;_blank&#34;&gt;GRUB (简体中文)-ArchWiki&lt;/a&gt;
+。上面描述的只是方法之一，你也可以使用其他方法，比如挂载&lt;code&gt;/mnt/boot&lt;/code&gt;。具体情况不再详述，ArchWiki 能解答你的大部分疑惑。&lt;/p&gt;
+&lt;h3 id=&#34;如何查错&#34;&gt;如何查错&lt;/h3&gt;
+&lt;p&gt;如果系统安装好后出现异常，可以修改内核启动参数打印更多报错信息：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在 GRUB 菜单选择启动项时，移动选项至 Arch Linux，按 &lt;code&gt;e&lt;/code&gt; 修改内核启动参数，进入文本编辑界面。&lt;/li&gt;
+&lt;li&gt;找到 &lt;code&gt;linux&lt;/code&gt; 开头的一行，把 &lt;code&gt;quiet&lt;/code&gt; 参数去掉，按下 &lt;code&gt;ctrl + x&lt;/code&gt; 启动系统。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个技巧在遇到一些难以定位的问题时非常好用，输出的报错信息也可以用于向其他人求助。&lt;/p&gt;
+&lt;h3 id=&#34;双系统时间不同步&#34;&gt;双系统时间不同步&lt;/h3&gt;
+&lt;p&gt;问题现象：关闭Windows系统，打开Linux系统后（或者相反），发现时间错乱了。&lt;/p&gt;
+&lt;p&gt;时间错乱会给 &lt;em&gt;有些软件&lt;/em&gt; 带来致命问题。解决方案：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;来源：&lt;a href=&#34;https://printempw.github.io/setting-up-manjaro-linux/#%E5%8F%8C%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E4%B8%8D%E5%90%8C%E6%AD%A5&#34; target=&#34;_blank&#34;&gt;printempw - Manjaro Linux 踩坑调教记录 - 双系统时间不同步&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;让 Windows 认为硬件时钟是 UTC，修改一下 Windows 注册表即可：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;reg add &amp;quot;HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation&amp;quot; /v RealTimeIsUniversal /d 1 /t REG_QWORD /f&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;安装桌面环境&#34;&gt;安装桌面环境&lt;/h2&gt;
+&lt;p&gt;综合个人使用体验以及对社区内活跃成员的观察，我推荐 &lt;a href=&#34;https://kde.org/&#34; target=&#34;_blank&#34;&gt;KDE&lt;/a&gt;
+.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# SDDM 桌面管理器（用于登陆）&lt;/span&gt;
+sudo pacman -S sddm
+sudo systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; sddm
+
+&lt;span class=&#34;c1&#34;&gt;# KDE Plasma&lt;/span&gt;
+sudo pacman -S xorg plasma
+
+&lt;span class=&#34;c1&#34;&gt;# 网络管理&lt;/span&gt;
+sudo pacman -S networkmanager
+sudo systemctl &lt;span class=&#34;nb&#34;&gt;enable&lt;/span&gt; NetworkManager
+
+&lt;span class=&#34;c1&#34;&gt;# KDE 大礼包&lt;/span&gt;
+sudo pacman -S kde-applications
+
+&lt;span class=&#34;c1&#34;&gt;# 我喜欢保持简洁，没有安装所有的 KDE 应用，只安装了以下几个来自 KDE 的软件：&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# 文件浏览器，终端，文档阅读器，图片查看器，解压软件，截图工具&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# sudo pacman -S dolphin konsole okular gwenview ark spectacle&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重启。至此，一个具有基本功能的系统已经安装好了！&lt;/p&gt;
+&lt;h2 id=&#34;软件安装&#34;&gt;软件安装&lt;/h2&gt;
+&lt;h3 id=&#34;包管理器&#34;&gt;包管理器&lt;/h3&gt;
+&lt;h4 id=&#34;编辑镜像源列表&#34;&gt;编辑镜像源列表&lt;/h4&gt;
+&lt;p&gt;编辑镜像列表文件 ，将速度比较快的镜像源地址放到文件最上面。比如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://mirror.tuna.tsinghua.edu.cn/help/archlinux/&#34; target=&#34;_blank&#34;&gt;清华大学开源软件镜像站 | Tsinghua Open Source Mirror&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mirrors.ustc.edu.cn/help/archlinux.html&#34; target=&#34;_blank&#34;&gt;Arch Linux 源使用帮助 — USTC Mirror Help 文档&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;添加-arch-linux-中文社区仓库&#34;&gt;添加 Arch Linux 中文社区仓库&lt;/h4&gt;
+&lt;p&gt;详情请看：&lt;a href=&#34;https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/&#34; target=&#34;_blank&#34;&gt;Arch Linux 中文社区仓库 « Arch Linux&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;建议使用&lt;a href=&#34;https://github.com/archlinuxcn/mirrorlist-repo&#34; target=&#34;_blank&#34;&gt;这里&lt;/a&gt;
+的镜像链接，我使用中国科学技术大学的镜像源，速度不错。记得安装 archlinuxcn-keyring 包。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo pacman -S archlinuxcn-keyring
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;添加 archlinuxcn 源之后，许多常用的软件能直接在pacman高速下载。&lt;/p&gt;
+&lt;h4 id=&#34;yay&#34;&gt;yay&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;来源：&lt;a href=&#34;https://wiki.archlinux.org/index.php/Arch_User_Repository_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29&#34; target=&#34;_blank&#34;&gt;Arch Wiki&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://aur.archlinux.org/&#34; target=&#34;_blank&#34;&gt;Arch 用户软件仓库&lt;/a&gt;
+（Arch User Repository，AUR）是为用户而建、由用户主导的 Arch 软件仓库。AUR 中的软件包以软件包生成脚本（&lt;a href=&#34;https://wiki.archlinux.org/index.php/PKGBUILD_%28%e7%ae%80%e4%bd%93%e4%b8%ad%e6%96%87%29&#34; target=&#34;_blank&#34;&gt;PKGBUILD&lt;/a&gt;
+）的形式提供，用户自己通过 &lt;a href=&#34;https://wiki.archlinux.org/index.php/Makepkg_%28%e7%ae%80%e4%bd%93%e4%b8%ad%e6%96%87%29&#34; target=&#34;_blank&#34;&gt;makepkg&lt;/a&gt;
+ 生成包，再由 &lt;a href=&#34;https://wiki.archlinux.org/index.php/Pacman_%28%e7%ae%80%e4%bd%93%e4%b8%ad%e6%96%87%29&#34; target=&#34;_blank&#34;&gt;pacman&lt;/a&gt;
+ 安装。创建 AUR 的初衷是方便用户维护和分享新软件包，并由官方定期从中挑选软件包进入 &lt;a href=&#34;https://wiki.archlinux.org/index.php/Community_repository&#34; target=&#34;_blank&#34;&gt;community&lt;/a&gt;
+ 仓库。本文介绍用户访问和使用 AUR 的方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo pacman -S yay
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;有了 AUR，许多 Github 上的软件也可以通过包管理器安装！（如果有人写了安装脚本。）&lt;code&gt;yay&lt;/code&gt; 是帮助下载 AUR 内容的工具，用法类似 &lt;code&gt;pacman&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;由于部分软件包是从 Github 上下载的，你也许会碰上这个问题：&lt;a href=&#34;https://github.com/Jguer/yay/issues/701&#34; target=&#34;_blank&#34;&gt;Jguer/yay - Github Issue - Proxy env variables being ignored.&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;本文提到的软件包如果无法在 pacman 安装，请试一下 &lt;code&gt;yay&lt;/code&gt;.（搜索软件包 &lt;code&gt;yay -Ss [keyword]&lt;/code&gt;）&lt;/p&gt;
+&lt;h3 id=&#34;字体&#34;&gt;字体&lt;/h3&gt;
+&lt;p&gt;如果系统没有安装中文字体，中文内容可能会变成小方块。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 思源黑体&lt;/span&gt;
+sudo pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts 
+&lt;span class=&#34;c1&#34;&gt;# emoji&lt;/span&gt;
+sudo pacman -S noto-fonts-emoji
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 KDE 设置中修改字体即可。&lt;/p&gt;
+&lt;p&gt;如果有更细致的配置需求，请参考这篇文档 &lt;a href=&#34;https://wiki.archlinux.org/index.php/Font_Configuration_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29/Chinese_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29&#34; target=&#34;_blank&#34;&gt;Font Configuration/Chinese (简体中文) &lt;/a&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;输入法-fcitx5&#34;&gt;输入法 Fcitx5&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://wiki.archlinux.org/index.php/Fcitx5_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#%E4%B8%AD%E6%96%87&#34; target=&#34;_blank&#34;&gt;Fcitx5 (简体中文) - ArchWiki&lt;/a&gt;
+&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo pacman -S fcitx5-im fcitx5-chinese-addons
+&lt;span class=&#34;c1&#34;&gt;# 词库（可选）&lt;/span&gt;
+sudo pacman -S fcitx5-pinyin-zhwiki fcitx5-pinyin-moegirl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改环境变量，编辑 &lt;code&gt;~/.pam_environment&lt;/code&gt; 加入以下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;INPUT_METHOD  &lt;span class=&#34;nv&#34;&gt;DEFAULT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;fcitx5
+GTK_IM_MODULE &lt;span class=&#34;nv&#34;&gt;DEFAULT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;fcitx5
+QT_IM_MODULE  &lt;span class=&#34;nv&#34;&gt;DEFAULT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;fcitx5
+XMODIFIERS    &lt;span class=&#34;nv&#34;&gt;DEFAULT&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\@&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;im&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;fcitx5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;设置开机启动，编辑 &lt;code&gt;~/.xprofile&lt;/code&gt; ，加入以下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;fcitx5 &lt;span class=&#34;p&#34;&gt;&amp;amp;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输入法启动后，在系统托盘里可用找到fcitx5的图标，右键菜单 =&amp;gt; Configure 打开配置窗口。（或者在终端使用命令&lt;code&gt;fcitx5-configtool&lt;/code&gt;）
+添加 “Pinyin”选项，完成。（注意不是添加 Chinese 选项）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;2.png&#34; alt=&#34;image.png&#34; style=&#34;width: 400px;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Fcitx5 也可以安装搜狗拼音的细胞词库，非常方便。安装方式略。&lt;/p&gt;
+&lt;h3 id=&#34;外观主题&#34;&gt;外观主题&lt;/h3&gt;
+&lt;p&gt;Linux 的灵活性让桌面配置变得非常有趣，推荐你到 &lt;a href=&#34;https://www.reddit.com/r/unixporn/&#34; target=&#34;_blank&#34;&gt;r/unixporn&lt;/a&gt;
+ 逛一逛。&lt;/p&gt;
+&lt;p&gt;不过我最近更喜欢 KDE 默认主题🤣&lt;/p&gt;
+&lt;h2 id=&#34;应用推荐&#34;&gt;应用推荐&lt;/h2&gt;
+&lt;p&gt;命令行软件留到下一篇文章讲解👏&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Markdown 编辑器 &lt;code&gt;typora&lt;/code&gt;，这篇博客就是用它写的。&lt;/li&gt;
+&lt;li&gt;聊天软件 &lt;code&gt;telegram&lt;/code&gt;， 中文技术交流群很多（比如 Arch Linux 群组），用户体验极佳。&lt;/li&gt;
+&lt;li&gt;第三方网易云播放器 &lt;code&gt;yesplaymusic&lt;/code&gt;，界面简洁美观，无社交功能。&lt;/li&gt;
+&lt;li&gt;跨平台的电子书阅读器 &lt;a href=&#34;https://github.com/troyeguo/koodo-reader&#34; target=&#34;_blank&#34;&gt;koodo reader&lt;/a&gt;
+.&lt;/li&gt;
+&lt;li&gt;视频播放器 &lt;code&gt;mpv&lt;/code&gt;，界面UI很少。我参考 Youtube 的快捷键写了一套 &lt;a href=&#34;https://gist.github.com/FINCTIVE/2abebb6995e3e650c0f8a3afdc9720f1&#34; target=&#34;_blank&#34;&gt;input.conf&lt;/a&gt;
+.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;kdeconnect&lt;/code&gt; 可以在局域网和手机互相传文件，无敌好用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;结语&#34;&gt;结语&lt;/h2&gt;
+&lt;p&gt;至此，你已经成功安装好了 Arch Linux 🎉&lt;/p&gt;
+&lt;p&gt;欢迎加入 &lt;a href=&#34;https://t.me/archlinuxcn_group&#34; target=&#34;_blank&#34;&gt;#archlinux-cn&lt;/a&gt;
+ 群组，你可以在这里和大家交流 Arch Linux 相关的问题。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>关于我</title>
+      <link>https://finctive.com/about/</link>
+      <pubDate>Fri, 22 Nov 2019 09:22:14 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/about/</guid>
+      <description>&lt;p&gt;初级 Web 后端开发工程师，近期专注于 Go / Linux 领域学习。&lt;/p&gt;
+&lt;p&gt;我是一个极简主义者，相信平凡原则带来的巨大力量。&lt;/p&gt;
+&lt;h3 id=&#34;社交网络&#34;&gt;社交网络&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Telegram 频道 ✈️  &lt;a href=&#34;https://t.me/create_worlds&#34; target=&#34;_blank&#34;&gt;造物指南&lt;/a&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Github 🐠  &lt;a href=&#34;https://github.com/FINCTIVE&#34; target=&#34;_blank&#34;&gt;FINCTIVE&lt;/a&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;即刻 🙈  &lt;a href=&#34;https://finctive.com/images/jike_qrcode.png&#34;&gt;镜岛&lt;/a&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;网易云 🥲  &lt;a href=&#34;https://music.163.com/#/artist?id=12852875&#34; target=&#34;_blank&#34;&gt;镜岛&lt;/a&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;联系邮箱 📭  &lt;a href=&#34;mailto:finctive@qq.com&#34;&gt;finctive@qq.com&lt;/a&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;请通过邮件获取我的 微信 / QQ 帐号 😄&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;github&#34;&gt;Github&lt;/h3&gt;
+&lt;p&gt;Code for fun!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/FINCTIVE/scripts-bot&#34; target=&#34;_blank&#34;&gt;scripts-bot&lt;/a&gt;
+ Telegram bot to run your bash script files!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/FINCTIVE/lost-in-the-wilderness-nightmare&#34; target=&#34;_blank&#34;&gt;lost-in-the-wilderness-nightmare&lt;/a&gt;
+ A tiny Unity 3D shooter game.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/FINCTIVE/chord-map&#34; target=&#34;_blank&#34;&gt;chord-map&lt;/a&gt;
+ 一个为方便编写和弦进行而诞生的网页工具。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>关于本站</title>
+      <link>https://finctive.com/about-blog/</link>
+      <pubDate>Fri, 22 Nov 2019 09:22:14 +0000</pubDate>
+      <author>finctive@qq.com (FINCTIVE)</author>
+      <guid>https://finctive.com/about-blog/</guid>
+      <description>&lt;p&gt;本博客使用 &lt;a href=&#34;https://gohugo.io/&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt;
+ 搭建，主要参考了 &lt;a href=&#34;https://github.com/varkai/hugo-theme-zozo&#34; target=&#34;_blank&#34;&gt;zozo 主题&lt;/a&gt;
+（作者 &lt;a href=&#34;https://varkai.com/&#34; target=&#34;_blank&#34;&gt;varkai&lt;/a&gt;
+）&lt;/p&gt;
+&lt;p&gt;截取自 varkai/hugo-theme-zozo 项目说明：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;It&amp;rsquo;s a port of &lt;a href=&#34;https://github.com/PCDotFan/Aragaki&#34; target=&#34;_blank&#34;&gt;Aragaki&lt;/a&gt;
+,  The style is reference from &lt;a href=&#34;https://blog.caicai.me/&#34; target=&#34;_blank&#34;&gt;菩提树下&lt;/a&gt;
+, Some functions are referenced from &lt;a href=&#34;https://github.com/olOwOlo/hugo-theme-even&#34; target=&#34;_blank&#34;&gt;Even&lt;/a&gt;
+&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;博客的所有内容都部署在 &lt;a href=&#34;https://github.com/FINCTIVE/finctive.github.io&#34; target=&#34;_blank&#34;&gt;FINCTIVE/finctive.github.io&lt;/a&gt;
+ 项目中，当域名过期时仍可以 clone 该项目到本地来查看所有内容 : )&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

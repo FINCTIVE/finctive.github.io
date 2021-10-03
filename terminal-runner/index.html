@@ -1,0 +1,540 @@
+
+
+<!DOCTYPE html>
+<html lang="zh" >
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="FINCTIVE" />   
+    <title>终端工具新手上路包 - 造物指南</title>
+    
+    
+    
+    
+    <meta name="description" content="本文遵循懒人原则：花最少配置时间最大幅度提升你的工作效率。 终端程序推荐 安装过程略。推荐使用包管理器，或查询相应帮助文档手动安装。 btop 系统资源监" /> 
+    
+    
+     
+    
+    <meta name="keywords" content="FINCTIVE, 镜岛, 编程, 开发" /> 
+     
+    
+    
+
+    <link rel="shortcut icon" href="https://finctive.com/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/normalize.min.css@8.0.1/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme.css" />
+    <link disabled id="dark-mode-theme-css" rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/theme-dark.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://finctive.com/css/github-gist.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.jsdelivr.net/npm/@fontsource/encode-sans@4.2.0/index.min.css" />
+
+    
+    
+    <script>
+        var darkTheme = document.getElementById("dark-mode-theme-css");
+
+        var savedTheme = localStorage.getItem("dark-mode-storage") || "light";
+        setTheme(savedTheme);
+        function setTheme(mode) {
+            localStorage.setItem("dark-mode-storage", mode);
+            savedTheme = mode;
+            if(mode === "light") {
+                darkTheme.disabled = true;
+            } else if(mode === "dark") {
+                darkTheme.disabled = false;
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <style>
+        .post {
+            margin-top: 50px;
+            padding-bottom: 50px;
+        }
+
+         
+        .post .post_title h1 {
+            font-size: 1.6rem;
+            line-height: 1;
+            font-weight: bold;
+            margin: 0 0 6px 0;
+            padding-bottom: 10px;
+
+        }
+
+         
+        .post .post_title span {
+            color: gray;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+    </style>
+    <article class="main">
+        <style>
+    .header {
+        width: 720px;
+        padding: 60px 0 70px 0;
+        margin: 0 auto;
+        background-size: cover;
+    }
+
+    .header .header_container {
+        padding: 0 0;
+    }
+
+    .header .header_container h1 {
+        line-height: 1;
+        margin: 0;
+    }
+
+    .header .header_container a {
+        text-decoration: none;
+        font-weight: normal;
+        float: left;
+    }
+
+    .header .header_container .site_title a {
+        font-size: 28px;
+        width: 65px;
+        letter-spacing: 2px;
+        line-height: 1.2;
+        color: #000000;
+    }
+
+    .header .header_container .site_title a span {
+        display: block;
+    }
+
+    .header .header_container .site_title a:hover {
+        color: #666666;
+    }
+
+    .header .header_container .description {
+        font-size: 1rem;
+        color: #565654;
+        float: right;
+    }
+
+    .header .icons {
+        list-style: none;
+        font-size: 16px;
+        float: right;
+        margin: 20px 0 0 0;
+    }
+
+    .header .icons i {
+        margin-left: 10px;
+    }
+
+    .header .icons a {
+        color: #5f5f5f;
+        font-size: 20px;
+        float: none;
+        cursor: pointer;
+    }
+
+    .header .icons a:hover {
+        color: #000000;
+    }
+
+    @media screen and (max-width: 900px) {
+        .header {
+            width: 90%;
+            padding: 30px 0 70px 0;
+        }
+    }
+</style>
+
+<div class="header">
+    <div class="header_container">
+        <div class="site_title">
+            <h1>
+                <a href="https://finctive.com">
+                    <span>造物指南</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <div class="icons">
+                <a href="https://github.com/FINCTIVE" title="github" target="_blank"><i class="ri-github-fill"></i></a>
+                <a href="https://t.me/create_worlds" title="telegram" target="_blank"><i
+                        class="ri-telegram-fill"></i></a>
+                <a href="https://www.google.com/search?q=site%3Ahttps://finctive.com" title="search" target="_blank"><i
+                        class="ri-search-eye-fill"></i></a>
+                <a id="dark-mode-toggle" title="theme"><i class="ri-moon-fill"></i></a>
+                <a href="https://finctive.com/index.xml" type="application/rss+xml" title="rss" target="_blank"><i
+                        class="ri-rss-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="main_container">
+            <div class="post">
+                <div class="post_title">
+                    <h1>终端工具新手上路包</h1>
+                    
+                    <span class="author">FINCTIVE</span>
+                    <span class="date">2021-03-18</span>
+                    
+                </div>
+                
+                <div id="post_toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#终端程序推荐">终端程序推荐</a></li>
+    <li><a href="#命令行">命令行</a>
+      <ul>
+        <li><a href="#基础">基础</a></li>
+        <li><a href="#fish">fish</a></li>
+        <li><a href="#下拉终端">下拉终端</a></li>
+      </ul>
+    </li>
+    <li><a href="#文本编辑器-vim">文本编辑器 Vim</a></li>
+    <li><a href="#终端文件管理器-ranger">终端文件管理器 ranger</a></li>
+    <li><a href="#终端复用器-tmux">终端复用器 Tmux</a></li>
+    <li><a href="#结语">结语</a></li>
+  </ul>
+</nav>
+</div>
+<style>
+#post_toc a:hover {
+    color: #f3b440;
+}
+
+.toc-active {
+    color: #588ea1 !important;
+    font-weight: bold;
+}
+
+ 
+
+#post_toc a {
+    color: #6e6e6e;
+}
+#post_toc nav ul li {
+  list-style-type: disc;
+}
+#post_toc nav ul,
+#post_toc nav ol,
+#post_toc nav dl {
+  padding: 0px 20px;
+}
+#post_toc li {
+  padding-top: 3px;
+   
+}
+
+ 
+@media screen and (min-width: 1024px) {
+    #post_toc {
+        position: sticky;
+        width: 100%;
+        top: 20px;
+    }
+    #post_toc nav {
+        position: absolute;
+        right: -240px;
+        width : 160px;
+
+        padding-left: 0;
+        border-left: 2px solid #eeeeee;
+        font-size: 0.9em;
+    } 
+
+    #post_toc a {
+        color: #a0a0a0;
+    }
+
+    #post_toc nav ul li {
+    list-style-type: none;
+    }
+
+    #post_toc nav ul,
+    #post_toc nav ol,
+    #post_toc nav dl {
+    padding: 0px 10px;
+    }
+}
+
+</style>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const id = entry.target.getAttribute('id');
+            if (entry.intersectionRatio > 0) {
+                document.querySelector(`nav ul li a[href="#${id}"]`).classList.add('toc-active');
+            } else {
+                document.querySelector(`nav ul li a[href="#${id}"]`).classList.remove('toc-active');
+            }
+        });
+    });
+
+    
+    document.querySelectorAll('h1[id]').forEach((section) => {
+        observer.observe(section);
+    });
+
+    document.querySelectorAll('h2[id]').forEach((section) => {
+        observer.observe(section);
+    });
+
+    document.querySelectorAll('h3[id]').forEach((section) => {
+        observer.observe(section);
+    });
+});
+</script>
+                
+                <div class="post_content"><p>本文遵循懒人原则：花最少配置时间最大幅度提升你的工作效率。</p>
+<h2 id="终端程序推荐">终端程序推荐</h2>
+<blockquote>
+<p>安装过程略。推荐使用包管理器，或查询相应帮助文档手动安装。</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/aristocratos/btop" target="_blank"><code>btop</code></a>
+ 系统资源监视工具。（这是我目前见过最漂亮的命令行工具！）</li>
+</ul>
+<p>
+
+    
+
+
+<img alt="image-20210210221856811" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/terminal-runner/image-20210210221856811.png" /></p>
+<ul>
+<li>
+<p><code>ncdu</code> 查看文件大小。</p>
+<p><img src="image-20210210221725025.png" alt="image-20210210221725025" style="width: 600px;" /></p>
+</li>
+<li>
+<p><code>nload</code> 网络监控工具。</p>
+<p><img src="image-20211002184658451.png" alt="image-20211002184658451" style="width: 600px;" /></p>
+</li>
+<li>
+<p><a href="https://github.com/ggreer/the_silver_searcher" target="_blank"><code>ag</code></a>
+ 文本搜索工具。</p>
+<p>
+
+    
+
+
+<img alt="image-20210210224546888" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/terminal-runner/image-20210210224546888.png" /></p>
+</li>
+<li>
+<p><a href="https://github.com/junegunn/fzf" target="_blank"><code>fzf</code></a>
+ 模糊搜索工具。直接在命令行调用可以搜索文件名，但更好的使用方式是在 <code>ranger</code>、<code>vim</code> 或 <code>fish</code> 中搭配使用。</p>
+<p>
+
+    
+
+
+<img alt="image-20211002184508807" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/terminal-runner/image-20211002184508807.png" /></p>
+</li>
+<li>
+<p><a href="https://github.com/ranger/ranger" target="_blank"><code>ranger</code></a>
+ Vim 风格的终端文件管理器。下文仍有相关介绍。</p>
+<p>
+
+    
+
+
+<img alt="image-20210210225023130" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/terminal-runner/image-20210210225023130.png" /></p>
+</li>
+<li>
+<p><a href="https://github.com/jarun/nnn" target="_blank"><code>nnn</code></a>
+ 终端文件管理器，资源占用非常低。我在树莓派上使用 <code>nnn</code>.</p>
+</li>
+<li>
+<p><code>proxychains-ng</code> 以及 <code>graftcp</code>，连接命令行程序到代理服务器。</p>
+</li>
+<li>
+<p><a href="https://github.com/tldr-pages/tldr" target="_blank"><code>tldr</code></a>
+ 太长不看，懒人必备，查询某个命令的使用示例。如果要看详细文档请使用<code>man</code>.</p>
+<p><img src="image-20210210230451003.png" alt="image-20210210230451003" style="width: 600px;" /></p>
+</li>
+<li>
+<p><a href="https://github.com/ogham/exa" target="_blank"><code>exa</code></a>
+ 增强美化版的 ls 命令。</p>
+<p><img src="image-20211002183631538.png" alt="image-20211002183631538" style="width: 400px;" /></p>
+</li>
+</ul>
+<h2 id="命令行">命令行</h2>
+<h3 id="基础">基础</h3>
+<p>推荐阅读：<a href="https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md" target="_blank">命令行的艺术</a>
+，比较长，你也可以通过视频来学习这些操作。</p>
+<p>一些简单有用的快捷键：</p>
+<ul>
+<li><code>Tab</code> 补全命令、参数。</li>
+<li><code>上下方向键</code> 历史记录。</li>
+<li><code>ctrl + a</code> 光标移动到开头。</li>
+<li><code>ctrl + e</code> 光标移动到末尾。</li>
+<li><code>ctrl + u</code> 清除当前内容。</li>
+<li><code>ctrl + f</code> 光标往前移动。</li>
+<li><code>ctrl + d</code> 删除光标下的字符。</li>
+<li><code>ctrl + r</code> 查询历史命令。</li>
+</ul>
+<h3 id="fish">fish</h3>
+<p>
+
+    
+
+
+<img alt="image-20211002231655126" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/terminal-runner/image-20211002231655126.png" /></p>
+<p>系统的默认 shell 往往过于简洁，缺少一些方便的辅助功能，比如高亮、自动补全、分支信息等等。如果没有其他需求，我在终端进行的操作都会使用 fish 完成；除非我需要编写 bash 脚本。（fish 的脚本语言不兼容 bash.）</p>
+<p><a href="http://www.ruanyifeng.com/blog/2017/05/fish_shell.html" target="_blank">Fish shell 入门教程 - 阮一峰的网络日志</a>
+</p>
+<p>亮点：</p>
+<ul>
+<li>新手友好，开箱即用！不用做过多的配置工作。</li>
+<li>反应迅速。</li>
+<li>出色的补全功能。</li>
+<li>自带 Web 端配置界面，直观。</li>
+</ul>
+<p>如果想拓展 fish 的功能，需要使用 <a href="https://github.com/jorgebucaran/fisher" target="_blank">fisher</a>
+ 安装插件。</p>
+<p>推荐插件：</p>
+<ul>
+<li>
+<p><a href="https://github.com/jethrokuan/z" target="_blank"><code>z</code></a>
+ 根据模糊关键词，快速打开文件夹。以下图举例，根据关键词“blog”，切换到最匹配的文件夹。</p>
+<p><img src="image-20211003000006148.png" alt="image-20211003000006148" style="width: 400px;" /></p>
+</li>
+<li>
+<p><a href="https://github.com/PatrickF1/fzf.fish" target="_blank"><code>fzf.fish</code></a>
+ 把模糊搜索功能加入到 fish 中！以下图举例：在按下 <code>ctrl + r</code> 搜索历史记录时使用模糊搜索。</p>
+<p><img src="image-20211002234453341.png" alt="image-20211002234453341" style="width: 400px;" /></p>
+</li>
+</ul>
+<h3 id="下拉终端">下拉终端</h3>
+<blockquote>
+<p>英文名称叫  <em>Drop-down Terminal</em></p>
+</blockquote>
+<p>当你在终端可以完成大部分工作的时候，如果有一个快捷键可以快速打开和关闭终端（就像抽屉一样），工作效率将会大大提升。这就是下拉终端：</p>
+<ul>
+<li>Linux：推荐使用 Guake 或者 Yakuake.</li>
+<li>macOS: 修改 iterm2 的设置可以满足这个需求，但是体验可能不是很好。</li>
+</ul>
+<h2 id="文本编辑器-vim">文本编辑器 Vim</h2>
+<p>学习 Vim 的目的不只是更快地输入代码，而是拥有一套工具能更贴合思维地操作代码文本。使用 Vim 时，很少会使用 <code>ctrl</code> 键和其他键组合，大部分时间只同时敲击一个键。</p>
+<blockquote>
+<p>推荐阅读 <a href="https://blog.lilydjwg.me/2015/11/16/vim-creep.188665.html" target="_blank">[译] Vim 的蔓延 - 依云&rsquo;s Blog</a>
+</p>
+</blockquote>
+<p>入门视频教程：<a href="https://www.youtube.com/watch?v=IiwGbcd8S7I" target="_blank">Vim Tutorial - YouTube - Ben Awad</a>
+</p>
+<p>Vim 大量使用了 <code>Esc</code> 键。我交换了 <code>Caps Lock</code> 键和 <code>Esc</code> 键的功能，否则无法获得流畅的体验。你可以通过系统设置修改（Linux 以及 macOS 都很方便），或者直接通过键盘本身的硬件功能修改。</p>
+<p>关于 Vim 的配置教程，推荐 Bilibili Up 主 <a href="https://space.bilibili.com/13081489?from=search&amp;seid=1529017428553781112" target="_blank">TheCW</a>
+</p>
+<p>我不使用 Vim 开发程序，因为它的配置方式并不简单，需要大量时间学习，我更喜欢开箱即用。</p>
+<p>Jetbrains 系列 IDE 可以安装 ideavim 插件，目前支持的功能已经很多了，强烈推荐。ideavim 插件也可以把自定义的 Vim 快捷键与 IDE 功能绑定，举个例子，我把代码格式化功能绑定到了 <code>&lt;leader&gt;f</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">nnoremap &lt;leader&gt;f :action ReformatCode&lt;CR&gt;
+</code></pre></div><p>具体配置方法：<a href="https://github.com/JetBrains/ideavim#executing-ide-actions" target="_blank">Executing IDE Actions</a>
+</p>
+<h2 id="终端文件管理器-ranger">终端文件管理器 ranger</h2>
+<p><a href="https://github.com/ranger/ranger" target="_blank">ranger - Github</a>
+</p>
+<p>ranger 是一款终端文件管理程序，拥有 Vim 风格的键位绑定（比如使用 <code>hjkl</code> 移动浏览）。</p>
+<p>在初学 Linux 命令行操作时，我认为 <code>ls</code>、<code>cd</code>、<code>mv</code> 等命令远远不如图形界面方便。直到我开始上手 ranger.</p>
+<p>
+
+    
+
+
+<img alt="image-20210210225023130" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/terminal-runner/image-20210210225023130.png" /></p>
+<p>本文省略关于 ranger 的用法，请查看<a href="https://github.com/ranger/ranger/wiki/Official-user-guide" target="_blank">官方文档</a>
+。（顺便提一下，<a href="https://github.com/ranger/ranger/wiki/Custom-Commands#fzf-integration" target="_blank">fzf集成</a>
+非常好用。）</p>
+<p>附带小技巧：如何在退出 ranger 时切换工作目录？</p>
+<p>在默认配置中，退出 ranger 时，工作目录并没有改变。使用以下别名启动 ranger 可以实现这个功能。</p>
+<p>将下列内容加入到你使用的 shell 的启动配置文件中。（比如 <code>.bashrc</code> ）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 退出 ranger 的时候，cd 到相应的目录</span>
+<span class="c1"># bash 或者 zsh</span>
+<span class="nb">alias</span> <span class="nv">ranger</span><span class="o">=</span><span class="s1">&#39;ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd &#34;$LASTDIR&#34;&#39;</span>
+<span class="c1"># fish</span>
+<span class="nb">alias</span> <span class="nv">ranger</span><span class="o">=</span><span class="s1">&#39;ranger --choosedir=&#34;$HOME/.rangerdir&#34;; cd (cat $HOME/.rangerdir)&#39;</span>
+</code></pre></div><h2 id="终端复用器-tmux">终端复用器 Tmux</h2>
+<p>Tmux 常被用于将远程服务器的会话和窗口解绑，让程序保持运行。这篇文章可以帮助你入门 Tmux 的使用：<a href="http://www.ruanyifeng.com/blog/2019/10/tmux.html" target="_blank">Tmux 使用教程 - 阮一峰的网络日志</a>
+</p>
+<p>Tmux 也能作为分屏工具使用。它的默认键位并不顺手，但是通过自定义快捷键，终端的使用体验会得到大幅提升。</p>
+<p>
+
+    
+
+
+<img alt="image-20210318162311881" src="https://cdn.jsdelivr.net/gh/finctive/finctive.github.io/terminal-runner/image-20210318162311881.png" /></p>
+<p>我的配置文件： <a href="https://gist.github.com/FINCTIVE/30da370126695ad6d837456b4504d41d" target="_blank"><code>.tmux.conf</code></a>
+</p>
+<h2 id="结语">结语</h2>
+<p>本文介绍的内容并不深入，如果你有兴趣，可以沿着这些兔子洞折腾一下。</p>
+<p>最后，分享一些我自己也没有看完的学习资料：</p>
+<ul>
+<li><a href="https://www.zhihu.com/column/commandline" target="_blank">知乎专栏 - 我爱命令行</a>
+</li>
+<li><a href="https://space.bilibili.com/13081489" target="_blank">Bilibili - TheCW</a>
+</li>
+<li><a href="https://zhuanlan.zhihu.com/vim-video" target="_blank">知乎专栏 - 玩转 vim 与 Terminal (视频)</a>
+</li>
+<li><a href="https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md" target="_blank">命令行的艺术</a>
+</li>
+<li><a href="https://github.com/wsdjeg/vim-galore-zh_cn" target="_blank">Vim 从入门到精通</a>
+</li>
+</ul>
+</div>
+            </div>
+            <div id="contact_email">
+    
+    <p>作者: FINCTIVE</p>
+    <p>日期: 2021-03-18</p>
+    <p>联系方式: finctive@qq.com</p>
+    <p>欢迎交流、指正、提问。</p>
+    
+</div>
+<style>
+    #contact_email {
+        color: gray;
+        padding-bottom: 50px;
+    }
+</style>
+        </div>
+    </article>
+    <footer class="footer">
+    <style>
+        .footer {
+        clear: both;
+        max-width: 780px;
+        font-size: 14px;
+        text-align: center;
+        padding: 15px 0;
+        margin: 0 auto;
+        color: #a6a6a6;
+        }
+
+        .footer a {
+        margin: 0 12px;
+        color: #b4b3b3;
+        }
+
+        .footer a:hover {
+        color: #1f1f1f;
+        }
+    </style>
+    <div style="min-height: 30px;">
+        <a href="/about-blog">About</a> - 
+        <a href="https://gohugo.io/" target="_blank">Hugo</a>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="https://finctive.com/js/theme.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://finctive.com/terminal-runner/</loc>
+    <lastmod>2021-03-18T08:02:17+00:00</lastmod>
+  </url><url>
+    <loc>https://finctive.com/arch-installation/</loc>
+    <lastmod>2020-08-19T08:02:17+00:00</lastmod>
+  </url><url>
+    <loc>https://finctive.com/about/</loc>
+    <lastmod>2019-11-22T09:22:14+00:00</lastmod>
+  </url><url>
+    <loc>https://finctive.com/about-blog/</loc>
+    <lastmod>2019-11-22T09:22:14+00:00</lastmod>
+  </url><url>
+    <loc>https://finctive.com/categories/</loc>
+  </url><url>
+    <loc>https://finctive.com/tags/</loc>
+  </url><url>
+    <loc>https://finctive.com/</loc>
+  </url>
+</urlset>
